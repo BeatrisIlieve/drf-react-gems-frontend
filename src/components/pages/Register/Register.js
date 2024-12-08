@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useService } from "../../../hooks/useService";
 import { userCredentialsServiceFactory } from "../../../services/userCredentialsService";
+import { userProfileServiceFactory } from "../../../services/userProfileService";
 
 export const Register = () => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
+  const userProfileService = useService(userProfileServiceFactory);
 
   const [inputValue, setInputValue] = useState("");
   const [isValid, setIsValid] = useState(null);
@@ -35,7 +37,31 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await userCredentialsService.register(formData)
+    try {
+      const { email, password, first_name, last_name } = formData;
+
+      const credentials = {
+        email,
+        password,
+      };
+
+      const result = await userCredentialsService.register(credentials);
+      const userId = result.user_id;
+
+      const profileDetails = {
+        first_name,
+        last_name,
+        user_id: userId,
+      };
+
+      await userProfileService.create(profileDetails);
+    } catch (err) {
+      if ("email" in err) console.log(err["email"]);
+      else {
+        console.log(err);
+        console.log(err["password"]);
+      }
+    }
   };
 
   return (
