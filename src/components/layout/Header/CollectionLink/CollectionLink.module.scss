@@ -1,0 +1,18 @@
+%link-shared {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: transitioning 1s forwards;
+}
+
+.selected {
+  @extend %link-shared;
+  text-decoration: underline;
+  text-decoration-color: $color-violet;
+  text-underline-offset: 0.175rem;
+}
+
+.not-selected {
+  @extend %link-shared;
+  text-decoration: none;
+}

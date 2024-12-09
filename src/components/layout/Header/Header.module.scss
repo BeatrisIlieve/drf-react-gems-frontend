@@ -104,9 +104,13 @@ header {
       &:active {
         transform: scale(1.1);
       }
-      &:nth-of-type(1) {
+      &:nth-of-type(2) {
         margin-right: auto;
       }
+    }
+
+    div {
+      
     }
 
     a {
@@ -131,10 +135,10 @@ header {
       }
 
       div {
-        margin-right: 0.2rem;
         position: relative;
 
         svg {
+          margin-right: 0.4rem;
           color: $color-pink;
           font-size: 1.25rem;
         }
