@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +14,8 @@ import "./Header.scss";
 import { LINK_TITLES } from "./constants/link_titles";
 
 export const Header = () => {
+  const wishlistCount = 2;
+
   return (
     <header>
       <nav>
@@ -28,15 +32,18 @@ export const Header = () => {
               Collection
             </NavLink>
           </li>
-          {/* <li>
+          <li>
             <NavLink
               end
               className={({ isActive }) =>
-                isActive ? styles["selected"] : styles["not-selected"]
+                isActive ? "selected" : "not-selected"
               }
               to={"/wishlist"}
             >
-              <FontAwesomeIcon icon={faHeart} className={styles["icon"]} />
+              <div>
+                <FontAwesomeIcon icon={faHeart} />
+                <span>{wishlistCount}</span>
+              </div>
               Wishlist
             </NavLink>
           </li>
@@ -44,14 +51,11 @@ export const Header = () => {
             <NavLink
               end
               className={({ isActive }) =>
-                isActive ? styles["selected"] : styles["not-selected"]
+                isActive ? "selected" : "not-selected"
               }
               to={"/shopping-bag"}
             >
-              <FontAwesomeIcon
-                icon={faBagShopping}
-                className={styles["icon"]}
-              />
+              <FontAwesomeIcon icon={faBagShopping} />
               My Bag
             </NavLink>
           </li>
@@ -59,14 +63,14 @@ export const Header = () => {
             <NavLink
               end
               className={({ isActive }) =>
-                isActive ? styles["selected"] : styles["not-selected"]
+                isActive ? "selected" : "not-selected"
               }
               to={"/account"}
             >
-              <FontAwesomeIcon icon={faUser} className={styles["icon"]} />
+              <FontAwesomeIcon icon={faUser} />
               Account
             </NavLink>
-          </li> */}
+          </li>
         </ul>
       </nav>
     </header>

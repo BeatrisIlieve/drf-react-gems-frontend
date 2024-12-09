@@ -1,0 +1,10 @@
+@import "../../../variables";
+
+main {
+  background-image: linear-gradient(
+    to right,
+    $color-very-light-pink,
+    $color-very-light-gray
+  );
+}
+

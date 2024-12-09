@@ -14,6 +14,11 @@
   src: url("./assets/fonts/tisaSansProMediumItalic.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "tisaSansProMedium";
+  src: url("./assets/fonts/fonnts.com-Tisa-ProMedi-.otf") format("truetype");
+}
+
 // SCSS Variables
 // Font families
 $main-font-family: "tisaSansProLight", Arial, sans-serif, -apple-system,
@@ -22,6 +27,8 @@ $bold-font-family: "tisaSansProBold", Arial, sans-serif, -apple-system,
   ui-sans-serif, system-ui;
 $bold-italic-font-family: "tisaSansProBoldItalic", Arial, sans-serif,
   -apple-system, ui-sans-serif, system-ui;
+$medium-font-family: "tisaSansProMedium", Arial, sans-serif,
+-apple-system, ui-sans-serif, system-ui;
 
 // Font sizes
 $font-small: 0.813rem;
