@@ -28,7 +28,9 @@ export const Header = () => {
               }
               to={"/collection"}
             >
-              <FontAwesomeIcon icon={faGem} />
+              <div>
+                <FontAwesomeIcon icon={faGem} />
+              </div>
               Collection
             </NavLink>
           </li>
@@ -55,7 +57,10 @@ export const Header = () => {
               }
               to={"/shopping-bag"}
             >
-              <FontAwesomeIcon icon={faBagShopping} />
+              <div>
+                <FontAwesomeIcon icon={faBagShopping} />
+                <span>{wishlistCount}</span>
+              </div>
               My Bag
             </NavLink>
           </li>
@@ -67,7 +72,9 @@ export const Header = () => {
               }
               to={"/account"}
             >
+                <div>
               <FontAwesomeIcon icon={faUser} />
+              </div>
               Account
             </NavLink>
           </li>
