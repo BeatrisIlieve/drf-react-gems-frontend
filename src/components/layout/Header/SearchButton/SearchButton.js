@@ -5,9 +5,9 @@ import styles from "./SearchButton.module.scss";
 
 export const SearchButton = () => {
   return (
-    <div>
+    <button className={styles["search-button"]}>
       <Icon icon={faMagnifyingGlass} />
-      <span>Search</span>
-    </div>
+      <span className={styles["label"]}>Search</span>
+    </button>
   );
 };

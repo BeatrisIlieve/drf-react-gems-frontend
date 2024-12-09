@@ -1,0 +1,11 @@
+@import "../../../../variables";
+
+.search-button {
+  all: unset;
+
+  span {
+    &.label {
+      color: $color-medium-gray;
+    }
+  }
+}
