@@ -1,0 +1,9 @@
+@import "../../../variables";
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.1px solid $browser-gray;
+}

@@ -1,8 +1,9 @@
-@import '../../../variables'; 
+@import "../../../variables";
 
 header {
   grid-area: header;
   margin-top: auto;
+  border-bottom: 1px solid $browser-gray;
 
   nav {
     margin: auto 1rem 0 1rem;

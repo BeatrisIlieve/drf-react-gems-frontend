@@ -1,5 +1,6 @@
 import { Header } from "./components/layout/Header/Header";
 import { Main } from "./components/layout/Main/Main";
+import { Footer } from "./components/layout/Footer/Footer";
 
 import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +14,7 @@ function App() {
     <div className={styles["app"]}>
       <Header />
       <Main />
+      <Footer />
     </div>
   );
 }
