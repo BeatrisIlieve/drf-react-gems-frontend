@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { Register } from "../../pages/Register/Register";
 
-import "./Main.scss"
+import "./Main.module.scss"
 
 export const Main = () => {
   return (
