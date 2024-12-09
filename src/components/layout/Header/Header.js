@@ -177,11 +177,12 @@
 //   );
 // };
 
-
 import { useState } from "react";
 
 import { NavLink, Link } from "react-router-dom";
 import { LogoImage } from "./LogoImage/LogoImage";
+import { CollectionLink } from "./CollectionLink/CollectionLink";
+import { SearchButton } from "./SearchButton/SearchButton";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -205,13 +206,10 @@ export const Header = () => {
       <nav>
         <ul role="list">
           <li>
-
+            <CollectionLink />
           </li>
           <li>
-            <div>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </div>
-            Search
+            <SearchButton />
           </li>
           <li>
             <Link
