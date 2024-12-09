@@ -1,0 +1,54 @@
+header {
+  grid-area: header;
+  margin-top: auto;
+
+  nav {
+    margin: auto 1rem 0 1rem;
+
+    ul {
+      display: flex;
+      gap: 1rem;
+    }
+
+    li {
+      transition: transform 600ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover,
+      &:active {
+        transform: scale(1.1);
+      }
+      &:nth-of-type(2) {
+        margin-right: auto;
+      }
+    }
+
+    a {
+      color: gray;
+
+      &.selected,
+      &.not-selected {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: transitioning 1s forwards;
+      }
+
+      &.selected {
+        text-decoration: underline;
+        text-decoration-color: aqua;
+        text-underline-offset: 0.175rem;
+      }
+
+      &.not-selected {
+        text-decoration: none;
+      }
+
+      svg {
+        margin-right: 0.25rem;
+      }
+    }
+  }
+}
