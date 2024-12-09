@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useService } from "../../../hooks/useService";
 import { userCredentialsServiceFactory } from "../../../services/userCredentialsService";
 import { userProfileServiceFactory } from "../../../services/userProfileService";
+import {  useAuthenticationContext } from "../../../contexts/AuthenticationContext";
 
 export const Register = () => {
+  const {updateAuthentication} = useAuthenticationContext();
   const userCredentialsService = useService(userCredentialsServiceFactory);
   const userProfileService = useService(userProfileServiceFactory);
 
@@ -40,18 +42,26 @@ export const Register = () => {
     try {
       const { email, password, first_name, last_name } = formData;
 
-      const credentials = {
+      const registerCredentials = {
         email,
         password,
       };
 
-      const result = await userCredentialsService.register(credentials);
-      const userId = result.user_id;
+      const result = await userCredentialsService.register(registerCredentials);
+      // const userId = result.user_id;
+
+      const loginCredentials = {
+        username: email,
+        password,
+      };
+
+      const loginResult = await userCredentialsService.login(loginCredentials);
+      updateAuthentication(loginResult);
 
       const profileDetails = {
         first_name,
         last_name,
-        user_id: userId,
+        // user_id: userId,
       };
 
       await userProfileService.create(profileDetails);
@@ -59,7 +69,7 @@ export const Register = () => {
       if ("email" in err) console.log(err["email"]);
       else {
         console.log(err);
-        console.log(err["password"]);
+        // console.log(err["password"]);
       }
     }
   };

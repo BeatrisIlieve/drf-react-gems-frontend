@@ -1,0 +1,58 @@
+// Font-face definitions
+@font-face {
+  font-family: "tisaSansProLight";
+  src: url("./assets/fonts/tisaSansProLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "tisaSansProBold";
+  src: url("./assets/fonts/tisaSansProMedium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "tisaSansProBoldItalic";
+  src: url("./assets/fonts/tisaSansProMediumItalic.ttf") format("truetype");
+}
+
+// SCSS Variables
+// Font families
+$main-font-family: "tisaSansProLight", Arial, sans-serif, -apple-system,
+  ui-sans-serif, system-ui;
+$bold-font-family: "tisaSansProBold", Arial, sans-serif, -apple-system,
+  ui-sans-serif, system-ui;
+$bold-italic-font-family: "tisaSansProBoldItalic", Arial, sans-serif,
+  -apple-system, ui-sans-serif, system-ui;
+
+// Font sizes
+$font-small: 0.813rem;
+$font-normal: 0.875rem;
+$font-medium: 1rem;
+$font-large: 1.375rem;
+$font-xlarge: 1.75rem;
+
+// Colors
+$color-white: #ffffff;
+$color-black: #000000;
+$color-pink: #e48cb0;
+$color-medium-pink: #ecafc8;
+$color-light-pink: #fae8ef;
+$color-very-light-pink: #fcf4f7;
+$color-violet: #cb9bf7;
+$color-dark-violet: #a27cc6;
+$color-very-light-violet: #cb9bf717;
+$color-blue: #2334a3;
+$color-red: #fa2a55;
+$color-medium-red: #fb3f66;
+$color-light-red: #fd8ca392;
+$color-green: #00b200;
+$color-gray: #4c4a49;
+$color-medium-gray: #878685;
+$color-light-gray: #cbc9c9;
+$color-very-light-gray: #f3f3f3;
+
+// Border & form colors
+$bs-border-color: #e48cb0;
+$bs-form-invalid-border-color: #fa2a55;
+$bs-form-invalid-color: #fa2a55;
+$bs-body-font-family: "tisaSansProLight", Arial, sans-serif, -apple-system,
+  ui-sans-serif, system-ui;

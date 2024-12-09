@@ -9,5 +9,6 @@ export const userCredentialsServiceFactory = (token) => {
 
   return {
     register: (data) => request.post(`${baseUrl}/register/`, data),
+    login: (data) => request.post(`${baseUrl}/login/`, data),
   };
 };

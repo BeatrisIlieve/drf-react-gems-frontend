@@ -1,0 +1,115 @@
+@use 'variables';
+
+html {
+  line-height: 1.25;
+  letter-spacing: 0.4px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  -webkit-box-shadow: 0 0 0 62.5rem var(--white) inset !important;
+}
+
+input,
+textarea {
+  caret-color: variables.$color-pink;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--small);
+  height: var(--small);
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 0.063rem solid var(--gray);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  background-color: var(--very-light-pink);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-pink);
+  border-radius: 0.375rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--medium-pink);
+  border-radius: 0.375rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0rem;
+}
+
+.form-control{
+  border-color: variables.$color-pink;
+  border-color: transparent;
+  border-bottom: 1px solid pink;
+  border-bottom-left-radius:unset;
+  border-bottom-right-radius: 1rem;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  background-image: none;
+}
+
+.form-control:focus {
+  color: variables.$color-pink;
+  border-color: variables.$color-pink;
+  box-shadow: 0 0 0 0.25rem variables.$color-light-pink;
+  box-shadow: none;
+  border-color: transparent;
+  border-bottom: 4px solid pink;
+  border-bottom-left-radius:unset;
+}
+
+.form-control.is-invalid:focus {
+  border-color: variables.$color-red;
+  box-shadow: 0 0 0 0.25rem variables.$color-light-red;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: variables.$color-pink;
+  background-image: none;
+}
+
+.form-control.is-valid:focus {
+  border-color: variables.$color-pink;
+  box-shadow: 0 0 0 0.25rem variables.$color-light-pink;
+}
+
+.valid-feedback {
+  display: none !important;
+  /* display: none; */
+  color: transparent;
+}
