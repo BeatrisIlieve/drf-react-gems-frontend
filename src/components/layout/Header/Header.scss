@@ -1,3 +1,5 @@
+@import '../../../variables'; 
+
 header {
   grid-area: header;
   margin-top: auto;
@@ -26,7 +28,7 @@ header {
     }
 
     a {
-      color: gray;
+      color: $color-gray;
 
       &.selected,
       &.not-selected {
@@ -38,7 +40,7 @@ header {
 
       &.selected {
         text-decoration: underline;
-        text-decoration-color: aqua;
+        text-decoration-color: $color-violet;
         text-underline-offset: 0.175rem;
       }
 
@@ -48,6 +50,7 @@ header {
 
       svg {
         margin-right: 0.25rem;
+        color: $color-pink;
       }
     }
   }

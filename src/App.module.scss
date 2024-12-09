@@ -1,11 +1,8 @@
-@use 'variables';
-
-
+@use "variables";
 
 .app {
   padding: 0;
   font-family: variables.$bs-body-font-family;
-  font-size: var(--medium);
   font-size: variables.$font-medium;
   color: variables.$color-gray;
   display: grid;
@@ -16,7 +13,3 @@
     "main"
     "footer";
 }
-
-
-
-
