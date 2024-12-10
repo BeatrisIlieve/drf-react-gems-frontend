@@ -6,7 +6,7 @@ export const Collection = () => {
       <article>
         <div>
           <img
-            src="https://res.cloudinary.com/deztgvefu/image/upload/v1733810840/forget-me-not-collection/miniImages/hero-mobile_k83pfc_zy9syy.jpg"
+            src="https://res.cloudinary.com/deztgvefu/image/upload/v1726330964/forget-me-not-collection/miniImages/hero-mobile_k83pfc.jpg"
             alt="forget-me-not-collection"
           />
         </div>
@@ -36,7 +36,7 @@ export const Collection = () => {
       <article>
         <div>
           <img
-            src="https://res.cloudinary.com/deztgvefu/image/upload/v1733810838/forget-me-not-collection/miniImages/fifty_pdp_forget-me-not_b_1_saejk7.png"
+            src="https://res.cloudinary.com/deztgvefu/image/upload/v1733797275/forget-me-not-collection/miniImages/fifty_pdp_forget-me-not_b_rqlq6j.avif"
             alt="forget-me-not-collection"
           />
         </div>
@@ -65,7 +65,7 @@ export const Collection = () => {
       <article>
         <div>
           <img
-            src="https://res.cloudinary.com/deztgvefu/image/upload/v1733811101/forget-me-not-collection/miniImages/fifty_pdp_forget-me-not_a_1_sfqq9q.png"
+            src="https://res.cloudinary.com/deztgvefu/image/upload/v1733797275/forget-me-not-collection/miniImages/fifty_pdp_forget-me-not_a_fcpwwq.avif"
             alt="forget-me-not-collection"
           />
         </div>

@@ -9,8 +9,8 @@ export const Main = () => {
   return (
     <main>
       <Routes>
+        <Route path="/" element={<Collection />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/collection" element={<Collection />} />
       </Routes>
     </main>
   );
