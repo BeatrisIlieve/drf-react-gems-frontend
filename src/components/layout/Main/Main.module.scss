@@ -1,6 +1,8 @@
 @import "../../../variables";
 
 main {
+  position: absolute;
+  top: 8rem;
   background-image: linear-gradient(
     to right,
     $color-very-light-pink,

@@ -1,12 +1,12 @@
-.stock-info,
-.thumbnail {
-  background-color: white;
-}
-
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: auto;
+
+}
+
+.stock-info,
+.thumbnail {
+  background-color: white;
 }
 
 .stock-info {
@@ -15,8 +15,8 @@
 }
 
 .discover {
-    text-decoration: underline;
-    font-size: 16px;
+  text-decoration: underline;
+  font-size: 16px;
 }
 
 /* .thumbnail {
