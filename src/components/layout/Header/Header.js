@@ -206,6 +206,9 @@ export const Header = () => {
             <SearchButton />
           </li>
           <li>
+            <AccountLink />
+          </li>
+          <li>
             <QuantityIndicatedLink
               url={"/wishlist"}
               icon={faHeart}
@@ -218,9 +221,6 @@ export const Header = () => {
               icon={faShoppingBag}
               quantity={bagCount}
             />
-          </li>
-          <li>
-            <AccountLink />
           </li>
         </ul>
       </nav>

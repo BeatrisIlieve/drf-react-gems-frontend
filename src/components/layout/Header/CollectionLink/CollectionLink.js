@@ -3,7 +3,7 @@ import { Icon } from "../reusable/Icon/Icon";
 
 import { faGem } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./CollectionLink.module.scss"
+import styles from "./CollectionLink.module.scss";
 
 export const CollectionLink = () => {
   return (
