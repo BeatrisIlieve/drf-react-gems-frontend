@@ -15,7 +15,7 @@ export const CollectionLink = () => {
       to={"/collection"}
     >
       <Icon icon={faGem} />
-      <span>Collection</span>
+      <span className={styles["label"]}>Collection</span>
     </NavLink>
   );
 };
