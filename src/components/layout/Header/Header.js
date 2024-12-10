@@ -193,6 +193,7 @@ import {
   faGem,
   faHeart,
   faMagnifyingGlass,
+  faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./Header.module.scss";
@@ -214,34 +215,20 @@ export const Header = () => {
             <SearchButton />
           </li>
           <li>
-          <Icon icon={faHeart} />
-            <QuantityIndicatedLink quantity={wishlistCount} />
-          </li>
-          <li>
-            <Link
-              end
-              className={({ isActive }) =>
-                isActive ? "selected" : "not-selected"
-              }
-              to={"/shopping-bag"}
-            >
-              <div>
-                <FontAwesomeIcon icon={faBagShopping} />
-                <span>{bagCount}</span>
-              </div>
+            <Link to={"/wishlist"}>
+              <Icon icon={faHeart} />
+              <QuantityIndicatedLink quantity={wishlistCount} />
             </Link>
           </li>
           <li>
-            <Link
-              end
-              className={({ isActive }) =>
-                isActive ? "selected" : "not-selected"
-              }
-              to={"/account"}
-            >
-              <div>
-                <FontAwesomeIcon icon={faUser} />
-              </div>
+            <Link>
+              <Icon icon={faShoppingBag} />
+              <QuantityIndicatedLink quantity={bagCount} />
+            </Link>
+          </li>
+          <li>
+            <Link>
+              <Icon icon={faUser} />
             </Link>
           </li>
         </ul>

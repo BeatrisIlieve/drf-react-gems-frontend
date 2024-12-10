@@ -7,6 +7,7 @@
   animation: transitioning 1s forwards;
 }
 
+
 .selected {
   @extend %link-shared;
   text-decoration: underline;

@@ -109,55 +109,57 @@ header {
       }
     }
 
-    div {
-      
-    }
-
     a {
       color: $color-gray;
-
-      &.selected,
-      &.not-selected {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: transitioning 1s forwards;
-      }
-
-      &.selected {
-        text-decoration: underline;
-        text-decoration-color: $color-violet;
-        text-underline-offset: 0.175rem;
-      }
-
-      &.not-selected {
-        text-decoration: none;
-      }
-
-      div {
-        position: relative;
-
-        svg {
-          margin-right: 0.4rem;
-          color: $color-pink;
-          font-size: 1.25rem;
-        }
-
-        span {
-          position: absolute;
-          top: 0.65rem;
-          left: 0.75rem;
-          background-color: $color-black;
-          color: white;
-          border-radius: 50%;
-          width: 0.9rem;
-          height: 0.85rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 0.6rem;
-        }
-      }
     }
+
+    // div {
+
+    // }
+
+    // a {
+    //   color: $color-gray;
+
+    //   &.selected,
+    //   &.not-selected {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     animation: transitioning 1s forwards;
+    //   }
+
+    //   &.selected {
+    //     text-decoration: underline;
+    //     text-decoration-color: $color-violet;
+    //     text-underline-offset: 0.175rem;
+    //   }
+
+    //   &.not-selected {
+    //     text-decoration: none;
+    //   }
+
+    // div {
+    //   position: relative;
+
+    //   svg {
+    //     margin-right: 0.4rem;
+    //     color: $color-pink;
+    //     font-size: 1.25rem;
+    //   }
+
+    //   span {
+    //     position: absolute;
+    //     top: 0.65rem;
+    //     left: 0.75rem;
+    //     background-color: $color-black;
+    //     color: white;
+    //     border-radius: 50%;
+    //     width: 0.9rem;
+    //     height: 0.85rem;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     font-size: 0.6rem;
+    //   }
   }
 }
