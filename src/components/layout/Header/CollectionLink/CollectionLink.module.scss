@@ -7,15 +7,18 @@
   animation: transitioning 1s forwards;
 }
 
+a {
+  color: $color-gray;
 
-.selected {
-  @extend %link-shared;
-  text-decoration: underline;
-  text-decoration-color: $color-violet;
-  text-underline-offset: 0.175rem;
-}
+  &.selected {
+    @extend %link-shared;
+    text-decoration: underline;
+    text-decoration-color: $color-violet;
+    text-underline-offset: 0.175rem;
+  }
 
-.not-selected {
-  @extend %link-shared;
-  text-decoration: none;
+  &.not-selected {
+    @extend %link-shared;
+    text-decoration: none;
+  }
 }

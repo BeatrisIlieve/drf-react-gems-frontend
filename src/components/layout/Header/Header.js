@@ -221,13 +221,13 @@ export const Header = () => {
             </Link>
           </li>
           <li>
-            <Link>
+            <Link to={"/shopping-bag"}>
               <Icon icon={faShoppingBag} />
               <QuantityIndicatedLink quantity={bagCount} />
             </Link>
           </li>
           <li>
-            <Link>
+            <Link to={"/account"}>
               <Icon icon={faUser} />
             </Link>
           </li>
