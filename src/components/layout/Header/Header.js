@@ -183,6 +183,8 @@ import { NavLink, Link } from "react-router-dom";
 import { LogoImage } from "./LogoImage/LogoImage";
 import { CollectionLink } from "./CollectionLink/CollectionLink";
 import { SearchButton } from "./SearchButton/SearchButton";
+import { QuantityIndicatedLink } from "./reusable/QuantityIndicator/QuantityIndicator";
+import { Icon } from "./reusable/Icon/Icon";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -212,18 +214,8 @@ export const Header = () => {
             <SearchButton />
           </li>
           <li>
-            <Link
-              end
-              className={({ isActive }) =>
-                isActive ? "selected" : "not-selected"
-              }
-              to={"/wishlist"}
-            >
-              <div>
-                <FontAwesomeIcon icon={faHeart} />
-                <span>{wishlistCount}</span>
-              </div>
-            </Link>
+          <Icon icon={faHeart} />
+            <QuantityIndicatedLink quantity={wishlistCount} />
           </li>
           <li>
             <Link
