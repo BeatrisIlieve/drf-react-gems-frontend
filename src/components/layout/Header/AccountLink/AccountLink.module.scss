@@ -1,0 +1,17 @@
+@import "../../../../variables";
+
+.link {
+  div {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: -0.15rem;
+      right: 0;
+      background-color: $color-green;
+      border-radius: 50%;
+      width: 0.35rem;
+      height: 0.35rem;
+    }
+  }
+}

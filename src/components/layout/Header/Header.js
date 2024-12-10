@@ -179,25 +179,16 @@
 
 import { useState } from "react";
 
-import { NavLink, Link } from "react-router-dom";
 import { LogoImage } from "./LogoImage/LogoImage";
 import { CollectionLink } from "./CollectionLink/CollectionLink";
 import { SearchButton } from "./SearchButton/SearchButton";
-import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
-import { Icon } from "./reusable/Icon/Icon";
+import { AccountLink } from "./AccountLink/AccountLink";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBagShopping,
-  faUser,
-  faGem,
-  faHeart,
-  faMagnifyingGlass,
-  faShoppingBag,
-} from "@fortawesome/free-solid-svg-icons";
+import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
+
+import { faHeart, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./Header.module.scss";
-import { LINK_TITLES } from "./constants/link_titles";
 
 export const Header = () => {
   const wishlistCount = 2;
@@ -215,18 +206,21 @@ export const Header = () => {
             <SearchButton />
           </li>
           <li>
-          <QuantityIndicatedLink url={"wishlist"} icon={faHeart} quantity={wishlistCount}/>
+            <QuantityIndicatedLink
+              url={"/wishlist"}
+              icon={faHeart}
+              quantity={wishlistCount}
+            />
           </li>
           <li>
-            <Link to={"/shopping-bag"}>
-              <Icon icon={faShoppingBag} />
-              <QuantityIndicatedLink quantity={bagCount} />
-            </Link>
+            <QuantityIndicatedLink
+              url={"/shopping-bag"}
+              icon={faShoppingBag}
+              quantity={bagCount}
+            />
           </li>
           <li>
-            <Link to={"/account"}>
-              <Icon icon={faUser} />
-            </Link>
+            <AccountLink />
           </li>
         </ul>
       </nav>
