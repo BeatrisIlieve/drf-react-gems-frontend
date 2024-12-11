@@ -1,4 +1,4 @@
-import styles from "./Collection.module.css";
+import styles from "./Collection.module.scss";
 
 import { Image } from "./CollectionItem/Image/Image";
 import { Overview } from "./CollectionItem/Overview/Overview";
