@@ -21,7 +21,11 @@ export const CollectionItem = ({ product }) => {
           alt={`${product.category}-image`}
         />
       </div>
-      <div className={styles["collection-item__available-colors"]}>images</div>
+      <div className={styles["collection-item__available-colors"]}>
+        <span>images</span>
+        <span>images</span>
+        <span>images</span>
+      </div>
     </div>
   );
 };

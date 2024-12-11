@@ -1,32 +1,51 @@
-@use "../../../../styles/mixins/flex-column.scss" as flex-column-mixin;
+@use "../../../../styles/mixins/flexbox.scss" as flexbox;
 
 .collection-item {
-  @include flex-column-mixin.flex-column($justify: center, $align: center, $gap: 1rem);
+  @include flexbox.flexbox(
+    $direction: column,
+    $justify: center,
+    $align: center,
+    $gap: 1.5rem
+  );
+
+  .collection-item__button {
+    all: unset;
+    text-decoration: underline;
+    text-underline-offset: 0.175rem;
+  }
+
+  .collection-item__stock-info {
+    @include flexbox.flexbox($justify: space-between);
+  }
+
+  .collection-item__available-colors {
+    @include flexbox.flexbox($justify: center, $align: center, $gap: 1rem);
+  }
 }
 
-.stock-info,
-.thumbnail {
-  background-color: white;
-}
+// .stock-info,
+// .thumbnail {
+//   background-color: white;
+// }
 
-.stock-info {
-  display: flex;
-  justify-content: space-between;
-}
+// .stock-info {
+//   display: flex;
+//   justify-content: space-between;
+// }
 
-.discover {
-  text-decoration: underline;
-  font-size: 16px;
-}
+// .discover {
+//   text-decoration: underline;
+//   font-size: 16px;
+// }
 
-/* .thumbnail {
-    width: 100%;
-    height: 100%;
+// /* .thumbnail {
+//     width: 100%;
+//     height: 100%;
 
-}
+// }
 
-.image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-} */
+// .image {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: contain;
+// } */

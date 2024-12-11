@@ -1,0 +1,9 @@
+@mixin flexbox($direction: row, $justify: flex-start, $align: flex-start, $gap: 0, $flex-grow: 0) {
+  display: flex;
+  width: 100%;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-grow: $flex-grow;
+}
