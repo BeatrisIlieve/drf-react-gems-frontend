@@ -1,11 +1,11 @@
-@import "../../../variables";
+@use "../../../styles/partials/variables";
 
 main {
   position: absolute;
   top: 8rem;
   background-image: linear-gradient(
     to right,
-    $color-very-light-pink,
-    $color-very-light-gray
+    variables.$color-very-light-pink,
+    variables.$color-very-light-gray
   );
 }

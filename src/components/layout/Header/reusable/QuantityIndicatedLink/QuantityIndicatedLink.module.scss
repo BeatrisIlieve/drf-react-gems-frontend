@@ -1,4 +1,4 @@
-@import "../../../../../variables";
+@use "../../../../../styles/partials/variables";
 
 .link {
   div {
@@ -8,8 +8,8 @@
       position: absolute;
       bottom: 0.05rem;
       right: -0.25rem;
-      background-color: $color-black;
-      color: $color-white;
+      background-color: variables.$color-black;
+      color: variables.$color-white;
       border-radius: 50%;
       width: 0.9rem;
       height: 0.85rem;

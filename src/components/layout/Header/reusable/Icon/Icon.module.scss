@@ -1,7 +1,7 @@
-@import "../../../../../variables";
+@use "../../../../../styles/partials/variables";
 
 .icon-span {
   margin-right: 0.2rem;
-  color: $color-pink;
+  color: variables.$color-pink;
   font-size: 1.15rem;
 }

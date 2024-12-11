@@ -6,7 +6,7 @@ import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import styles from "./App.module.scss";
-import "./global.scss";
+import "./styles/global.scss";
 // import "./variables.scss";
 
 function App() {

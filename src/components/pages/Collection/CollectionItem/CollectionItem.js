@@ -1,21 +1,27 @@
-import styles from "./CollectionItem.module.css";
+import styles from "./CollectionItem.module.scss";
 
 export const CollectionItem = ({ product }) => {
   return (
-    <div className={styles["container"]}>
-      <h4 className={styles["discover"]}>Discover {product.category}</h4>
-      <div className={styles["stock-info"]}>
-        <span>{product.quantity}</span>
-        <span>{product.quantity}</span>
+    <div className={styles["collection-item"]}>
+      <button className={styles["collection-item__button"]}>
+        Discover {product.category}
+      </button>
+      <div className={styles["collection-item__stock-info"]}>
+        <span className={styles["collection-item__quantity"]}>
+          {product.quantity}
+        </span>
+        <span className={styles["collection-item__price"]}>
+          {product.price}
+        </span>
       </div>
-      <div className={styles["thumbnail"]}>
-        <img className={styles["image"]} src={product.image} alt="" />
+      <div className={styles["collection-item__thumbnail"]}>
+        <img
+          className={styles["collection-item__image"]}
+          src={product.image}
+          alt={`${product.category}-image`}
+        />
       </div>
-      <div className={styles["stock-info"]}>
-        <span className={styles["stock-info"]}>{product.price}</span>
-        <span>{product.price}</span>
-      </div>
-      <div>images</div>
+      <div className={styles["collection-item__available-colors"]}>images</div>
     </div>
   );
 };

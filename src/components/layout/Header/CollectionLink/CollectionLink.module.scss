@@ -1,4 +1,4 @@
-@import "../../../../variables";
+@use "../../../../styles/partials/variables"; 
 
 %link-shared {
   display: flex;
@@ -13,12 +13,12 @@
 
 .link.selected {
   text-decoration: underline;
-  text-decoration-color: $color-violet;
+  text-decoration-color: variables.$color-violet;
   text-underline-offset: 0.175rem;
-  color: $color-black;
+  color: variables.$color-black;
 }
 
 .link.not-selected {
   text-decoration: none;
-  color: $color-gray; 
+  color: variables.$color-gray; 
 }

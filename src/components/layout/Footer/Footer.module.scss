@@ -1,10 +1,10 @@
-@import "../../../variables";
+@use "../../../styles/partials/variables";
 
 footer {
   grid-area: footer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 0.08rem solid $browser-gray;
-  color: $color-gray;
+  border-top: 0.08rem solid variables.$browser-gray;
+  color: variables.$color-gray;
 }

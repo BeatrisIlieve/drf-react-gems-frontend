@@ -8,7 +8,8 @@ import { AccountLink } from "./AccountLink/AccountLink";
 import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
 
 import { faHeart, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGem } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Header.module.css";
 
 export const Header = () => {
@@ -52,22 +53,37 @@ export const Header = () => {
             <li className={styles["list-item"]}>
               <CollectionLink label={"Earring"} url={"/earring"} />
             </li>
+            <span className={styles["icon"]}>
+              <FontAwesomeIcon icon={faGem} />
+            </span>
             <li className={styles["list-item"]}>
               <CollectionLink label={"Necklace"} url={"/necklace"} />
             </li>
+            <span className={styles["icon"]}>
+              <FontAwesomeIcon icon={faGem} />
+            </span>
             <li className={styles["list-item"]}>
               <CollectionLink label={"Pendant"} url={"/pendant"} />
             </li>
+            <span className={styles["icon"]}>
+              <FontAwesomeIcon icon={faGem} />
+            </span>
             <li className={styles["list-item"]}>
               <CollectionLink label={"Charm"} url={"/charm"} />
             </li>
+            <span className={styles["icon"]}>
+              <FontAwesomeIcon icon={faGem} />
+            </span>
             <li className={styles["list-item"]}>
               <CollectionLink label={"Bracelet"} url={"/bracelet"} />
             </li>
+            <span className={styles["icon"]}>
+              <FontAwesomeIcon icon={faGem} />
+            </span>
             <li className={styles["list-item"]}>
               <CollectionLink label={"Ring"} url={"/ring"} />
             </li>
-            <li >
+            <li>
               <LogoImage isHidden={isHidden} />
             </li>
             <li className={styles["list-item"]}>

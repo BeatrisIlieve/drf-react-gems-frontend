@@ -1,22 +1,22 @@
 // Font-face definitions
 @font-face {
   font-family: "tisaSansProLight";
-  src: url("./assets/fonts/tisaSansProLight.ttf") format("truetype");
+  src: url("../../assets/fonts/tisaSansProLight.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "tisaSansProBold";
-  src: url("./assets/fonts/tisaSansProMedium.ttf") format("truetype");
+  src: url("../../assets/fonts/tisaSansProMedium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "tisaSansProBoldItalic";
-  src: url("./assets/fonts/tisaSansProMediumItalic.ttf") format("truetype");
+  src: url("../../assets/fonts/tisaSansProMediumItalic.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "tisaSansProMedium";
-  src: url("./assets/fonts/fonnts.com-Tisa-ProMedi-.otf") format("truetype");
+  src: url("../../assets/fonts/fonnts.com-Tisa-ProMedi-.otf") format("truetype");
 }
 
 // SCSS Variables
@@ -27,8 +27,8 @@ $bold-font-family: "tisaSansProBold", Arial, sans-serif, -apple-system,
   ui-sans-serif, system-ui;
 $bold-italic-font-family: "tisaSansProBoldItalic", Arial, sans-serif,
   -apple-system, ui-sans-serif, system-ui;
-$medium-font-family: "tisaSansProMedium", Arial, sans-serif,
--apple-system, ui-sans-serif, system-ui;
+$medium-font-family: "tisaSansProMedium", Arial, sans-serif, -apple-system,
+  ui-sans-serif, system-ui;
 
 // Font sizes
 $font-small: 0.813rem;

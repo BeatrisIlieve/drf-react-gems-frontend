@@ -1,11 +1,11 @@
-@import "../../../../variables";
+@use "../../../../styles/partials/variables";
 
 .search-button {
   all: unset;
 
   span {
     &.label {
-      color: $color-medium-gray;
+      color: variables.$color-medium-gray;
     }
   }
 }
