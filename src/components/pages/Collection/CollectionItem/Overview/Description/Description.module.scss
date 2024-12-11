@@ -1,0 +1,15 @@
+@use "../../../../../../styles/mixins/flexbox";
+
+@use "../../../../../../styles/partials/variables";
+
+.description {
+  @include flexbox.flexbox(
+    $direction: column,
+    $justify: center,
+    $align: center,
+    $gap: 2rem
+  );
+
+  padding: 2rem;
+  text-align: center;
+}
