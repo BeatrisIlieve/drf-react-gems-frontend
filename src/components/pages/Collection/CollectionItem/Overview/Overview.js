@@ -6,7 +6,7 @@ export const Overview = ({ title, description, products }) => {
       <Description title={title} description={description} />
       <div className={styles["product-container"]}>
         {products.map((product) => (
-          <CollectionItem product={products[0]} key={product.product_id} />
+          <CollectionItem product={product} key={product.product_id} />
         ))}
       </div>
     </div>

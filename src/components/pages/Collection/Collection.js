@@ -1,7 +1,7 @@
 import styles from "./Collection.module.css";
-import { CollectionItem } from "./CollectionItem/CollectionItem";
 
-import { HeroImage } from "./CollectionItem/Image/Image";
+import { Image } from "./CollectionItem/Image/Image";
+import { Overview } from "./CollectionItem/Overview/Overview";
 import { COLLECTION_ITEMS } from "./constants/collectionItems";
 
 export const Collection = () => {
@@ -9,7 +9,12 @@ export const Collection = () => {
     <section className={styles["collection"]}>
       {COLLECTION_ITEMS.map((item, index) => (
         <article key={index} className={styles["collection__item"]}>
-          <HeroImage imageUrl={item.imageUrl}/>
+          <Image imageUrl={item.imageUrl} />
+          <Overview
+            title={title}
+            description={description}
+            products={products}
+          />
         </article>
       ))}
     </section>
