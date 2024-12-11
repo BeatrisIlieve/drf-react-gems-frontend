@@ -11,9 +11,9 @@ export const Collection = () => {
         <article key={index} className={styles["collection__item"]}>
           <Image imageUrl={item.imageUrl} />
           <Overview
-            title={title}
-            description={description}
-            products={products}
+            title={item.title}
+            description={item.description}
+            products_data={item.products_data}
           />
         </article>
       ))}

@@ -5,9 +5,15 @@ export const COLLECTION_ITEMS = [
     title: "Forget-Me-Not Collection",
     description:
       "A series of fine jewelry designs that celebrate the endless beauty of nature’s greatest gifts – rare gemstones and flowers in bloom.",
-    products_data: {
-      category_id: 1,
-      color_id: 1,
-    },
+    products_data: [
+      {
+        category_id: 2,
+        color_id: 1,
+      },
+      {
+        category_id: 4,
+        color_id: 1,
+      },
+    ],
   },
 ];
