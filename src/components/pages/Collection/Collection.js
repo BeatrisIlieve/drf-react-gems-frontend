@@ -2,25 +2,10 @@ import styles from "./Collection.module.css";
 import { CollectionItem } from "./CollectionItem/CollectionItem";
 
 export const Collection = () => {
-  const products = [
-    {
-      price: "$50",
-      image:
-        "https://res.cloudinary.com/deztgvefu/image/upload/v1723714894/forget-me-not-collection/bracelets/forget_me_not_bracelet_diamond_and_pink_sapphire_brpsprfflrfmn_e_1_vz9pv4.avif",
-      quantity: 10,
-      category: "Bracelet"
-    },
-    {
-      price: "$75",
-      image:
-        "https://res.cloudinary.com/deztgvefu/image/upload/v1723714894/forget-me-not-collection/bracelets/forget_me_not_bracelet_diamond_and_pink_sapphire_brpsprfflrfmn_e_1_vz9pv4.avif",
-      quantity: 5,
-      category: "Ring"
-    },
-  ];
+
 
   return (
-    <section className={styles["collection-section"]}>
+    <section className={styles["collection"]}>
       <article>
         <div className={styles["collection-image"]}>
           <img
