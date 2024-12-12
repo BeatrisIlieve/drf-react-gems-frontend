@@ -1,8 +1,8 @@
-export const CATEGORY_TITLE_BY_ID = {
-  Earring: 1,
-  Bracelet: 2,
-  Necklace: 3,
-  Ring: 4,
-  Charm: 5,
-  Pendant: 6,
+export const CATEGORY_ID_BY_TITLE = {
+  Earrings: 1,
+  Bracelets: 2,
+  Necklaces: 3,
+  Rings: 4,
+  Charms: 5,
+  Pendants: 6,
 };

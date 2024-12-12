@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useService } from "../../../../../../hooks/useService";
 import { productServiceFactory } from "../../../../../../services/productService";
 
+import { slugify } from "../../../../../../utils/slugify";
+
 import styles from "./ProductCard.module.scss";
 
 export const ProductCard = ({ data }) => {
@@ -12,8 +14,9 @@ export const ProductCard = ({ data }) => {
 
   const [product, setProduct] = useState([]);
 
-  const imageClickHandler = (colorId, categoryId, categoryTitle, colorTitle) => {
+  const imageClickHandler = (categoryTitle, colorTitle) => {
     const slugifiedCategoryTitle = slugify(categoryTitle);
+    console.log(slugifiedCategoryTitle)
 
     const slugifiedColorTitle = slugify(colorTitle);
 
@@ -54,7 +57,7 @@ export const ProductCard = ({ data }) => {
               </span>
               <span className={styles["product_card__like-product"]}>like</span>
             </div>
-            <div className={styles["product_card__thumbnail"]}>
+            <div onClick={() => imageClickHandler(product[0].full_category_title, product[0].full_color_title)} className={styles["product_card__thumbnail"]}>
               <img
                 className={styles["product_card__image"]}
                 src={product[0].product__first_image_url}
