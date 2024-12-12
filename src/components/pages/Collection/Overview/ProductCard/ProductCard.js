@@ -39,7 +39,7 @@ export const ProductCard = ({ data }) => {
   }, []);
 
   return (
-    <div className={styles["product_card"]}>
+    <>
       {product.length > 0 && (
         <div className={styles["product_card"]}>
           <DiscoverButton
@@ -95,6 +95,6 @@ export const ProductCard = ({ data }) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
