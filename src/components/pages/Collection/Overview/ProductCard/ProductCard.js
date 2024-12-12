@@ -50,8 +50,8 @@ export const ProductCard = ({ data }) => {
           />
           <div className={styles["card_container__product"]}>
             <StockInfo
-              minPrice={product[0].max_price}
-              maxPrice={product[0].min_price}
+              minPrice={product[0].min_price}
+              maxPrice={product[0].max_price}
               isSoldOut={product[0].is_sold_out}
             />
             <div className={styles["card_container__interaction-icons"]}>
