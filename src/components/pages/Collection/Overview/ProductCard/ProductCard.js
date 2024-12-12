@@ -19,7 +19,7 @@ export const ProductCard = ({ data }) => {
 
   const [product, setProduct] = useState([]);
 
-  const imageClickHandler = (categoryTitle, colorTitle) => {
+  const clickHandler = (categoryTitle, colorTitle) => {
     const slugifiedCategoryTitle = slugify(categoryTitle);
 
     const slugifiedColorTitle = slugify(colorTitle);
@@ -46,19 +46,8 @@ export const ProductCard = ({ data }) => {
             categoryTitle={product[0].full_category_title}
             colorTitle={product[0].full_color_title}
             fullCategoryTitle={product[0].full_category_title}
-            clickHandler={imageClickHandler}
+            clickHandler={clickHandler}
           />
-          {/* <button
-            className={styles["product_card__button"]}
-            onClick={() =>
-              imageClickHandler(
-                product[0].full_category_title,
-                product[0].full_color_title
-              )
-            }
-          >
-            Discover {product[0].full_category_title}
-          </button> */}
           <div className={styles["product_card__product"]}>
             <div className={styles["product_card__stock-info"]}>
               <div className={styles["product_card__price"]}>
@@ -83,7 +72,7 @@ export const ProductCard = ({ data }) => {
             </div>
             <div
               onClick={() =>
-                imageClickHandler(
+                clickHandler(
                   product[0].full_category_title,
                   product[0].full_color_title
                 )
