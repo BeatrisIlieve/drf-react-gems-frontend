@@ -1,13 +1,22 @@
 @use "../../../styles/mixins/flexbox";
+@use "../../../styles/partials/variables";
 
 .available-colors {
   @include flexbox.flexbox($align: center, $gap: 1rem);
 
-  .available-colors__thumbnail {
-    width: 3rem;
-    // height: 3rem;
+  &__button {
+    @include flexbox.flexbox($align: center);
+    all: unset;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.25rem;
 
-    .available-colors__image {
+    &_selected {
+        box-shadow:0 0 0 0.10rem variables.$color-light-gray;
+        border-radius: 50%;
+    }
+
+    &__image {
       width: 100%;
       height: 100%;
       object-fit: contain;

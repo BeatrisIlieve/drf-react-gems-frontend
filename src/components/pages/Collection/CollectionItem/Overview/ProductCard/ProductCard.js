@@ -72,7 +72,7 @@ export const ProductCard = ({ data }) => {
               />
             </div>
             <div className={styles["product_card__materials"]}>
-              <AvailableColors categoryTitle={product[0].full_category_title} />
+              <AvailableColors categoryTitle={product[0].full_category_title} colorTitle={product[0].full_color_title} />
               <span className={styles["product_card__metal"]}>Platinum</span>
             </div>
           </div>
