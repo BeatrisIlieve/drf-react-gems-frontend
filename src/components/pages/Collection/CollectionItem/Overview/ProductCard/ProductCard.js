@@ -1,14 +1,24 @@
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useService } from "../../../../../../hooks/useService";
 import { productServiceFactory } from "../../../../../../services/productService";
 
 import styles from "./ProductCard.module.scss";
 
 export const ProductCard = ({ data }) => {
+  const navigate = useNavigate();
+
   const productService = useService(productServiceFactory);
 
   const [product, setProduct] = useState([]);
+
+  const imageClickHandler = (colorId, categoryId, categoryTitle, colorTitle) => {
+    const slugifiedCategoryTitle = slugify(categoryTitle);
+
+    const slugifiedColorTitle = slugify(colorTitle);
+
+    navigate(`/${slugifiedCategoryTitle}/${slugifiedColorTitle}`);
+  };
 
   useEffect(() => {
     productService
@@ -35,11 +45,13 @@ export const ProductCard = ({ data }) => {
                 {product[0].min_price} - {product[0].max_price}
               </span>
               <span className={styles["product_card__price"]}>
-                {product[0].is_sold_out}
+                {product[0].is_sold_out ? "Sold Out" : "In Stock"}
               </span>
             </div>
             <div className={styles["product_card__interaction-icons"]}>
-              <span className={styles["product_card__switch-image"]}>switch</span>
+              <span className={styles["product_card__switch-image"]}>
+                switch
+              </span>
               <span className={styles["product_card__like-product"]}>like</span>
             </div>
             <div className={styles["product_card__thumbnail"]}>
