@@ -8,15 +8,12 @@ import { AVAILABLE_COLORS_ITEMS } from "./constants/availableColorsItems";
 import styles from "./AvailableColors.module.scss";
 
 export const AvailableColors = ({ categoryTitle, colorTitle }) => {
-  const [selectedColor, setSelectedColor] = useState(colorTitle);
-
   const navigate = useNavigate();
 
   const imageClickHandler = (selectedColorTitle) => {
-    setSelectedColor(selectedColorTitle);
     const slugifiedCategoryTitle = slugify(categoryTitle);
 
-    const slugifiedColorTitle = slugify(colorTitle);
+    const slugifiedColorTitle = slugify(selectedColorTitle);
 
     navigate(`/${slugifiedCategoryTitle}/${slugifiedColorTitle}`);
   };
@@ -28,7 +25,7 @@ export const AvailableColors = ({ categoryTitle, colorTitle }) => {
           key={item.id}
           onClick={() => imageClickHandler(item.color)}
           className={`${styles["available-colors__button"]} ${
-            selectedColor === item.color
+            colorTitle === item.color
               ? styles["available-colors__button_selected"]
               : ""
           }`.trim()}

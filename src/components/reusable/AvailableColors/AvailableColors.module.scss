@@ -12,8 +12,8 @@
     padding: 0.25rem;
 
     &_selected {
-        box-shadow:0 0 0 0.10rem variables.$color-light-gray;
-        border-radius: 50%;
+      box-shadow: 0 0 0 0.1rem variables.$color-light-gray;
+      border-radius: 50%;
     }
 
     &__image {
