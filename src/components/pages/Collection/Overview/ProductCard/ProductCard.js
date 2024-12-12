@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { useService } from "../../../../../hooks/useService";
+
 import { productServiceFactory } from "../../../../../services/productService";
-import { StockStatus } from "../../../../reusable/StockStatus/StockStatus";
+
 import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
-import { PriceRange } from "./PriceRange/PriceRange";
+import { StockInfo } from "./StockInfo/StockInfo";
 import { slugify } from "../../../../../utils/slugify";
-
-
 
 import styles from "./ProductCard.module.scss";
 
@@ -49,13 +49,11 @@ export const ProductCard = ({ data }) => {
             clickHandler={clickHandler}
           />
           <div className={styles["card_container__product"]}>
-            <div className={styles["card_container__stock-info"]}>
-              <PriceRange
-                minPrice={product[0].max_price}
-                maxPrice={product[0].min_price}
-              />
-              <StockStatus isSoldOut={product[0].is_sold_out} />
-            </div>
+            <StockInfo
+              minPrice={product[0].max_price}
+              maxPrice={product[0].min_price}
+              isSoldOut={product[0].is_sold_out}
+            />
             <div className={styles["card_container__interaction-icons"]}>
               <span className={styles["card_container__switch-image"]}>
                 switch

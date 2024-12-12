@@ -1,0 +1,5 @@
+@use "../../../../../../styles/mixins/flexbox";
+
+.card_container__stock-info {
+  @include flexbox.flexbox($justify: space-between);
+}
