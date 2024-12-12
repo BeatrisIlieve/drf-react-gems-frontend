@@ -5,13 +5,12 @@
 
   .available-colors__thumbnail {
     width: 3rem;
-    height: 3rem;
+    // height: 3rem;
 
     .available-colors__image {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      aspect-ratio: 1/1;
     }
   }
 }

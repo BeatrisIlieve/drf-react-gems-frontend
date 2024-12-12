@@ -71,9 +71,10 @@ export const ProductCard = ({ data }) => {
                 alt={`${product[0].full_category_title}-image`}
               />
             </div>
-            {/* <div className={styles["product_card__available-colors"]}> */}
+            <div className={styles["product_card__materials"]}>
               <AvailableColors categoryTitle={product[0].full_category_title} />
-            {/* </div> */}
+              <span className={styles["product_card__metal"]}>Platinum</span>
+            </div>
           </div>
         </div>
       )}

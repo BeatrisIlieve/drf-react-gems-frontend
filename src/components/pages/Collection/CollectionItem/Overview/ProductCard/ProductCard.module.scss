@@ -6,7 +6,7 @@
   @include flexbox.flexbox(
     $direction: column,
     $justify: center,
-    $align: center,
+    $align: center
   );
 
   .product_card__button {
@@ -22,7 +22,7 @@
       $direction: column,
       $justify: center,
       $align: center,
-      $gap: 1rem,
+      $gap: 1rem
     );
     background-color: variables.$color-white;
     padding: 0.75rem;
@@ -33,7 +33,13 @@
     @include flexbox.flexbox($justify: space-between);
   }
 
-  .product_card__available-colors {
-    @include flexbox.flexbox($justify: center, $align: center, $gap: 1rem);
+  .product_card__materials {
+    @include flexbox.flexbox($justify: center, $align: flex-end);
+
+    .product_card__metal {
+      color: variables.$color-medium-gray;
+      justify-self: baseline;
+      font-family: variables.$main-font-family;
+    }
   }
 }
