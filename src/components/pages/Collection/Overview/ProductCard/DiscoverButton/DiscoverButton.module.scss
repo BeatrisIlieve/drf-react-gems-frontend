@@ -1,0 +1,12 @@
+@use "../../../../../../styles/partials/variables";
+@use "../../../../../../styles/mixins/flexbox";
+
+.button {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+  margin-bottom: 1rem;
+  background-color: none;
+  font-family: variables.$main-font-family;
+}

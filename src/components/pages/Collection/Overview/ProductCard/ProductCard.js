@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useService } from "../../../../../hooks/useService";
 import { productServiceFactory } from "../../../../../services/productService";
 import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
-
+import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
 import { slugify } from "../../../../../utils/slugify";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,7 +31,6 @@ export const ProductCard = ({ data }) => {
     productService
       .getList(data.category_id, data.color_id)
       .then((data) => {
-        console.log(data);
         setProduct(data);
       })
       .catch((err) => {
@@ -43,9 +42,23 @@ export const ProductCard = ({ data }) => {
     <div className={styles["product_card"]}>
       {product.length > 0 && (
         <div className={styles["product_card"]}>
-          <button className={styles["product_card__button"]}>
+          <DiscoverButton
+            categoryTitle={product[0].full_category_title}
+            colorTitle={product[0].full_color_title}
+            fullCategoryTitle={product[0].full_category_title}
+            clickHandler={imageClickHandler}
+          />
+          {/* <button
+            className={styles["product_card__button"]}
+            onClick={() =>
+              imageClickHandler(
+                product[0].full_category_title,
+                product[0].full_color_title
+              )
+            }
+          >
             Discover {product[0].full_category_title}
-          </button>
+          </button> */}
           <div className={styles["product_card__product"]}>
             <div className={styles["product_card__stock-info"]}>
               <div className={styles["product_card__price"]}>

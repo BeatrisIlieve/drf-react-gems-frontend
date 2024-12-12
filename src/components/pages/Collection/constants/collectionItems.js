@@ -19,7 +19,7 @@ export const COLLECTION_ITEMS = [
   {
     imageUrl:
       "https://res.cloudinary.com/deztgvefu/image/upload/v1733797275/forget-me-not-collection/miniImages/fifty_pdp_forget-me-not_b_rqlq6j.avif",
-    title: "Line of delicate jewels",
+    title: "Line of Delicate Jewels",
     description:
       "Exquisite medley of round brilliant, pear-shaped and marquise diamonds that together reveal the beautiful flower.",
     products_data: [
@@ -36,7 +36,7 @@ export const COLLECTION_ITEMS = [
   {
     imageUrl:
       "https://res.cloudinary.com/deztgvefu/image/upload/v1733797275/forget-me-not-collection/miniImages/fifty_pdp_forget-me-not_a_fcpwwq.avif",
-    title: "Bringing a fresh perspective",
+    title: "Bringing a Fresh Perspective",
     description:
       "Necklace, pendant, earring, bracelet, ring and charm - each design adds an unparalleled warmth and radiance to any occasion.",
     products_data: [
