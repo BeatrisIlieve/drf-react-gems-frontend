@@ -3,7 +3,7 @@
     display: flex;
   }
 
-  .collection__item:nth-last-child(odd) {
+  .collection__item:nth-last-child(even) {
     flex-direction: row-reverse;
   }
 }

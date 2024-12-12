@@ -1,4 +1,4 @@
-import { Icon } from "../reusable/Icon/Icon";
+import { Icon } from "../../../reusable/Icon/Icon";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./SearchButton.module.scss";

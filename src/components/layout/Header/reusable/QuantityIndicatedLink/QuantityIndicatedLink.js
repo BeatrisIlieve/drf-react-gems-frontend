@@ -1,5 +1,5 @@
 import styles from "./QuantityIndicatedLink.module.scss";
-import { Icon } from "../Icon/Icon";
+import { Icon } from "../../../../reusable/Icon/Icon";
 import { Link } from "react-router-dom";
 
 export const QuantityIndicatedLink = ({ url, icon, quantity }) => {

@@ -1,4 +1,4 @@
-@use "../../../../../styles/mixins/flexbox";
+@use "../../../../styles/mixins/flexbox";
 
 .overview {
   @include flexbox.flexbox($direction: column, $justify: space-between);

@@ -1,6 +1,6 @@
-@use "../../../../../../styles/mixins/flexbox";
+@use "../../../../../styles/mixins/flexbox";
 
-@use "../../../../../../styles/partials/variables";
+@use "../../../../../styles/partials/variables";
 
 .description {
   @include flexbox.flexbox(

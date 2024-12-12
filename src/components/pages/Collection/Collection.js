@@ -1,7 +1,7 @@
 import styles from "./Collection.module.scss";
 
-import { Image } from "./CollectionItem/Image/Image";
-import { Overview } from "./CollectionItem/Overview/Overview";
+import { Image } from "./Image/Image";
+import { Overview } from "./Overview/Overview";
 import { COLLECTION_ITEMS } from "./constants/collectionItems";
 
 export const Collection = () => {

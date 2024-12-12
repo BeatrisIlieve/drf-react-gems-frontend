@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useService } from "../../../../../../hooks/useService";
-import { productServiceFactory } from "../../../../../../services/productService";
-import { AvailableColors } from "../../../../../reusable/AvailableColors/AvailableColors";
-import { slugify } from "../../../../../../utils/slugify";
+import { useService } from "../../../../../hooks/useService";
+import { productServiceFactory } from "../../../../../services/productService";
+import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
+
+import { slugify } from "../../../../../utils/slugify";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSackDollar } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./ProductCard.module.scss";
 
@@ -43,10 +48,17 @@ export const ProductCard = ({ data }) => {
           </button>
           <div className={styles["product_card__product"]}>
             <div className={styles["product_card__stock-info"]}>
+              <div className={styles["product_card__price"]}>
+                <FontAwesomeIcon icon={faSackDollar} />
+                <span className={styles["product_card__amount"]}>
+                  {product[0].max_price} - {product[0].min_price}
+                </span>
+              </div>
               <span className={styles["product_card__quantity"]}>
-                {product[0].min_price} - {product[0].max_price}
-              </span>
-              <span className={styles["product_card__price"]}>
+                <FontAwesomeIcon
+                  icon={faCircle}
+                  className={styles["product_card__circle"]}
+                />
                 {product[0].is_sold_out ? "Sold Out" : "In Stock"}
               </span>
             </div>
@@ -72,7 +84,10 @@ export const ProductCard = ({ data }) => {
               />
             </div>
             <div className={styles["product_card__materials"]}>
-              <AvailableColors categoryTitle={product[0].full_category_title} colorTitle={product[0].full_color_title} />
+              <AvailableColors
+                categoryTitle={product[0].full_category_title}
+                colorTitle={product[0].full_color_title}
+              />
               <span className={styles["product_card__metal"]}>Platinum</span>
             </div>
           </div>

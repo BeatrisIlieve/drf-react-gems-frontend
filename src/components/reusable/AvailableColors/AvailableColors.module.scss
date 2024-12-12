@@ -7,12 +7,12 @@
   &__button {
     @include flexbox.flexbox($align: center);
     all: unset;
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     padding: 0.25rem;
 
     &_selected {
-      box-shadow: 0 0 0 0.1rem variables.$color-light-gray;
+      box-shadow: 0 0 0 0.08rem variables.$color-light-gray;
       border-radius: 50%;
     }
 
