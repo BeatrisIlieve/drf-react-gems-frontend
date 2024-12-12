@@ -17,7 +17,6 @@ export const ProductCard = ({ data }) => {
   const imageClickHandler = (categoryTitle, colorTitle) => {
     const slugifiedCategoryTitle = slugify(categoryTitle);
 
-
     const slugifiedColorTitle = slugify(colorTitle);
 
     navigate(`/${slugifiedCategoryTitle}/${slugifiedColorTitle}`);
@@ -57,19 +56,24 @@ export const ProductCard = ({ data }) => {
               </span>
               <span className={styles["product_card__like-product"]}>like</span>
             </div>
-            <div onClick={() => imageClickHandler(product[0].full_category_title, product[0].full_color_title)} className={styles["product_card__thumbnail"]}>
+            <div
+              onClick={() =>
+                imageClickHandler(
+                  product[0].full_category_title,
+                  product[0].full_color_title
+                )
+              }
+              className={styles["product_card__thumbnail"]}
+            >
               <img
                 className={styles["product_card__image"]}
                 src={product[0].product__first_image_url}
                 alt={`${product[0].full_category_title}-image`}
               />
             </div>
-            <div className={styles["product_card__available-colors"]}>
-              <AvailableColors categoryTitle={product[0].full_category_title}/>
-              {/* <span>images</span>
-              <span>images</span>
-              <span>images</span> */}
-            </div>
+            {/* <div className={styles["product_card__available-colors"]}> */}
+              <AvailableColors categoryTitle={product[0].full_category_title} />
+            {/* </div> */}
           </div>
         </div>
       )}

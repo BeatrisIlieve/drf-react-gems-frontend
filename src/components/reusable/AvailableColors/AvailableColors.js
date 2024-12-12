@@ -4,6 +4,8 @@ import { slugify } from "../../../utils/slugify";
 
 import { AVAILABLE_COLORS_ITEMS } from "./constants/availableColorsItems";
 
+import styles from "./AvailableColors.module.scss"
+
 export const AvailableColors = ({ categoryTitle }) => {
   const navigate = useNavigate();
 
@@ -16,10 +18,18 @@ export const AvailableColors = ({ categoryTitle }) => {
   };
 
   return (
-    <div>
+    <div className={styles["available-colors"]}>
       {AVAILABLE_COLORS_ITEMS.map((item) => (
-        <div key={item.id} onClick={() => imageClickHandler(item.color)}>
-          <img src={item.imgUrl} alt="" />
+        <div
+          key={item.id}
+          onClick={() => imageClickHandler(item.color)}
+          className={styles["available-colors__thumbnail"]}
+        >
+          <img
+            src={item.imgUrl}
+            alt={item.color}
+            className={styles["available-colors__image"]}
+          />
         </div>
       ))}
     </div>
