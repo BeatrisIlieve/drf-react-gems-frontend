@@ -2,14 +2,14 @@
 
 @use "../../../../../../styles/mixins/flexbox";
 
-.product {
+.product_card {
   @include flexbox.flexbox(
     $direction: column,
     $justify: center,
     $align: center,
   );
 
-  .product__button {
+  .product_card__button {
     all: unset;
     text-decoration: underline;
     text-underline-offset: 0.175rem;
@@ -17,17 +17,17 @@
     background-color: none;
   }
 
-  .product__product {
+  .product_card__product_card {
     background-color: variables.$color-white;
     padding: 0.75rem;
   }
 
-  .product__stock-info,
-  .product__interaction-icons {
+  .product_card__stock-info,
+  .product_card__interaction-icons {
     @include flexbox.flexbox($justify: space-between);
   }
 
-  .product__available-colors {
+  .product_card__available-colors {
     @include flexbox.flexbox($justify: center, $align: center, $gap: 1rem);
   }
 }
