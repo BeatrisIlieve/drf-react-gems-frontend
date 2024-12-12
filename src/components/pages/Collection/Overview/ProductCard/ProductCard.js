@@ -8,6 +8,7 @@ import { productServiceFactory } from "../../../../../services/productService";
 import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
 import { StockInfo } from "./StockInfo/StockInfo";
+import { Interaction } from "../../../../reusable/Interaction/Interaction";
 import { slugify } from "../../../../../utils/slugify";
 
 import styles from "./ProductCard.module.scss";
@@ -54,14 +55,7 @@ export const ProductCard = ({ data }) => {
               maxPrice={product[0].max_price}
               isSoldOut={product[0].is_sold_out}
             />
-            <div className={styles["card_container__interaction-icons"]}>
-              <span className={styles["card_container__switch-image"]}>
-                switch
-              </span>
-              <span className={styles["card_container__like-product"]}>
-                like
-              </span>
-            </div>
+            <Interaction />
             <div
               onClick={() =>
                 clickHandler(

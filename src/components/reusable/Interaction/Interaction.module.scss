@@ -1,0 +1,5 @@
+@use "../../../styles/mixins/flexbox";
+
+.interaction {
+  @include flexbox.flexbox($justify: space-between);
+}
