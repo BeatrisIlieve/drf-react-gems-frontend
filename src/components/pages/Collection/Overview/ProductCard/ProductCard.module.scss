@@ -1,14 +1,14 @@
 @use "../../../../../styles/partials/variables";
 @use "../../../../../styles/mixins/flexbox";
 
-.product_card {
+.card_container {
   @include flexbox.flexbox(
     $direction: column,
     $justify: center,
     $align: center
   );
 
-  .product_card__product {
+  .card_container__product {
     @include flexbox.flexbox(
       $direction: column,
       $justify: center,
@@ -22,34 +22,24 @@
       rgba(0, 0, 0, 0.6) 0px 6px 12px -18px;
   }
 
-  .product_card__stock-info,
-  .product_card__interaction-icons {
+  .card_container__stock-info,
+  .card_container__interaction-icons {
     @include flexbox.flexbox($justify: space-between);
   }
 
-  .product_card__price {
+  .card_container__price {
     font-size: variables.$font-normal;
-    .product_card__amount {
+    .card_container__amount {
       margin-left: 0.2rem;
     }
   }
 
-  .product_card__quantity {
-    // @include flexbox.flexbox();
-    font-size: variables.$font-normal;
 
-    .product_card__circle {
-      color: variables.$color-green;
-      font-size: 6px;
-      margin-bottom: 2.5px;
-      margin-right: 2px;
-    }
-  }
 
-  .product_card__materials {
+  .card_container__materials {
     @include flexbox.flexbox($justify: center, $align: flex-end);
 
-    .product_card__metal {
+    .card_container__metal {
       color: variables.$color-medium-gray;
       justify-self: baseline;
       font-family: variables.$main-font-family;

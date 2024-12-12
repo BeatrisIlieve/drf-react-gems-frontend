@@ -1,0 +1,12 @@
+@use "../../../styles/partials/variables";
+
+.card_container__quantity {
+  font-size: variables.$font-normal;
+
+  .card_container__circle {
+    color: variables.$color-green;
+    font-size: 0.375rem;
+    margin-bottom: 0.18rem;
+    margin-right: 0.2rem;
+  }
+}

@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useService } from "../../../../../hooks/useService";
 import { productServiceFactory } from "../../../../../services/productService";
+import { StockStatus } from "../../../../reusable/StockStatus/StockStatus";
 import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
+
 import { slugify } from "../../../../../utils/slugify";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,34 +43,30 @@ export const ProductCard = ({ data }) => {
   return (
     <>
       {product.length > 0 && (
-        <div className={styles["product_card"]}>
+        <div className={styles["card_container"]}>
           <DiscoverButton
             categoryTitle={product[0].full_category_title}
             colorTitle={product[0].full_color_title}
             fullCategoryTitle={product[0].full_category_title}
             clickHandler={clickHandler}
           />
-          <div className={styles["product_card__product"]}>
-            <div className={styles["product_card__stock-info"]}>
-              <div className={styles["product_card__price"]}>
+          <div className={styles["card_container__product"]}>
+            <div className={styles["card_container__stock-info"]}>
+              <div className={styles["card_container__price"]}>
                 <FontAwesomeIcon icon={faSackDollar} />
-                <span className={styles["product_card__amount"]}>
+                <span className={styles["card_container__amount"]}>
                   {product[0].max_price} - {product[0].min_price}
                 </span>
               </div>
-              <span className={styles["product_card__quantity"]}>
-                <FontAwesomeIcon
-                  icon={faCircle}
-                  className={styles["product_card__circle"]}
-                />
-                {product[0].is_sold_out ? "Sold Out" : "In Stock"}
-              </span>
+              <StockStatus isSoldOut={product[0].is_sold_out}/>
             </div>
-            <div className={styles["product_card__interaction-icons"]}>
-              <span className={styles["product_card__switch-image"]}>
+            <div className={styles["card_container__interaction-icons"]}>
+              <span className={styles["card_container__switch-image"]}>
                 switch
               </span>
-              <span className={styles["product_card__like-product"]}>like</span>
+              <span className={styles["card_container__like-product"]}>
+                like
+              </span>
             </div>
             <div
               onClick={() =>
@@ -77,20 +75,20 @@ export const ProductCard = ({ data }) => {
                   product[0].full_color_title
                 )
               }
-              className={styles["product_card__thumbnail"]}
+              className={styles["card_container__thumbnail"]}
             >
               <img
-                className={styles["product_card__image"]}
+                className={styles["card_container__image"]}
                 src={product[0].product__first_image_url}
                 alt={`${product[0].full_category_title}-image`}
               />
             </div>
-            <div className={styles["product_card__materials"]}>
+            <div className={styles["card_container__materials"]}>
               <AvailableColors
                 categoryTitle={product[0].full_category_title}
                 colorTitle={product[0].full_color_title}
               />
-              <span className={styles["product_card__metal"]}>Platinum</span>
+              <span className={styles["card_container__metal"]}>Platinum</span>
             </div>
           </div>
         </div>
