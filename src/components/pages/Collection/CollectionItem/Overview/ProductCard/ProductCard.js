@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useService } from "../../../../../../hooks/useService";
 import { productServiceFactory } from "../../../../../../services/productService";
 
+import styles from "./ProductCard.module.scss"
+
 export const ProductCard = ({ data }) => {
   const productService = useService(productServiceFactory);
 
@@ -20,45 +22,42 @@ export const ProductCard = ({ data }) => {
       });
   }, []);
 
+  //   console.log(product[0].product__first_image_url)
+
   return (
-    <>
-    {product && (
-        <img src={product[0].product__first_image_url} alt="" />
-        // <img></img>
-    )}
-    </>
-    // <div className={styles["collection-item"]}>
-    //   <button className={styles["collection-item__button"]}>
-    //     Discover {product.category}
-    //   </button>
-    //   <div className={styles["collection-item__product"]}>
-    //     <div className={styles["collection-item__stock-info"]}>
-    //       <span className={styles["collection-item__quantity"]}>
-    //         {product.quantity}
-    //       </span>
-    //       <span className={styles["collection-item__price"]}>
-    //         {product.price}
-    //       </span>
-    //     </div>
-    //     <div className={styles["collection-item__interaction-icons"]}>
-    //       <span className={styles["collection-item__switch-image"]}>
-    //         switch
-    //       </span>
-    //       <span className={styles["collection-item__like-product"]}>like</span>
-    //     </div>
-    //     <div className={styles["collection-item__thumbnail"]}>
-    //       <img
-    //         className={styles["collection-item__image"]}
-    //         src={product.image}
-    //         alt={`${product.category}-image`}
-    //       />
-    //     </div>
-    //     <div className={styles["collection-item__available-colors"]}>
-    //       <span>images</span>
-    //       <span>images</span>
-    //       <span>images</span>
-    //     </div>
-    //   </div>
-    // </div>
+    <div className={styles["product"]}>
+      {product.length > 0 && (
+        <div className={styles["product"]}>
+          <button className={styles["product__button"]}>
+            Discover {product.full_category_title}
+          </button>
+          <div className={styles["product__product"]}>
+            <div className={styles["product__stock-info"]}>
+              <span className={styles["product__quantity"]}>
+                {product.min_price} - {product.max_price}
+              </span>
+              <span className={styles["product__price"]}>{product.is_sold_out}</span>
+            </div>
+            <div className={styles["product__interaction-icons"]}>
+              <span className={styles["product__switch-image"]}>switch</span>
+              <span className={styles["product__like-product"]}>like</span>
+            </div>
+            <div className={styles["product__thumbnail"]}>
+              <img
+                className={styles["product__image"]}
+                src={product.
+                  product__first_image_url}
+                alt={`${product.full_category_title}-image`}
+              />
+            </div>
+            <div className={styles["product__available-colors"]}>
+              <span>images</span>
+              <span>images</span>
+              <span>images</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 .header-container {
   grid-area: header;
   border-bottom: 0.08rem solid gray;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -37,7 +37,7 @@
 
 .list {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   justify-content: flex-start;
   align-items: flex-end;
 }

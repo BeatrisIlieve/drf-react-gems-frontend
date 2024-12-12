@@ -2,4 +2,8 @@
   .collection__item {
     display: flex;
   }
+
+  .collection__item:nth-last-child(odd) {
+    flex-direction: row-reverse;
+  }
 }
