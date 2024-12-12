@@ -51,19 +51,28 @@ export const Header = () => {
         <nav className={styles["nav"]}>
           <ul className={styles["list"]} role="list">
             <li className={styles["list-item"]}>
-              <CollectionLink label={"Earring"} url={"/earring/pink-sapphire"} />
+              <CollectionLink
+                label={"Earring"}
+                url={"/earring/pink-sapphire"}
+              />
             </li>
             <span className={styles["icon"]}>
               <FontAwesomeIcon icon={faGem} />
             </span>
             <li className={styles["list-item"]}>
-              <CollectionLink label={"Necklace"} url={"/necklace/blue-sapphire"} />
+              <CollectionLink
+                label={"Necklace"}
+                url={"/necklace/blue-sapphire"}
+              />
             </li>
             <span className={styles["icon"]}>
               <FontAwesomeIcon icon={faGem} />
             </span>
             <li className={styles["list-item"]}>
-              <CollectionLink label={"Pendant"} url={"/pendant/brilliant-diamond"} />
+              <CollectionLink
+                label={"Pendant"}
+                url={"/pendant/brilliant-diamond"}
+              />
             </li>
             <span className={styles["icon"]}>
               <FontAwesomeIcon icon={faGem} />

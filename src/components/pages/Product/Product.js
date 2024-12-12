@@ -14,7 +14,7 @@ export const Product = () => {
   const { slugifiedCategoryTitle, slugifiedColorTitle } = useParams();
 
   const categoryTitle = deslugify(slugifiedCategoryTitle);
-  console.log(categoryTitle)
+
   const colorTitle = deslugify(slugifiedColorTitle);
 
   const categoryId = CATEGORY_ID_BY_TITLE[categoryTitle];
@@ -28,7 +28,7 @@ export const Product = () => {
     productService
       .getDetails(categoryId, colorId)
       .then((data) => {
-        console.log(data);
+
         setProduct(data);
       })
       .catch((err) => {

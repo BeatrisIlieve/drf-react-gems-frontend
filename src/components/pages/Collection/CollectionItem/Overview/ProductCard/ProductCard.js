@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useService } from "../../../../../../hooks/useService";
 import { productServiceFactory } from "../../../../../../services/productService";
-
+import { AvailableColors } from "../../../../../reusable/AvailableColors/AvailableColors";
 import { slugify } from "../../../../../../utils/slugify";
 
 import styles from "./ProductCard.module.scss";
@@ -16,7 +16,7 @@ export const ProductCard = ({ data }) => {
 
   const imageClickHandler = (categoryTitle, colorTitle) => {
     const slugifiedCategoryTitle = slugify(categoryTitle);
-    console.log(slugifiedCategoryTitle)
+
 
     const slugifiedColorTitle = slugify(colorTitle);
 
@@ -65,9 +65,10 @@ export const ProductCard = ({ data }) => {
               />
             </div>
             <div className={styles["product_card__available-colors"]}>
+              <AvailableColors categoryTitle={product[0].full_category_title}/>
+              {/* <span>images</span>
               <span>images</span>
-              <span>images</span>
-              <span>images</span>
+              <span>images</span> */}
             </div>
           </div>
         </div>
