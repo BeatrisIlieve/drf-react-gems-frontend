@@ -1,0 +1,8 @@
+@use "../../../../../../styles/partials/variables";
+
+.price-range {
+  font-size: variables.$font-normal;
+  &__amount {
+    margin-left: 0.2rem;
+  }
+}

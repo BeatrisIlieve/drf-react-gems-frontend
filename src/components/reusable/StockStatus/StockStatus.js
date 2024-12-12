@@ -5,10 +5,10 @@ import styles from "./StockStatus.module.scss";
 
 export const StockStatus = ({ isSoldOut }) => {
   return (
-    <div className={styles["card_container__quantity"]}>
+    <div className={styles["stock-status"]}>
       <FontAwesomeIcon
         icon={faCircle}
-        className={styles["card_container__circle"]}
+        className={styles["stock-status__circle"]}
       />
       {isSoldOut ? "Sold Out" : "In Stock"}
     </div>

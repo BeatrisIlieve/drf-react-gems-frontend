@@ -27,15 +27,6 @@
     @include flexbox.flexbox($justify: space-between);
   }
 
-  .card_container__price {
-    font-size: variables.$font-normal;
-    .card_container__amount {
-      margin-left: 0.2rem;
-    }
-  }
-
-
-
   .card_container__materials {
     @include flexbox.flexbox($justify: center, $align: flex-end);
 

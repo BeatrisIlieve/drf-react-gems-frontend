@@ -1,9 +1,9 @@
 @use "../../../styles/partials/variables";
 
-.card_container__quantity {
+.stock-status {
   font-size: variables.$font-normal;
 
-  .card_container__circle {
+  &__circle {
     color: variables.$color-green;
     font-size: 0.375rem;
     margin-bottom: 0.18rem;
