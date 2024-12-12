@@ -12,7 +12,7 @@ export const ProductCard = ({ data }) => {
 
   useEffect(() => {
     productService
-      .getList(data["category_id"], data["color_id"])
+      .getList(data.category_id, data.color_id)
       .then((data) => {
         console.log(data);
         setProduct(data);
@@ -27,15 +27,15 @@ export const ProductCard = ({ data }) => {
       {product.length > 0 && (
         <div className={styles["product"]}>
           <button className={styles["product__button"]}>
-            Discover {product.full_category_title}
+            Discover {product[0].full_category_title}
           </button>
           <div className={styles["product__product"]}>
             <div className={styles["product__stock-info"]}>
               <span className={styles["product__quantity"]}>
-                {product.min_price} - {product.max_price}
+                {product[0].min_price} - {product[0].max_price}
               </span>
               <span className={styles["product__price"]}>
-                {product.is_sold_out}
+                {product[0].is_sold_out}
               </span>
             </div>
             <div className={styles["product__interaction-icons"]}>
@@ -45,8 +45,8 @@ export const ProductCard = ({ data }) => {
             <div className={styles["product__thumbnail"]}>
               <img
                 className={styles["product__image"]}
-                src={product.product__first_image_url}
-                alt={`${product.full_category_title}-image`}
+                src={product[0].product__first_image_url}
+                alt={`${product[0].full_category_title}-image`}
               />
             </div>
             <div className={styles["product__available-colors"]}>

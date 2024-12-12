@@ -1,19 +1,12 @@
 @use "../../../../../styles/mixins/flexbox";
 
-@use "../../../../../styles/partials/variables";
-
 .overview {
-  @include flexbox.flexbox(
-    $direction: column,
-    $justify: space-between,
-  );
+  @include flexbox.flexbox($direction: column, $justify: space-between);
+
   width: 50%;
   padding: 2rem;
 
   .overview__product {
-    @include flexbox.flexbox(
-      $justify: center,
-      $align: center
-    );
+    @include flexbox.flexbox($justify: center, $align: center, $gap: 2rem);
   }
 }

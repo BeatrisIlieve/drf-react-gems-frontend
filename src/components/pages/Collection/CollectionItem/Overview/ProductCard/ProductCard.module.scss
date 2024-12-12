@@ -6,7 +6,7 @@
   @include flexbox.flexbox(
     $direction: column,
     $justify: center,
-    $align: center
+    $align: center,
   );
 
   .product__button {
