@@ -7,7 +7,7 @@ import { productServiceFactory } from "../../../../../services/productService";
 
 import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
-import { StockInfo } from "./StockInfo/StockInfo";
+import { StockInfo } from "../../../../reusable/StockInfo/StockInfo"; 
 import { Interaction } from "../../../../reusable/Interaction/Interaction";
 import { slugify } from "../../../../../utils/slugify";
 

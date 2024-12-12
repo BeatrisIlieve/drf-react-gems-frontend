@@ -1,5 +1,5 @@
-import { StockStatus } from "../../../../../reusable/StockStatus/StockStatus";
-import { PriceRange } from "../../../../../reusable/PriceRange/PriceRange";
+import { StockStatus } from "./StockStatus/StockStatus";
+import { PriceRange } from "./PriceRange/PriceRange";
 
 import styles from "./StockInfo.module.scss";
 
