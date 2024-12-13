@@ -13,14 +13,4 @@
 
   box-shadow: rgba(50, 50, 93, 0.6) 0px 8px 32px -12px,
     rgba(0, 0, 0, 0.6) 0px 6px 12px -18px;
-
-  &__materials {
-    @include flexbox.flexbox($justify: center, $align: flex-end);
-  }
-
-  &__metal {
-    color: variables.$color-medium-gray;
-    justify-self: baseline;
-    font-family: variables.$main-font-family;
-  }
 }

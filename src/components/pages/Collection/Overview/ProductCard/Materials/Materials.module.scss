@@ -1,0 +1,12 @@
+@use "../../../../../../styles/partials/variables";
+@use "../../../../../../styles/mixins/flexbox";
+
+.materials {
+  @include flexbox.flexbox($justify: center, $align: flex-end);
+
+  &__metal {
+    color: variables.$color-medium-gray;
+    justify-self: baseline;
+    font-family: variables.$main-font-family;
+  }
+}

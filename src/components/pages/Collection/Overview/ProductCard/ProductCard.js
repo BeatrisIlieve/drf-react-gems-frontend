@@ -7,7 +7,8 @@ import { productServiceFactory } from "../../../../../services/productService";
 
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
 import { BaseProductCard } from "../../../../reusable/BaseProductCard/BaseProductCard";
-
+import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
+import { Materials } from "./Materials/Materials";
 import { slugify } from "../../../../../utils/slugify";
 
 import styles from "./ProductCard.module.scss";
@@ -57,7 +58,12 @@ export const ProductCard = ({ data }) => {
             firstImageUrl={product[0].product__first_image_url}
             secondImageUrl={product[0].product__second_image_url}
             navigateHandler={navigateHandler}
-          />
+          >
+            <Materials
+              categoryTitle={product[0].full_category_title}
+              colorTitle={product[0].full_color_title}
+            />
+          </BaseProductCard>
         </div>
       )}
     </>

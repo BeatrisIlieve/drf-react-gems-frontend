@@ -5,6 +5,8 @@ import { Interaction } from "./Interaction/Interaction";
 import { ProductImage } from "./ProductImage/ProductImage";
 import { AvailableColors } from "../AvailableColors/AvailableColors";
 import styles from "./BaseProductCard.module.scss";
+
+
 export const BaseProductCard = ({
   minPrice,
   maxPrice,
@@ -14,6 +16,7 @@ export const BaseProductCard = ({
   firstImageUrl,
   secondImageUrl,
   navigateHandler,
+  children
 }) => {
   const [firstImageIsActive, setFirstImageIsActive] = useState(true);
 
@@ -40,13 +43,14 @@ export const BaseProductCard = ({
         clickHandler={navigateHandler}
         firstImageIsActive={firstImageIsActive}
       />
-      <div className={styles["base-product__materials"]}>
+      {children}
+      {/* <div className={styles["base-product__materials"]}>
         <AvailableColors
           categoryTitle={categoryTitle}
           colorTitle={colorTitle}
         />
         <span className={styles["base-product__metal"]}>Platinum</span>
-      </div>
+      </div> */}
     </div>
   );
 };
