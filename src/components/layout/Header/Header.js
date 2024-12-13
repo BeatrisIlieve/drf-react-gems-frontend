@@ -10,7 +10,9 @@ import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/Quantity
 import { faHeart, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
+
+
 
 export const Header = () => {
   const wishlistCount = 2;
@@ -41,79 +43,26 @@ export const Header = () => {
 
   return (
     <div
-      className={`${styles["header-container"]} ${
-        isHidden ? styles["hidden"] : styles["visible"]
+      className={`${styles["container"]} ${
+        isHidden ? styles["container_hidden"] : styles["container_visible"]
       }`}
     >
-      <header className={styles["header"]}>
-        <nav className={styles["nav"]}>
-          <ul className={styles["list"]} role="list">
-            <li className={styles["list-item"]}>
-              <CollectionLink
-                label={"Earring"}
-                url={"/earring/pink-sapphire"}
-              />
-            </li>
-            <span className={styles["icon"]}>
-              <FontAwesomeIcon icon={faGem} />
-            </span>
-            <li className={styles["list-item"]}>
-              <CollectionLink
-                label={"Necklace"}
-                url={"/necklace/blue-sapphire"}
-              />
-            </li>
-            <span className={styles["icon"]}>
-              <FontAwesomeIcon icon={faGem} />
-            </span>
-            <li className={styles["list-item"]}>
-              <CollectionLink
-                label={"Pendant"}
-                url={"/pendant/brilliant-diamond"}
-              />
-            </li>
-            <span className={styles["icon"]}>
-              <FontAwesomeIcon icon={faGem} />
-            </span>
-            <li className={styles["list-item"]}>
-              <CollectionLink label={"Charm"} url={"/charm"} />
-            </li>
-            <span className={styles["icon"]}>
-              <FontAwesomeIcon icon={faGem} />
-            </span>
-            <li className={styles["list-item"]}>
-              <CollectionLink label={"Bracelet"} url={"/bracelet"} />
-            </li>
-            <span className={styles["icon"]}>
-              <FontAwesomeIcon icon={faGem} />
-            </span>
-            <li className={styles["list-item"]}>
-              <CollectionLink label={"Ring"} url={"/ring"} />
-            </li>
-            <li>
-              <LogoImage isHidden={isHidden} />
-            </li>
-            <li className={styles["list-item"]}>
-              <SearchButton />
-            </li>
-            <li className={styles["list-item"]}>
-              <AccountLink />
-            </li>
-            <li className={styles["list-item"]}>
-              <QuantityIndicatedLink
-                url={"/wishlist"}
-                icon={faHeart}
-                quantity={wishlistCount}
-              />
-            </li>
-            <li className={styles["list-item"]}>
-              <QuantityIndicatedLink
-                url={"/shopping-bag"}
-                icon={faShoppingBag}
-                quantity={bagCount}
-              />
-            </li>
-          </ul>
+      <header className={styles["container__header"]}>
+        <nav className={styles["container__nav"]}>
+          <CollectionLink/>
+          <LogoImage isHidden={isHidden} />
+          <SearchButton />
+          <AccountLink />
+          <QuantityIndicatedLink
+            url={"/wishlist"}
+            icon={faHeart}
+            quantity={wishlistCount}
+          />
+          <QuantityIndicatedLink
+            url={"/shopping-bag"}
+            icon={faShoppingBag}
+            quantity={bagCount}
+          />
         </nav>
       </header>
     </div>

@@ -1,25 +1,28 @@
 @use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/flexbox";
 
-%link-shared {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: transitioning 1s forwards;
-}
+.collection-link {
+  @include flexbox.flexbox($justify: start, $align: center);
 
-.link {
-  @extend %link-shared;
-}
+  &__item {
+    animation: transitioning 1s forwards;
+    @include flexbox.flexbox($justify: start, $align: center);
 
-.link.selected {
-  text-decoration: underline;
-  text-decoration-color: variables.$color-violet;
-  text-underline-offset: 0.175rem;
-  text-decoration-thickness: 0.06rem;
-  color: variables.$color-black;
-}
+    &_selected {
+      text-decoration: underline;
+      text-decoration-color: variables.$color-violet;
+      text-underline-offset: 0.175rem;
+      text-decoration-thickness: 0.06rem;
+      color: variables.$color-black;
+    }
 
-.link.not-selected {
-  text-decoration: none;
-  color: variables.$color-gray;
+    &_not-selected {
+      text-decoration: none;
+      color: variables.$color-gray;
+    }
+  }
+
+  &__icon {
+    margin: 0 auto;
+  }
 }

@@ -11,6 +11,7 @@
 }
 
 .header {
+  margin: auto 2rem 0.1rem 2rem;
   /* grid-area: header;
   border-bottom: 0.08rem solid gray;
   transition: all 0.9s ease;
@@ -32,7 +33,7 @@
 }
 
 .nav {
-  margin: auto 2rem 0.1rem 2rem;
+  /* margin: auto 2rem 0.1rem 2rem; */
 }
 
 .list {
@@ -43,10 +44,10 @@
 }
 
 .list-item {
-  transition: transform 600ms ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* transition: transform 600ms ease;
+  display: flex; */
+  /* align-items: center;
+  justify-content: center; */
   /* font-family: $medium-font-family; */
 }
 

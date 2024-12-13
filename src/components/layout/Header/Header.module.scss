@@ -1,0 +1,32 @@
+@use "../../../styles/mixins/flexbox";
+@use "../../../styles/partials/variables";
+
+.container {
+  grid-area: header;
+  border-bottom: 0.08rem solid variables.$color-browser-gray;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  background-color: variables.$color-white;
+
+
+  &_hidden {
+    transform: translateY(-100%);
+  }
+
+  &_visible {
+    transform: translateY(0);
+  }
+
+  &__header {
+    margin: auto 2rem 0.1rem 2rem;
+    
+  }
+
+  &__nav {
+    @include flexbox.flexbox($justify: start, $align: end);
+  }
+}

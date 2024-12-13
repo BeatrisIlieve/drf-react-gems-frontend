@@ -1,0 +1,25 @@
+@use "../../../../styles/partials/variables";
+
+%link-shared {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: transitioning 1s forwards;
+}
+
+.link {
+  @extend %link-shared;
+}
+
+.link.selected {
+  text-decoration: underline;
+  text-decoration-color: variables.$color-violet;
+  text-underline-offset: 0.175rem;
+  text-decoration-thickness: 0.06rem;
+  color: variables.$color-black;
+}
+
+.link.not-selected {
+  text-decoration: none;
+  color: variables.$color-gray;
+}
