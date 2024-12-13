@@ -1,5 +1,12 @@
 @use "../../../../../../styles/mixins/underlined-button";
+@use "../../../../../../styles/partials/variables";
 
 .button {
   @include underlined-button.underlined-button();
+
+  color: variables.$color-medium-gray;
+
+  &:hover {
+    color: variables.$color-black;
+  }
 }
