@@ -46,7 +46,7 @@ export const Header = () => {
       <header className={styles["container__header"]}>
         <nav className={styles["container__nav"]}>
           <CollectionLink />
-          <LogoImage isHidden={isHidden} />
+          <LogoImage />
           <div className={styles["container__buttons"]}>
             <SearchButton />
             <AccountLink />
