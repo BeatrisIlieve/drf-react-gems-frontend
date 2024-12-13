@@ -1,0 +1,6 @@
+@use "../../../../../styles/mixins/circle-icon";
+
+.icon {
+  @include circle-icon.circle-icon();
+  cursor: pointer;
+}
