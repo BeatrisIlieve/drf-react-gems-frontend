@@ -3,4 +3,9 @@
 .icon {
   @include circle-icon.circle-icon();
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 600ms ease;
+  }
 }

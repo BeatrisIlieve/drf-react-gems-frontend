@@ -4,9 +4,4 @@
   width: 0.65rem;
   height: 0.65rem;
   color: variables.$color-medium-gray;
-
-  &:hover {
-    transform: scale(1.1);
-    transition: transform 600ms ease;
-  }
 }
