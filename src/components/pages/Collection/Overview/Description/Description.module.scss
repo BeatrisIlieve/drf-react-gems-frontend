@@ -12,7 +12,7 @@
 
   text-align: center;
 
-  .description__description {
+  &__description {
     color: variables.$color-black;
     font-family: variables.$main-font-family;
     width: 80%;

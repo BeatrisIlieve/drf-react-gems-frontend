@@ -1,9 +1,9 @@
 .collection {
-  .collection__item {
+  &__item {
     display: flex;
   }
 
-  .collection__item:nth-last-child(even) {
+  &__item:nth-last-child(even) {
     flex-direction: row-reverse;
   }
 }
