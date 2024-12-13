@@ -1,12 +1,10 @@
 @use "../../../../../styles/partials/variables";
 @use "../../../../../styles/mixins/flexbox";
 
-.card_container {
+.product-card-container {
   @include flexbox.flexbox(
     $direction: column,
     $justify: center,
     $align: center
   );
-
-  
 }

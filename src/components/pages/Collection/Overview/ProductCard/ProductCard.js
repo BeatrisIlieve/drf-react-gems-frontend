@@ -7,6 +7,7 @@ import { productServiceFactory } from "../../../../../services/productService";
 
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
 import { BaseProductCard } from "../../../../reusable/BaseProductCard/BaseProductCard";
+
 import { slugify } from "../../../../../utils/slugify";
 
 import styles from "./ProductCard.module.scss";
@@ -40,7 +41,7 @@ export const ProductCard = ({ data }) => {
   return (
     <>
       {product.length > 0 && (
-        <div className={styles["card_container"]}>
+        <div className={styles["product-card-container"]}>
           <DiscoverButton
             categoryTitle={product[0].full_category_title}
             colorTitle={product[0].full_color_title}

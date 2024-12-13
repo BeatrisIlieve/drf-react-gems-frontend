@@ -4,7 +4,7 @@ import { StockInfo } from "./StockInfo/StockInfo";
 import { Interaction } from "./Interaction/Interaction";
 import { ProductImage } from "./ProductImage/ProductImage";
 import { AvailableColors } from "../AvailableColors/AvailableColors";
-import styles from "./BaseProductCard.module.scss"
+import styles from "./BaseProductCard.module.scss";
 export const BaseProductCard = ({
   minPrice,
   maxPrice,
@@ -22,7 +22,7 @@ export const BaseProductCard = ({
   };
 
   return (
-    <div className={styles["card_container__product"]}>
+    <div className={styles["base-product"]}>
       <StockInfo
         minPrice={minPrice}
         maxPrice={maxPrice}
@@ -40,12 +40,12 @@ export const BaseProductCard = ({
         clickHandler={navigateHandler}
         firstImageIsActive={firstImageIsActive}
       />
-      <div className={styles["card_container__materials"]}>
+      <div className={styles["base-product__materials"]}>
         <AvailableColors
           categoryTitle={categoryTitle}
           colorTitle={colorTitle}
         />
-        <span className={styles["card_container__metal"]}>Platinum</span>
+        <span className={styles["base-product__metal"]}>Platinum</span>
       </div>
     </div>
   );
