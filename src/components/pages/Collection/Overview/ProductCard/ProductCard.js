@@ -7,7 +7,7 @@ import { productServiceFactory } from "../../../../../services/productService";
 
 import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
-import { StockInfo } from "../../../../reusable/StockInfo/StockInfo"; 
+import { StockInfo } from "../../../../reusable/StockInfo/StockInfo";
 import { Interaction } from "../../../../reusable/Interaction/Interaction";
 import { slugify } from "../../../../../utils/slugify";
 
@@ -39,6 +39,12 @@ export const ProductCard = ({ data }) => {
       });
   }, []);
 
+  const [firstImageIsActive, setFirstImageIsActive] = useState(true);
+
+  const toggleFirstImageIsActiveHandler = () => {
+    setFirstImageIsActive((firstImageIsActive) => !firstImageIsActive);
+  };
+
   return (
     <>
       {product.length > 0 && (
@@ -55,7 +61,7 @@ export const ProductCard = ({ data }) => {
               maxPrice={product[0].max_price}
               isSoldOut={product[0].is_sold_out}
             />
-            <Interaction />
+            <Interaction firstImageIsActive={firstImageIsActive} clickHandler={toggleFirstImageIsActiveHandler}/>
             <div
               onClick={() =>
                 clickHandler(
