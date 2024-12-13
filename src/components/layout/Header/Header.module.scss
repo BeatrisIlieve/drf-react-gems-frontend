@@ -12,7 +12,6 @@
   z-index: 1000;
   background-color: variables.$color-white;
 
-
   &_hidden {
     transform: translateY(-100%);
   }
@@ -23,10 +22,13 @@
 
   &__header {
     margin: auto 2rem 0.1rem 2rem;
-    
   }
 
   &__nav {
     @include flexbox.flexbox($justify: start, $align: end);
+  }
+
+  &__buttons {
+    @include flexbox.flexbox($justify: start, $align: end, $gap: 1.5rem);
   }
 }

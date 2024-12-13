@@ -8,11 +8,7 @@ import { AccountLink } from "./AccountLink/AccountLink";
 import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
 
 import { faHeart, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGem } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Header.module.scss";
-
-
 
 export const Header = () => {
   const wishlistCount = 2;
@@ -49,20 +45,22 @@ export const Header = () => {
     >
       <header className={styles["container__header"]}>
         <nav className={styles["container__nav"]}>
-          <CollectionLink/>
+          <CollectionLink />
           <LogoImage isHidden={isHidden} />
-          <SearchButton />
-          <AccountLink />
-          <QuantityIndicatedLink
-            url={"/wishlist"}
-            icon={faHeart}
-            quantity={wishlistCount}
-          />
-          <QuantityIndicatedLink
-            url={"/shopping-bag"}
-            icon={faShoppingBag}
-            quantity={bagCount}
-          />
+          <div className={styles["container__buttons"]}>
+            <SearchButton />
+            <AccountLink />
+            <QuantityIndicatedLink
+              url={"/wishlist"}
+              icon={faHeart}
+              quantity={wishlistCount}
+            />
+            <QuantityIndicatedLink
+              url={"/shopping-bag"}
+              icon={faShoppingBag}
+              quantity={bagCount}
+            />
+          </div>
         </nav>
       </header>
     </div>
