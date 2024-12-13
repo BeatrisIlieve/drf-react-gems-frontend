@@ -1,5 +1,6 @@
 @use "../../../styles/mixins/flexbox";
 @use "../../../styles/partials/variables";
+@use "../../../styles/mixins/hover";
 
 .available-colors {
   @include flexbox.flexbox($align: center, $gap: 1rem);
@@ -14,6 +15,10 @@
     &_selected {
       box-shadow: 0 0 0 0.08rem variables.$color-light-gray;
       border-radius: 50%;
+    }
+
+    &_not-selected {
+      @include hover.hover();
     }
 
     &__image {

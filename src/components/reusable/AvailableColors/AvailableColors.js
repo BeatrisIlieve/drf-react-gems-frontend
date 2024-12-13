@@ -26,8 +26,8 @@ export const AvailableColors = ({ categoryTitle, colorTitle }) => {
           className={`${styles["available-colors__button"]} ${
             colorTitle === item.color
               ? styles["available-colors__button_selected"]
-              : ""
-          }`.trim()}
+              : styles["available-colors__button_not-selected"]
+          }`}
         >
           <img
             src={item.imgUrl}
