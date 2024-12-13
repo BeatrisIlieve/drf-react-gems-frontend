@@ -20,6 +20,7 @@
 
     &_not-selected {
       @include hover.hover();
+      @include hover.transition();
       cursor: pointer;
     }
 

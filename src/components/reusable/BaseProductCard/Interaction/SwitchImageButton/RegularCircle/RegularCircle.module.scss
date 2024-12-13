@@ -3,6 +3,7 @@
 
 .icon {
   @include circle-icon.circle-icon();
+  @include hover.transition();
   @include hover.hover();
   cursor: pointer;
 }
