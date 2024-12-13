@@ -15,10 +15,12 @@
     &_selected {
       box-shadow: 0 0 0 0.08rem variables.$color-light-gray;
       border-radius: 50%;
+      cursor: default;
     }
 
     &_not-selected {
       @include hover.hover();
+      cursor: pointer;
     }
 
     &__image {

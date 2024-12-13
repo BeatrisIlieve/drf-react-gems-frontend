@@ -20,7 +20,7 @@ export const AvailableColors = ({ categoryTitle, colorTitle }) => {
   return (
     <div className={styles["available-colors"]}>
       {AVAILABLE_COLORS_ITEMS.map((item) => (
-        <button
+        <div
           key={item.id}
           onClick={() => imageClickHandler(item.color)}
           className={`${styles["available-colors__button"]} ${
@@ -34,7 +34,7 @@ export const AvailableColors = ({ categoryTitle, colorTitle }) => {
             alt={item.color}
             className={styles["available-colors__image"]}
           />
-        </button>
+        </div>
       ))}
     </div>
   );
