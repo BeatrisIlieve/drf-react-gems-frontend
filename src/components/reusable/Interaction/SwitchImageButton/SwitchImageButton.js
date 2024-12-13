@@ -7,14 +7,14 @@ import styles from "./SwitchImageButton.module.scss";
 
 export const SwitchImageButton = () => {
   return (
-    <div>
+    <div className={styles["switch-image-button"]}>
       <FontAwesomeIcon
         icon={solidCircle}
-        className={styles["switch-image-button"]}
+        className={styles["switch-image-button__icon"]}
       />
       <FontAwesomeIcon
         icon={regularCircle}
-        className={styles["switch-image-button"]}
+        className={styles["switch-image-button__icon"]}
       />
     </div>
   );
