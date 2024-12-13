@@ -1,4 +1,12 @@
+@use "../../../styles/partials/variables";
+
 .collection {
+  background-image: linear-gradient(
+    to right,
+    variables.$color-very-light-pink,
+    variables.$color-very-light-gray
+  );
+
   &__item {
     display: flex;
   }

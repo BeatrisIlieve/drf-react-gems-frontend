@@ -26,10 +26,10 @@
   }
 
   &__nav {
-    @include flexbox.flexbox($justify: start, $align: end);
+    @include flexbox.flexbox($justify: end, $align: end);
   }
 
   &__buttons {
-    @include flexbox.flexbox($justify: start, $align: end, $gap: 1.5rem);
+    @include flexbox.flexbox($justify: end, $align: end, $gap: 1.5rem);
   }
 }

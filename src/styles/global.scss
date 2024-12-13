@@ -1,4 +1,4 @@
-@use './partials/variables';
+@use "./partials/variables";
 
 html {
   line-height: 1.25;
@@ -69,12 +69,12 @@ input[type="radio"] {
 //   height: 0rem;
 // }
 
-.form-control{
-  border-color: variables.$color-pink;
+.form-control {
   border-color: transparent;
-  border-bottom: 1px solid pink;
-  border-bottom-left-radius:unset;
-  border-bottom-right-radius: 1rem;
+  border-bottom: 0.08rem solid variables.$color-pink;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
 }
 
 .form-control.is-invalid,
@@ -82,19 +82,30 @@ input[type="radio"] {
   background-image: none;
 }
 
+.form-control.is-invalid {
+  border-color: transparent;
+  border-bottom: 0.08rem solid variables.$color-red;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
+}
+
 .form-control:focus {
   color: variables.$color-pink;
-  border-color: variables.$color-pink;
-  box-shadow: 0 0 0 0.25rem variables.$color-light-pink;
   box-shadow: none;
   border-color: transparent;
-  border-bottom: 4px solid pink;
-  border-bottom-left-radius:unset;
+  border-bottom: 0.16rem solid variables.$color-pink;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
 }
 
 .form-control.is-invalid:focus {
-  border-color: variables.$color-red;
-  box-shadow: 0 0 0 0.25rem variables.$color-light-red;
+  border-color: transparent;
+  box-shadow: none;
+  border-bottom: 0.16rem solid variables.$color-red;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
 }
 
 .form-control.is-valid,
@@ -112,4 +123,41 @@ input[type="radio"] {
   display: none !important;
   /* display: none; */
   color: transparent;
+}
+
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mt-5 {
+  margin-top: 0 !important;
+}
+
+.mb-3 {
+  margin: 0 !important;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-control-plaintext {
+  padding: 1.75rem 0 0 0 !important;
+}
+
+.form-floating > label {
+  padding: 0.75rem 0 0 0 !important;
+}
+
+form {
+  font-family: variables.$main-font-family;
+}
+
+.form-floating label {
+  transform: translateY(1.2rem); /* Move label 0.5rem down */
+}
+
+.form-floating input:focus ~ label,
+.form-floating input:not(:placeholder-shown) ~ label {
+  transform: translateY(
+    -1.2rem
+  ); /* Ensure it moves back up when input is active */
 }

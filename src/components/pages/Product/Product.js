@@ -34,7 +34,7 @@ export const Product = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }, [categoryId, colorId]);
 
   return (
 <>

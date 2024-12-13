@@ -7,7 +7,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const AccountLink = () => {
   return (
-    <Link to={"/account"} className={styles["link"]}>
+    <Link to={"/register"} className={styles["link"]}>
       <div>
         <span></span>
       </div>
