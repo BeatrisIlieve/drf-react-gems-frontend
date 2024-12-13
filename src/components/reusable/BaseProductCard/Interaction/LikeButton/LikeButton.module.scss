@@ -1,7 +1,10 @@
 @use "../../../../../styles/partials/variables";
+@use "../../../../../styles/mixins/hover";
 
 .like-button {
+  @include hover.hover();
   color: variables.$color-pink;
   height: 1.375rem;
   width: 1.375rem;
+  cursor: pointer;
 }

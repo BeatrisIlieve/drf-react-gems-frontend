@@ -1,0 +1,6 @@
+@mixin hover() {
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 600ms ease;
+  }
+}

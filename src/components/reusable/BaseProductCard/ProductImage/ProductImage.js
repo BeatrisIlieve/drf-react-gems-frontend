@@ -1,3 +1,5 @@
+import styles from "./ProductImage.module.scss";
+
 export const ProductImage = ({
   categoryTitle,
   colorTitle,
@@ -7,7 +9,10 @@ export const ProductImage = ({
   firstImageIsActive,
 }) => {
   return (
-    <div onClick={() => clickHandler(categoryTitle, colorTitle)}>
+    <div
+      onClick={() => clickHandler(categoryTitle, colorTitle)}
+      className={styles["product-image"]}
+    >
       <img
         src={firstImageIsActive ? firstImageUrl : secondImageUrl}
         alt={`${categoryTitle}-image`}

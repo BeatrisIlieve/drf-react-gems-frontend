@@ -1,11 +1,8 @@
 @use "../../../../../../styles/mixins/circle-icon";
+@use "../../../../../../styles/mixins/hover";
 
 .icon {
   @include circle-icon.circle-icon();
+  @include hover.hover();
   cursor: pointer;
-
-  &:hover {
-    transform: scale(1.2);
-    transition: transform 600ms ease;
-  }
 }
