@@ -1,4 +1,4 @@
-@use "../../../../../styles/mixins/circle-icon";
+@use "../../../../../../styles/mixins/circle-icon";
 
 .icon {
   @include circle-icon.circle-icon();

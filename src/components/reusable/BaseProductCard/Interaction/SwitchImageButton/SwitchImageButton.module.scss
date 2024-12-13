@@ -1,4 +1,4 @@
-@use "../../../../styles/mixins/flexbox";
+@use "../../../../../styles/mixins/flexbox";
 
 .switch-image-button {
   @include flexbox.flexbox($gap: 0.25rem);

@@ -8,27 +8,5 @@
     $align: center
   );
 
-  .card_container__product {
-    @include flexbox.flexbox(
-      $direction: column,
-      $justify: center,
-      $align: center,
-      $gap: 1rem
-    );
-    background-color: variables.$color-white;
-    padding: 0.75rem;
-
-    box-shadow: rgba(50, 50, 93, 0.6) 0px 8px 32px -12px,
-      rgba(0, 0, 0, 0.6) 0px 6px 12px -18px;
-  }
-
-  .card_container__materials {
-    @include flexbox.flexbox($justify: center, $align: flex-end);
-
-    .card_container__metal {
-      color: variables.$color-medium-gray;
-      justify-self: baseline;
-      font-family: variables.$main-font-family;
-    }
-  }
+  
 }
