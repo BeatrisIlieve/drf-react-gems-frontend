@@ -61,7 +61,10 @@ export const ProductCard = ({ data }) => {
               maxPrice={product[0].max_price}
               isSoldOut={product[0].is_sold_out}
             />
-            <Interaction firstImageIsActive={firstImageIsActive} clickHandler={toggleFirstImageIsActiveHandler}/>
+            <Interaction
+              firstImageIsActive={firstImageIsActive}
+              clickHandler={toggleFirstImageIsActiveHandler}
+            />
             <div
               onClick={() =>
                 clickHandler(
@@ -73,7 +76,11 @@ export const ProductCard = ({ data }) => {
             >
               <img
                 className={styles["card_container__image"]}
-                src={product[0].product__first_image_url}
+                src={
+                  firstImageIsActive
+                    ? product[0].product__first_image_url
+                    : product[0].product__second_image_url
+                }
                 alt={`${product[0].full_category_title}-image`}
               />
             </div>

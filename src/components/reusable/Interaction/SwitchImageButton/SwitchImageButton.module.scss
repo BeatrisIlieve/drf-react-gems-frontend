@@ -1,12 +1,5 @@
 @use "../../../../styles/mixins/flexbox";
-@use "../../../../styles/partials/variables";
 
 .switch-image-button {
   @include flexbox.flexbox($gap: 0.25rem);
-
-  &__icon {
-    width: 0.65rem;
-    height: 0.65rem;
-    color: variables.$color-medium-gray;
-  }
 }

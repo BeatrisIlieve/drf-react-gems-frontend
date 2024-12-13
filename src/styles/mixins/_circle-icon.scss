@@ -1,0 +1,7 @@
+@use "../partials/variables";
+
+@mixin circle-icon() {
+  width: 0.65rem;
+  height: 0.65rem;
+  color: variables.$color-medium-gray;
+}
