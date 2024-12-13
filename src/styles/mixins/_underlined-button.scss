@@ -1,6 +1,6 @@
 @use "../partials/variables";
 
-@mixin underlined_button() {
+@mixin underlined-button() {
   all: unset;
   cursor: pointer;
   text-decoration: underline;
