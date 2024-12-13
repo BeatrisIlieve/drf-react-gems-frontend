@@ -3,9 +3,8 @@ import { useState } from "react";
 import { StockInfo } from "./StockInfo/StockInfo";
 import { Interaction } from "./Interaction/Interaction";
 import { ProductImage } from "./ProductImage/ProductImage";
-import { AvailableColors } from "../AvailableColors/AvailableColors";
-import styles from "./BaseProductCard.module.scss";
 
+import styles from "./BaseProductCard.module.scss";
 
 export const BaseProductCard = ({
   minPrice,
@@ -16,7 +15,7 @@ export const BaseProductCard = ({
   firstImageUrl,
   secondImageUrl,
   navigateHandler,
-  children
+  children,
 }) => {
   const [firstImageIsActive, setFirstImageIsActive] = useState(true);
 
@@ -44,13 +43,6 @@ export const BaseProductCard = ({
         firstImageIsActive={firstImageIsActive}
       />
       {children}
-      {/* <div className={styles["base-product__materials"]}>
-        <AvailableColors
-          categoryTitle={categoryTitle}
-          colorTitle={colorTitle}
-        />
-        <span className={styles["base-product__metal"]}>Platinum</span>
-      </div> */}
     </div>
   );
 };

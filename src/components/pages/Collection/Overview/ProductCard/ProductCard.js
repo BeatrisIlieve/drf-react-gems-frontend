@@ -7,8 +7,8 @@ import { productServiceFactory } from "../../../../../services/productService";
 
 import { DiscoverButton } from "./DiscoverButton/DiscoverButton";
 import { BaseProductCard } from "../../../../reusable/BaseProductCard/BaseProductCard";
-import { AvailableColors } from "../../../../reusable/AvailableColors/AvailableColors";
 import { Materials } from "./Materials/Materials";
+
 import { slugify } from "../../../../../utils/slugify";
 
 import styles from "./ProductCard.module.scss";
