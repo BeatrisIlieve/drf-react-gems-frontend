@@ -1,12 +1,15 @@
 @use "../../../../styles/partials/variables";
-
+@use "../../../../styles/mixins/flexbox";
 
 .search-button {
   all: unset;
+  @include flexbox.flexbox($justify: end, $align: center, $gap: 0.2rem);
 
-  span {
-    &.label {
-      color: variables.$color-medium-gray;
-    }
+  &__icon {
+    color: variables.$color-pink;
+  }
+
+  &__label {
+    color: variables.$color-medium-gray;
   }
 }
