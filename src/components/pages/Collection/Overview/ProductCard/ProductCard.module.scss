@@ -1,5 +1,6 @@
 @use "../../../../../styles/partials/variables";
 @use "../../../../../styles/mixins/flexbox";
+@use "../../../../../styles/mixins/hover";
 
 .product-card-container {
   @include flexbox.flexbox(
