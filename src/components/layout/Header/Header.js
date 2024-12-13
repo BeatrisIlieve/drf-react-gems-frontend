@@ -23,11 +23,9 @@ export const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Only hide when scrolled past 6rem (96px) and scrolling down
       if (currentScrollY > 96 && currentScrollY > lastScrollY) {
         setIsHidden(true);
       } else if (currentScrollY < lastScrollY) {
-        // Always show when scrolling up
         setIsHidden(false);
       }
 
