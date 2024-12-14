@@ -4,25 +4,20 @@
 
 .register {
   @include flexbox.flexbox();
-  min-height: calc(100vh - 9rem);
+  min-height: calc(100vh - 10rem);
 
   &__thumbnail {
     margin-top: -0.5rem;
-    height: 100%;
-
-    margin-left: auto;
-  }
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   &__form-container {
     background-color: variables.$color-white;
-    width: calc(360px);
     padding: 2rem 0 0 2rem;
+    margin-right: 5rem;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   &__title {

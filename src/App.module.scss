@@ -7,7 +7,7 @@
   color: variables.$color-gray;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 7rem minmax(calc(100vh - 9rem), auto) 2rem;
+  grid-template-rows: 8rem minmax(calc(100vh - 10rem), auto) 2rem;
   grid-template-areas:
     "header"
     "main"

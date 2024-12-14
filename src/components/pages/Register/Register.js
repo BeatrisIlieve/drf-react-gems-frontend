@@ -4,7 +4,7 @@ import { userCredentialsServiceFactory } from "../../../services/userCredentials
 import { userProfileServiceFactory } from "../../../services/userProfileService";
 import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
 
-import { Button } from "../../reusable/Button/Button"
+import { Button } from "../../reusable/Button/Button";
 
 import { FORM_ITEMS } from "./constants/formItems";
 
@@ -101,7 +101,7 @@ export const Register = () => {
 
   return (
     <section className={styles["register"]}>
-            <div className={styles["register__form-container"]}>
+      <div className={styles["register__form-container"]}>
         <h1 className={styles["register__title"]}>Become a Member</h1>
         <div className="container mt-5">
           <form className={styles["register__form"]} onSubmit={handleSubmit}>
@@ -127,7 +127,7 @@ export const Register = () => {
                 <div className="invalid-feedback">{field.invalidMessage}</div>
               </div>
             ))}
-            <Button label={"Sign Up"} color={"black"}/>
+            <Button label={"Sign Up"} color={"black"} />
           </form>
         </div>
         <div className={styles["register__sign-in"]}>

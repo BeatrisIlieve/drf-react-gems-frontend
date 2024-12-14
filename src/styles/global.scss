@@ -174,16 +174,6 @@ form {
     -1.2rem
   ); /* Ensure it moves back up when input is active */
 }
-
-/* For Webkit-based browsers like Chrome and Safari */
-// input:-webkit-autofill {
-//   appearance: none;
-//   -webkit-box-shadow: 0 0 0 1000px white inset !important; /* Change white to your desired color */
-//   box-shadow: 0 0 0 1000px white inset !important;
-//   -webkit-text-fill-color: inherit !important; /* Keep text color as inherited */
-// }
-
-/* Completely reset autofill styling */
 input:-internal-autofill-selected,
 input:-webkit-autofill {
   background-color: transparent !important; /* Transparent background */
