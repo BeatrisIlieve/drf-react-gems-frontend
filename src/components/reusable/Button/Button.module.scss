@@ -9,6 +9,7 @@
   margin-top: 1.5rem;
   font-family: variables.$medium-font-family;
   font-size: variables.$font-medium;
+  transition: background-color 300ms linear, color 300ms, box-shadow 300ms;
 }
 
 .pink-button {
@@ -22,4 +23,8 @@
 
   background-color: variables.$color-black;
   color: variables.$color-white;
+
+  &:hover {
+    background-color: variables.$color-gray;
+  }
 }
