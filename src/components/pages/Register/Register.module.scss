@@ -9,7 +9,6 @@
   &__thumbnail {
     margin-top: -0.5rem;
     height: 100%;
-    // position: relative;
 
     margin-left: auto;
   }
@@ -21,9 +20,7 @@
   }
 
   &__form-container {
-    // position: absolute;
     background-color: variables.$color-white;
-    // height: calc(100vh - 9rem);
     width: calc(360px);
     padding: 2rem 0 0 2rem;
   }
