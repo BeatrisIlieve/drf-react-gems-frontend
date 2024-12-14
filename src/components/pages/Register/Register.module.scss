@@ -1,13 +1,16 @@
 @use "../../../styles/mixins/flexbox";
 @use "../../../styles/partials/variables";
+@use "../../../styles/mixins/underlined-button";
 
 .register {
-  @include flexbox.flexbox($direction: column);
+  @include flexbox.flexbox();
+  min-height: calc(100vh - 9rem);
 
   &__thumbnail {
     margin-top: -0.5rem;
-    position: relative;
-    height: calc(100vh - 10rem);
+    height: 100%;
+    // position: relative;
+
     margin-left: auto;
   }
 
@@ -18,16 +21,28 @@
   }
 
   &__form-container {
-    position: absolute;
+    // position: absolute;
     background-color: variables.$color-white;
-    padding-left: 2rem;
-    height: calc(100vh - 10rem);
-    width: fit-content;
-    padding: 2rem 0 2rem 2rem;
+    // height: calc(100vh - 9rem);
+    width: calc(360px);
+    padding: 2rem 0 0 2rem;
   }
 
   &__title {
     font-size: variables.$font-xlarge;
     color: variables.$color-black;
+    margin-bottom: 1rem;
+  }
+
+  &__sign-in {
+    @include flexbox.flexbox($justify: space-between);
+
+    margin-top: 1.5rem;
+    font-size: variables.$font-normal;
+    font-family: variables.$main-font-family;
+  }
+
+  &__button {
+    @include underlined-button.underlined_button();
   }
 }

@@ -101,15 +101,8 @@ export const Register = () => {
 
   return (
     <section className={styles["register"]}>
-      <div className={styles["register__thumbnail"]}>
-        <img
-          className={styles["register__image"]}
-          src="https://res.cloudinary.com/deztgvefu/image/upload/v1715634166/template_images/herolarged_ny24_plp-2_bs_necklace_jrpvsh.avif"
-          alt=""
-        />
-      </div>
-      <div className={styles["register__form-container"]}>
-        <h1 className={styles["register__title"]}>Account Registration</h1>
+            <div className={styles["register__form-container"]}>
+        <h1 className={styles["register__title"]}>Become a Member</h1>
         <div className="container mt-5">
           <form className={styles["register__form"]} onSubmit={handleSubmit}>
             {Object.entries(formItems).map(([key, field]) => (
@@ -134,9 +127,20 @@ export const Register = () => {
                 <div className="invalid-feedback">{field.invalidMessage}</div>
               </div>
             ))}
-            <Button label={"Register"} color={"black"}/>
+            <Button label={"Sign Up"} color={"black"}/>
           </form>
         </div>
+        <div className={styles["register__sign-in"]}>
+          <span>Already a member?</span>
+          <span className={styles["register__button"]}>Sign In</span>
+        </div>
+      </div>
+      <div className={styles["register__thumbnail"]}>
+        <img
+          className={styles["register__image"]}
+          src="https://res.cloudinary.com/deztgvefu/image/upload/v1715634166/template_images/herolarged_ny24_plp-2_bs_necklace_jrpvsh.avif"
+          alt=""
+        />
       </div>
     </section>
   );
