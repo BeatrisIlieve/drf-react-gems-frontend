@@ -1,0 +1,17 @@
+@use "../../../styles/partials/variables";
+
+@mixin base-button() {
+  all: unset;
+}
+
+.pink-button {
+  @include base-button;
+
+  color: variables.$color-pink;
+}
+
+.black-button {
+  @include base-button;
+
+  color: variables.$color-black;
+}
