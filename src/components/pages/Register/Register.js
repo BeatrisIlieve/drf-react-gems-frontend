@@ -6,6 +6,8 @@ import { useAuthenticationContext } from "../../../contexts/AuthenticationContex
 
 import { FORM_ITEMS } from "./constants/formItems";
 
+import styles from "./Register.module.scss";
+
 export const Register = () => {
   const { updateAuthentication } = useAuthenticationContext();
   const userCredentialsService = useService(userCredentialsServiceFactory);
@@ -86,8 +88,7 @@ export const Register = () => {
           ["password"]: {
             ...prevFormItems["password"],
             isValid: false,
-            invalidMessage:
-              "The provided password does not match the required constraints",
+            invalidMessage: err["password"][0],
           },
         }));
       } else {
@@ -97,33 +98,44 @@ export const Register = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h1>Account Registration</h1>
-      <form onSubmit={handleSubmit}>
-        {Object.entries(formItems).map(([key, field]) => (
-          <div className="form-floating mb-3" key={key}>
-            <input
-              type={field.type}
-              className={`form-control ${
-                field.isValid === true
-                  ? "is-valid"
-                  : field.isValid === false
-                  ? "is-invalid"
-                  : ""
-              }`.trim()}
-              id={field.id}
-              name={field.name}
-              placeholder={field.placeholder}
-              value={field.userInput}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <label htmlFor="floatingInput">{field.label}</label>
-            <div className="invalid-feedback">{field.invalidMessage}</div>
-          </div>
-        ))}
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <section className={styles["register"]}>
+      <div className={styles["register__thumbnail"]}>
+        <img
+          className={styles["register__image"]}
+          src="https://res.cloudinary.com/deztgvefu/image/upload/v1715634166/template_images/herolarged_ny24_plp-2_bs_necklace_jrpvsh.avif"
+          alt=""
+        />
+      </div>
+      <div className={styles["register__form-container"]}>
+        <h1 className={styles["register__title"]}>Account Registration</h1>
+        <div className="container mt-5">
+          <form onSubmit={handleSubmit}>
+            {Object.entries(formItems).map(([key, field]) => (
+              <div className="form-floating mb-3" key={key}>
+                <input
+                  type={field.type}
+                  className={`form-control ${
+                    field.isValid === true
+                      ? "is-valid"
+                      : field.isValid === false
+                      ? "is-invalid"
+                      : ""
+                  }`.trim()}
+                  id={field.id}
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  value={field.userInput}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <label htmlFor="floatingInput">{field.label}</label>
+                <div className="invalid-feedback">{field.invalidMessage}</div>
+              </div>
+            ))}
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
