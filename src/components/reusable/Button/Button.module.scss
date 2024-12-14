@@ -2,16 +2,24 @@
 
 @mixin base-button() {
   all: unset;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  font-family: variables.$medium-font-family;
+  font-size: variables.$font-medium;
 }
 
 .pink-button {
   @include base-button;
 
-  color: variables.$color-pink;
+  background-color: variables.$color-pink;
 }
 
 .black-button {
   @include base-button;
 
-  color: variables.$color-black;
+  background-color: variables.$color-black;
+  color: variables.$color-white;
 }

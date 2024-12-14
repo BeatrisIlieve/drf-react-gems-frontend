@@ -4,6 +4,8 @@ import { userCredentialsServiceFactory } from "../../../services/userCredentials
 import { userProfileServiceFactory } from "../../../services/userProfileService";
 import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
 
+import { Button } from "../../reusable/Button/Button"
+
 import { FORM_ITEMS } from "./constants/formItems";
 
 import styles from "./Register.module.scss";
@@ -109,7 +111,7 @@ export const Register = () => {
       <div className={styles["register__form-container"]}>
         <h1 className={styles["register__title"]}>Account Registration</h1>
         <div className="container mt-5">
-          <form onSubmit={handleSubmit}>
+          <form className={styles["register__form"]} onSubmit={handleSubmit}>
             {Object.entries(formItems).map(([key, field]) => (
               <div className="form-floating mb-3" key={key}>
                 <input
@@ -132,7 +134,7 @@ export const Register = () => {
                 <div className="invalid-feedback">{field.invalidMessage}</div>
               </div>
             ))}
-            <button type="submit">Submit</button>
+            <Button label={"Register"} color={"black"}/>
           </form>
         </div>
       </div>
