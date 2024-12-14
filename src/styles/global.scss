@@ -102,7 +102,7 @@ input[type="radio"] {
 .form-control.is-invalid:focus {
   border-color: transparent;
   box-shadow: none;
-  border-bottom: 0.16rem solid variables.$color-red;
+  border-bottom: 0.14rem solid variables.$color-red;
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
@@ -110,19 +110,28 @@ input[type="radio"] {
 
 .form-control.is-valid,
 .was-validated .form-control:valid {
-  border-color: variables.$color-pink;
+  border-color: transparent;
+  border-bottom: 0.08rem solid variables.$color-pink;
   background-image: none;
 }
 
 .form-control.is-valid:focus {
-  border-color: variables.$color-pink;
-  box-shadow: 0 0 0 0.25rem variables.$color-light-pink;
+  border-color: transparent;
+  box-shadow: none;
+  border-bottom: 0.14rem solid variables.$color-pink;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
 }
 
 .valid-feedback {
   display: none !important;
   /* display: none; */
   color: transparent;
+}
+
+.invalid-feedback {
+  color: variables.$color-red;
 }
 
 .container {
@@ -136,6 +145,7 @@ input[type="radio"] {
 
 .mb-3 {
   margin: 0 !important;
+  padding-bottom: 0.5rem !important;
 }
 
 .form-floating > .form-control,
@@ -160,4 +170,8 @@ form {
   transform: translateY(
     -1.2rem
   ); /* Ensure it moves back up when input is active */
+}
+
+.form-floating mb-3 {
+ 
 }
