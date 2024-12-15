@@ -6,6 +6,7 @@ import { Form } from "../reusable/Form";
 export const EmailForm = () => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [isValid, setIsValid] = useState(true);
 
@@ -19,15 +20,19 @@ export const EmailForm = () => {
     const { value } = e.target;
 
     setIsValid(value.length > 0);
+
+    setErrorMessage("Please enter your email.");
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
-      await userCredentialsService.checkEmailExists(email);
+      const data = { email };
+      await userCredentialsService.emailCheck(data);
     } catch (err) {
-      console.log(err);
+      setErrorMessage(err["email"]);
+      setIsValid(false);
     }
   };
 
@@ -42,7 +47,7 @@ export const EmailForm = () => {
     >
       <div className="form-floating mb-3">
         <input
-          type="text"
+          type="email"
           className={`form-control ${
             isValid === true
               ? "is-valid"
@@ -58,7 +63,7 @@ export const EmailForm = () => {
           onBlur={handleBlur}
         />
         <label htmlFor="floatingInput">Email *</label>
-        <div className="invalid-feedback">Please enter your email.</div>
+        <div className="invalid-feedback">{errorMessage}</div>
       </div>
     </Form>
   );
