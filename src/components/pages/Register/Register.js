@@ -4,20 +4,22 @@ import { userCredentialsServiceFactory } from "../../../services/userCredentials
 import { userProfileServiceFactory } from "../../../services/userProfileService";
 import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
 import { EmailForm } from "./EmailForm/EmailForm";
+import { DetailsForm } from "./DetailsForm/DetailsForm";
 
-import { FORM_ITEMS } from "./constants/formItems";
 
 import styles from "./Register.module.scss";
 
 export const Register = () => {
-  const { updateAuthentication } = useAuthenticationContext();
-  const userCredentialsService = useService(userCredentialsServiceFactory);
-  const userProfileService = useService(userProfileServiceFactory);
-
   const [emailFilled, setEmailFilled] = useState(false);
 
   const updateEmailFilled = (value) => {
     setEmailFilled(value);
+  };
+
+  const [emailAlreadyRegistered, setEmailAlreadyRegistered] = useState(false);
+
+  const updateEmailAlreadyRegistered = (value) => {
+    setEmailAlreadyRegistered(value);
   };
 
   const [detailsFilled, setDetailsFilled] = useState(false);
@@ -32,93 +34,15 @@ export const Register = () => {
     setPasswordFilled(value);
   };
 
-  const [formItems, setFormItems] = useState(FORM_ITEMS);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormItems((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: {
-        ...prevFormItems[name],
-        userInput: value,
-      },
-    }));
-  };
-
-  const handleBlur = (e) => {
-    const { name, value } = e.target;
-
-    setFormItems((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: {
-        ...prevFormItems[name],
-        isValid: new RegExp(prevFormItems[name].pattern).test(value),
-      },
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const email = formItems.email.userInput;
-      const password = formItems.password.userInput;
-
-      const registerCredentials = {
-        email,
-        password,
-      };
-
-      await userCredentialsService.register(registerCredentials);
-
-      const firstName = formItems.firstName.userInput;
-      const lastName = formItems.lastName.userInput;
-
-      const profileDetails = {
-        first_name: firstName,
-        last_name: lastName,
-      };
-
-      await userProfileService.create(profileDetails);
-
-      const loginCredentials = {
-        username: email,
-        password,
-      };
-
-      const loginResult = await userCredentialsService.login(loginCredentials);
-      updateAuthentication(loginResult);
-    } catch (err) {
-      if ("email" in err) {
-        setFormItems((prevFormItems) => ({
-          ...prevFormItems,
-          ["email"]: {
-            ...prevFormItems["email"],
-            isValid: false,
-            invalidMessage: err["email"],
-          },
-        }));
-      }
-
-      if ("password" in err) {
-        setFormItems((prevFormItems) => ({
-          ...prevFormItems,
-          ["password"]: {
-            ...prevFormItems["password"],
-            isValid: false,
-            invalidMessage: err["password"][0],
-          },
-        }));
-      } else {
-        console.log(err);
-      }
-    }
-  };
+  const displayDetailsForm = !emailAlreadyRegistered && emailFilled;
 
   return (
     <section className={styles["register"]}>
-      <EmailForm updateEmailFilled={updateEmailFilled}/>
+      <EmailForm
+        updateEmailFilled={updateEmailFilled}
+        updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
+      />
+      {displayDetailsForm && <DetailsForm email={email} />}
       <div className={styles["register__thumbnail"]}>
         <img
           className={styles["register__image"]}
