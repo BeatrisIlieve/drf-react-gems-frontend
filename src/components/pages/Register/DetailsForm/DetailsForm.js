@@ -1,120 +1,98 @@
 import { useState, useEffect } from "react";
-import { useService } from "../../../hooks/useService";
-import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
-import { userProfileServiceFactory } from "../../../../services/userProfileService";
-import { useAuthenticationContext } from "../../../../contexts/AuthenticationContext";
-
-import { FORM_ITEMS } from "./constants/formItems";
+import { useService } from "../../../../hooks/useService";
+import { userShippingDetailsServiceFactory } from "../../../../services/userShippingDetailsService";
 import { Form } from "../reusable/Form";
+import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
+export const DetailsForm = ({
+  email,
+  updateFirstNameFilled,
+  updateFirstName,
+}) => {
 
-export const DetailsForm = ({ email }) => {
-  const { updateAuthentication } = useAuthenticationContext();
-  const userCredentialsService = useService(userCredentialsServiceFactory);
-  const userProfileService = useService(userProfileServiceFactory);
 
-  const [formItems, setFormItems] = useState(FORM_ITEMS);
+  const userShippingDetailsService = useService(
+    userShippingDetailsServiceFactory
+  );
+  const [firstName, setFirstName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [isValid, setIsValid] = useState(true);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
 
-    setFormItems((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: {
-        ...prevFormItems[name],
-        userInput: value,
-      },
-    }));
+    setFirstName(value);
   };
 
   const handleBlur = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
 
-    setFormItems((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: {
-        ...prevFormItems[name],
-        isValid: new RegExp(prevFormItems[name].pattern).test(value),
-      },
-    }));
+    setIsValid(new RegExp(
+        "(^[A-Za-z]{1,255}$)|(^[A-Za-z]{1,}[s-]{1}[A-Za-z]{1,253}$)"
+      ).test(value));
+
+    if (!isValid) {
+      setErrorMessage("Please enter a valid first name.");
+    }
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    const { value } = e.target;
+
     try {
-      const password = formItems.password.userInput;
+      //   const data = { first_name: firstName };
 
-      const registerCredentials = {
-        email,
-        password,
-      };
+      //   await userShippingDetailsService.create(data);
 
-      await userCredentialsService.register(registerCredentials);
+      //   updateFirstNameFilled(true);
+      //   updateFirstName(firstName);
+      
+      setIsValid(new RegExp(
+        "(^[A-Za-z]{1,255}$)|(^[A-Za-z]{1,}[s-]{1}[A-Za-z]{1,253}$)"
+      ).test(value));
 
-      const firstName = formItems.firstName.userInput;
-      const lastName = formItems.lastName.userInput;
-
-      const profileDetails = {
-        first_name: firstName,
-        last_name: lastName,
-      };
-
-      await userProfileService.create(profileDetails);
-
-      const loginCredentials = {
-        username: email,
-        password,
-      };
-
-      const loginResult = await userCredentialsService.login(loginCredentials);
-      updateAuthentication(loginResult);
-    } catch (err) {
-      if ("password" in err) {
-        setFormItems((prevFormItems) => ({
-          ...prevFormItems,
-          ["password"]: {
-            ...prevFormItems["password"],
-            isValid: false,
-            invalidMessage: err["password"][0],
-          },
-        }));
+      if (!isValid) {
+        setErrorMessage("Please enter a valid first name.");
       } else {
-        console.log(err);
+        updateFirstNameFilled(true);
+        updateFirstName(firstName);
       }
+    } catch (err) {
+      console.log(err);
+
+      //   setIsValid(false);
     }
   };
 
   return (
     <Form
       formTitle={"Welcome!"}
-      formParagraph={
-        "Create an account."
-      }
+      formParagraph={"Create an account."}
       buttonLabel={"Create account"}
       submitHandler={submitHandler}
     >
-      {Object.entries(formItems).map(([key, field]) => (
-        <div className="form-floating mb-3" key={key}>
-          <input
-            type={field.type}
-            className={`form-control ${
-              field.isValid === true
-                ? "is-valid"
-                : field.isValid === false
-                ? "is-invalid"
-                : ""
-            }`.trim()}
-            id={field.id}
-            name={field.name}
-            placeholder={field.placeholder}
-            value={field.userInput}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          <label htmlFor="floatingInput">{field.label}</label>
-          <div className="invalid-feedback">{field.invalidMessage}</div>
-        </div>
-      ))}
+      <div className="form-floating mb-3">
+        <input
+          type="text"
+          className={`form-control ${
+            isValid === true
+              ? "is-valid"
+              : isValid === false
+              ? "is-invalid"
+              : ""
+          }`.trim()}
+          id="firstName"
+          name="firstName"
+          placeholder="First Name *"
+          value={firstName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        <label htmlFor="floatingInput">First Name *</label>
+        <div className="invalid-feedback">{errorMessage}</div>
+      </div>
     </Form>
   );
 };

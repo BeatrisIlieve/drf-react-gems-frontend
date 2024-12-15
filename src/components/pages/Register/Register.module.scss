@@ -5,10 +5,9 @@
 
 .register {
   @include flexbox.flexbox($justify:flex-start, $align: flex-start);
-  min-height: calc(100vh - 10rem);
+  height: calc(100vh - 10rem);
 
   &__thumbnail {
-    margin-top: -0.5rem;
     margin-top: auto;
     margin-bottom: auto;
     // width: 100%;

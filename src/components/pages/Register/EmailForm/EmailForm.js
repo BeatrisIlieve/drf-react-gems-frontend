@@ -6,6 +6,7 @@ import { Form } from "../reusable/Form";
 export const EmailForm = ({
   updateEmailFilled,
   updateEmailAlreadyRegistered,
+  updateEmail,
 }) => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
   const [email, setEmail] = useState("");
@@ -35,11 +36,12 @@ export const EmailForm = ({
 
       const result = await userCredentialsService.emailCheck(data);
 
-      if ("success" in result) {
+      if ("registered" in result) {
         updateEmailAlreadyRegistered(true);
       }
 
       updateEmailFilled(true);
+      updateEmail(email);
     } catch (err) {
       setErrorMessage(err["email"]);
 
