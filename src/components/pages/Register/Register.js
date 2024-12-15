@@ -14,6 +14,24 @@ export const Register = () => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
   const userProfileService = useService(userProfileServiceFactory);
 
+  const [emailFilled, setEmailFilled] = useState(false);
+
+  const updateEmailFilled = (value) => {
+    setEmailFilled(value);
+  };
+
+  const [detailsFilled, setDetailsFilled] = useState(false);
+
+  const updateDetailsFilled = (value) => {
+    setDetailsFilled(value);
+  };
+
+  const [passwordFilled, setPasswordFilled] = useState(false);
+
+  const updatePasswordFilled = (value) => {
+    setPasswordFilled(value);
+  };
+
   const [formItems, setFormItems] = useState(FORM_ITEMS);
 
   const handleChange = (e) => {
@@ -100,7 +118,7 @@ export const Register = () => {
 
   return (
     <section className={styles["register"]}>
-      <EmailForm />
+      <EmailForm updateEmailFilled={updateEmailFilled}/>
       <div className={styles["register__thumbnail"]}>
         <img
           className={styles["register__image"]}

@@ -3,7 +3,10 @@ import { useService } from "../../../../hooks/useService";
 import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
 import { Form } from "../reusable/Form";
 
-export const EmailForm = () => {
+export const EmailForm = ({
+  updateEmailFilled,
+  updateEmailAlreadyRegistered,
+}) => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,9 +32,17 @@ export const EmailForm = () => {
 
     try {
       const data = { email };
-      await userCredentialsService.emailCheck(data);
+
+      const result = await userCredentialsService.emailCheck(data);
+
+      if ("success" in result) {
+        updateEmailAlreadyRegistered(true);
+      }
+
+      updateEmailFilled(true);
     } catch (err) {
       setErrorMessage(err["email"]);
+
       setIsValid(false);
     }
   };
