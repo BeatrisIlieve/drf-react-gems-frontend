@@ -38,6 +38,21 @@ export const PasswordForm = ({ email, firstName }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    if (!password) {
+      setIsValid(false);
+      setErrorMessage("Please create a password.");
+
+      return;
+    }
+
+    setIsValid(password.length >= 8);
+
+    if (!isValid) {
+      setErrorMessage("Password must be at least 8 characters long.");
+
+      return;
+    }
+
     try {
       const registerCredentials = {
         email,
@@ -57,6 +72,7 @@ export const PasswordForm = ({ email, firstName }) => {
       updateAuthentication(loginResult);
     } catch (err) {
       if ("password" in err) {
+        setIsValid(false);
         setErrorMessage(err["password"][0]);
       } else {
         console.log(err);
