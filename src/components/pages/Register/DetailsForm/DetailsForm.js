@@ -17,6 +17,8 @@ export const DetailsForm = ({ updateFirstNameFilled, updateFirstName }) => {
     if (!firstName) {
       setIsValid(false);
       setErrorMessage("Please enter you first name.");
+
+      return
     }
 
     setIsValid(
