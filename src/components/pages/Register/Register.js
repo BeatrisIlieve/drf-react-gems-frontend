@@ -3,9 +3,7 @@ import { useService } from "../../../hooks/useService";
 import { userCredentialsServiceFactory } from "../../../services/userCredentialsService";
 import { userProfileServiceFactory } from "../../../services/userProfileService";
 import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
-import { EmailExists } from "./EmailExists/EmailExists";
-
-import { Button } from "../../reusable/Button/Button";
+import { EmailForm } from "./EmailForm/EmailForm";
 
 import { FORM_ITEMS } from "./constants/formItems";
 
@@ -102,15 +100,7 @@ export const Register = () => {
 
   return (
     <section className={styles["register"]}>
-      {/* <div className={styles["register__form-container"]}>
-        <h1 className={styles["register__title"]}>Goog Day!</h1>
-        <p>Fill in your e-mail address to log in or create an account.</p>
-        <div className="container mt-5">
-          <form className={styles["register__form"]} onSubmit={handleSubmit}> */}
-            <EmailExists />
-          {/* </form>
-        </div>
-      </div> */}
+      <EmailForm />
       <div className={styles["register__thumbnail"]}>
         <img
           className={styles["register__image"]}

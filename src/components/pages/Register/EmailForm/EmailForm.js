@@ -3,7 +3,7 @@ import { useService } from "../../../../hooks/useService";
 import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
 import { Form } from "../reusable/Form";
 
-export const EmailExists = () => {
+export const EmailForm = () => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
   const [email, setEmail] = useState("");
 
