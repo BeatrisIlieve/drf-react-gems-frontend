@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useService } from "../../../../hooks/useService";
-import { userShippingDetailsServiceFactory } from "../../../../services/userShippingDetailsService";
+
 import { Form } from "../reusable/Form";
 import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
 import { useAuthenticationContext } from "../../../../contexts/AuthenticationContext";
@@ -8,10 +8,8 @@ import { useAuthenticationContext } from "../../../../contexts/AuthenticationCon
 export const PasswordForm = ({ email, firstName }) => {
   const { updateAuthentication } = useAuthenticationContext();
   const userCredentialsService = useService(userCredentialsServiceFactory);
-  const userShippingDetailsService = useService(
-    userShippingDetailsServiceFactory
-  );
-  const [password, setPassword] = useState("");
+
+  const [password, setPassword] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [isValid, setIsValid] = useState(true);
@@ -22,10 +20,15 @@ export const PasswordForm = ({ email, firstName }) => {
     setPassword(value);
   };
 
-  const handleBlur = (e) => {
-    const { value } = e.target;
+  const handleBlur = () => {
+    if (!password) {
+      setIsValid(false);
+      setErrorMessage("Please create a password.");
 
-    setIsValid(value.length >= 8);
+      return;
+    }
+
+    setIsValid(password.length >= 8);
 
     if (!isValid) {
       setErrorMessage("Password must be at least 8 characters long.");
@@ -39,17 +42,10 @@ export const PasswordForm = ({ email, firstName }) => {
       const registerCredentials = {
         email,
         password,
-        first_name: firstName
+        first_name: firstName,
       };
 
       await userCredentialsService.register(registerCredentials);
-
-
-      // const userShippingDetails = {
-      //   first_name: firstName,
-      // };
-
-      // await userShippingDetailsService.create(userShippingDetails);
 
       const loginCredentials = {
         username: email,
@@ -57,20 +53,11 @@ export const PasswordForm = ({ email, firstName }) => {
       };
 
       const loginResult = await userCredentialsService.login(loginCredentials);
+
       updateAuthentication(loginResult);
-
-
     } catch (err) {
       if ("password" in err) {
         setErrorMessage(err["password"][0]);
-        // setFormItems((prevFormItems) => ({
-        //   ...prevFormItems,
-        //   ["password"]: {
-        //     ...prevFormItems["password"],
-        //     isValid: false,
-        //     invalidMessage: err["password"][0],
-        //   },
-        // }));
       } else {
         console.log(err);
       }
