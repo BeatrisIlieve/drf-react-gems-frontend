@@ -9,18 +9,18 @@
 
   &__thumbnail {
     margin-top: -0.5rem;
-    // margin-top: auto;
-    // margin-bottom: auto;
-    // width: 100%;
-    // height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: 100%;
   }
 
   &__form-container {
     background-color: variables.$color-white;
     padding: 2rem 0 0 2rem;
-    margin-right: 1rem;
-    // margin-top: auto;
-    // margin-bottom: auto;
+    margin-right: 5rem;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   &__title {

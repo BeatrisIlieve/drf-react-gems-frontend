@@ -1,0 +1,17 @@
+@use "../../../../styles/partials/variables";
+
+.form-container {
+    background-color: variables.$color-white;
+    padding: 2rem 0 0 2rem;
+    margin-right: 5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &__title {
+        font-size: variables.$font-xlarge;
+        color: variables.$color-black;
+        margin-bottom: 1rem;
+      }
+  }
+
+
