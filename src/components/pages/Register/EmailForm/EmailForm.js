@@ -9,7 +9,7 @@ export const EmailForm = ({
   updateEmail,
 }) => {
   const userCredentialsService = useService(userCredentialsServiceFactory);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [isValid, setIsValid] = useState(true);
@@ -20,16 +20,22 @@ export const EmailForm = ({
     setEmail(value);
   };
 
-  const handleBlur = (e) => {
-    const { value } = e.target;
-
-    setIsValid(value.length > 0);
-
-    setErrorMessage("Please enter your email.");
+  const handleBlur = () => {
+    if (!email) {
+      setIsValid(false);
+      setErrorMessage("Please enter your email.");
+    }
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    if (!email) {
+      setIsValid(false);
+      setErrorMessage("Please enter your email.");
+
+      return;
+    }
 
     try {
       const data = { email };
