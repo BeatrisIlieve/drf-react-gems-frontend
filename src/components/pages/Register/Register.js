@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-import { useService } from "../../../hooks/useService";
-import { userCredentialsServiceFactory } from "../../../services/userCredentialsService";
-import { userProfileServiceFactory } from "../../../services/userProfileService";
-import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
+import { useState } from "react";
+
 import { EmailForm } from "./EmailForm/EmailForm";
 import { DetailsForm } from "./DetailsForm/DetailsForm";
 import { PasswordForm } from "./PasswordForm/PasswordForm";
@@ -38,12 +35,6 @@ export const Register = () => {
 
   const updateFirstName = (value) => {
     setFirstName(value);
-  };
-
-  const [passwordFilled, setPasswordFilled] = useState(false);
-
-  const updatePasswordFilled = (value) => {
-    setPasswordFilled(value);
   };
 
   const displayEmailForm = !emailFilled;
