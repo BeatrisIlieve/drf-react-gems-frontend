@@ -1,19 +1,8 @@
-import { useState, useEffect } from "react";
-import { useService } from "../../../../hooks/useService";
-import { userShippingDetailsServiceFactory } from "../../../../services/userShippingDetailsService";
+import { useState } from "react";
 import { Form } from "../reusable/Form";
-import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
-export const DetailsForm = ({
-  email,
-  updateFirstNameFilled,
-  updateFirstName,
-}) => {
 
-
-  const userShippingDetailsService = useService(
-    userShippingDetailsServiceFactory
-  );
-  const [firstName, setFirstName] = useState("");
+export const DetailsForm = ({ updateFirstNameFilled, updateFirstName }) => {
+  const [firstName, setFirstName] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [isValid, setIsValid] = useState(true);
@@ -24,12 +13,17 @@ export const DetailsForm = ({
     setFirstName(value);
   };
 
-  const handleBlur = (e) => {
-    const { value } = e.target;
+  const handleBlur = () => {
+    if (!firstName) {
+      setIsValid(false);
+      setErrorMessage("Please enter you first name.");
+    }
 
-    setIsValid(new RegExp(
+    setIsValid(
+      new RegExp(
         "(^[A-Za-z]{1,255}$)|(^[A-Za-z]{1,}[s-]{1}[A-Za-z]{1,253}$)"
-      ).test(value));
+      ).test(firstName)
+    );
 
     if (!isValid) {
       setErrorMessage("Please enter a valid first name.");
@@ -39,31 +33,27 @@ export const DetailsForm = ({
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const { value } = e.target;
+    if (!firstName) {
+      setIsValid(false);
+      setErrorMessage("Please enter you first name.");
 
-    try {
-      //   const data = { first_name: firstName };
-
-      //   await userShippingDetailsService.create(data);
-
-      //   updateFirstNameFilled(true);
-      //   updateFirstName(firstName);
-      
-      setIsValid(new RegExp(
-        "(^[A-Za-z]{1,255}$)|(^[A-Za-z]{1,}[s-]{1}[A-Za-z]{1,253}$)"
-      ).test(value));
-
-      if (!isValid) {
-        setErrorMessage("Please enter a valid first name.");
-      } else {
-        updateFirstNameFilled(true);
-        updateFirstName(firstName);
-      }
-    } catch (err) {
-      console.log(err);
-
-      //   setIsValid(false);
+      return;
     }
+
+    setIsValid(
+      new RegExp(
+        "(^[A-Za-z]{1,255}$)|(^[A-Za-z]{1,}[s-]{1}[A-Za-z]{1,253}$)"
+      ).test(firstName)
+    );
+
+    if (!isValid) {
+      setErrorMessage("Please enter a valid first name.");
+
+      return;
+    }
+
+    updateFirstNameFilled(true);
+    updateFirstName(firstName);
   };
 
   return (
