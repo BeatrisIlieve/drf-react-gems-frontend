@@ -61,7 +61,7 @@ export const FirstNameForm = ({ updateFirstNameFilled, updateFirstName }) => {
   return (
     <Form
       formTitle={"Welcome!"}
-      formParagraph={"Share your name to help us tailor a personalized shopping experience for you"}
+      formParagraph={"Share your name to help us tailor a personalized shopping experience"}
       buttonLabel={"Continue"}
       submitHandler={submitHandler}
     >

@@ -195,6 +195,6 @@ input:-internal-autofill-selected:active {
 .container-sm,
 .container-xl,
 .container-xxl {
-  max-width: calc(360px - 2rem) !important;
-  min-width: calc(360px - 2rem) !important;
+  // max-width: calc(360px - 2rem) !important;
+  // min-width: calc(360px - 2rem) !important;
 }

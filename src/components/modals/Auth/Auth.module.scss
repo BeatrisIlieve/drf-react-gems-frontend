@@ -1,3 +1,5 @@
+@use "../../../styles/partials/variables";
+
 .overlay {
   position: fixed;
   top: 0;
@@ -13,14 +15,14 @@
 }
 
 .modal {
-  background-color: var(--white);
+  background-color: variables.$color-white;
   position: relative;
   transition: opacity 1s ease, transform 1s ease;
-  padding: 20px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   width: 320px;
 }
 
