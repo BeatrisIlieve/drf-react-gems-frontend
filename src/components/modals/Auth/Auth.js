@@ -57,41 +57,41 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
     !emailAlreadyRegistered && emailFilled && !displayPasswordForm;
 
   return (
-    <>
-      <section
-        className={`${styles["overlay"]}  ${
-          displayAuthModal ? styles["transition-in"] : styles["transition-out"]
+    <section
+      className={`${styles["overlay"]}  ${
+        displayAuthModal
+          ? styles["overlay_transition-in"]
+          : styles["overlay_transition-out"]
+      }`}
+    >
+      <CursorImageEffect />
+      <div
+        ref={popupRef}
+        className={`${styles["overlay__modal"]}  ${
+          movePopup ? styles["slide-out"] : styles["slide-in"]
         }`}
       >
-        <CursorImageEffect />
-        <div
-          ref={popupRef}
-          className={`${styles["overlay__modal"]}  ${
-            movePopup ? styles["slide-out"] : styles["slide-in"]
-          }`}
-        >
-          <XMark callbackFunction={closeAuthModalClickHandler} />
+        <XMark callbackFunction={closeAuthModalClickHandler} />
 
-          {displayEmailForm && (
-            <EmailForm
-              updateEmailFilled={updateEmailFilled}
-              updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
-              updateEmail={updateEmail}
-            />
-          )}
+        {displayEmailForm && (
+          <EmailForm
+            updateEmailFilled={updateEmailFilled}
+            updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
+            updateEmail={updateEmail}
+          />
+        )}
 
-          {displayFirstNameForm && (
-            <FirstNameForm
-              email={email}
-              updateFirstNameFilled={updateFirstNameFilled}
-              updateFirstName={updateFirstName}
-            />
-          )}
-          {displayPasswordForm && (
-            <PasswordForm email={email} firstName={firstName} />
-          )}
-        </div>
-      </section>
-    </>
+        {displayFirstNameForm && (
+          <FirstNameForm
+            email={email}
+            updateFirstNameFilled={updateFirstNameFilled}
+            updateFirstName={updateFirstName}
+          />
+        )}
+        {displayPasswordForm && (
+          <PasswordForm email={email} firstName={firstName} />
+        )}
+      </div>
+    </section>
   );
 };

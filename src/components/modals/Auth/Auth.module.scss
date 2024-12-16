@@ -13,6 +13,14 @@
   display: flex;
   transition: opacity 1s ease, transform 1s ease;
 
+  &_transition-in {
+    animation: transitionIn 1s forwards;
+  }
+  
+  &_transition-out {
+    animation: transitionOut 1s forwards;
+  }
+
   &__modal {
     background-color: variables.$color-white;
     position: relative;
@@ -55,13 +63,7 @@
   }
 }
 
-.transition-in {
-  animation: transitionIn 1s forwards;
-}
 
-.transition-out {
-  animation: transitionOut 1s forwards;
-}
 
 @keyframes transitionIn {
   from {
