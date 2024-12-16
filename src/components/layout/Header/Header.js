@@ -44,10 +44,10 @@ export const Header = () => {
   const [displayAuthModal, setDisplayAuthModal] = useState(false);
 
   const userIconClickHandler = () => {
-    if (isAuthenticated) {
+    // if (isAuthenticated) {
       navigate("/account");
-    }
-    setDisplayAuthModal(true);
+    // }
+    // setDisplayAuthModal(true);
   };
 
   const closeAuthModalClickHandler = () => {
