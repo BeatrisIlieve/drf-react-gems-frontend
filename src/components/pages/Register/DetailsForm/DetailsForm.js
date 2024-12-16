@@ -18,7 +18,7 @@ export const DetailsForm = ({ updateFirstNameFilled, updateFirstName }) => {
       setIsValid(false);
       setErrorMessage("Please enter you first name.");
 
-      return
+      return;
     }
 
     setIsValid(
@@ -61,7 +61,9 @@ export const DetailsForm = ({ updateFirstNameFilled, updateFirstName }) => {
   return (
     <Form
       formTitle={"Welcome!"}
-      formParagraph={"Share your name to help us tailor a personalized shopping experience for you"}
+      formParagraph={
+        "Share your name to help us tailor a personalized shopping experience for you"
+      }
       buttonLabel={"Continue"}
       submitHandler={submitHandler}
     >

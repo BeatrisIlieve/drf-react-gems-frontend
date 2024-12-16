@@ -24,7 +24,13 @@
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   width: 320px;
+
+  pointer-events: auto;
+  z-index: 99999;
+  overflow-y: auto;
 }
+
+
 
 .slide-in {
   animation: slideInTop 1s forwards;

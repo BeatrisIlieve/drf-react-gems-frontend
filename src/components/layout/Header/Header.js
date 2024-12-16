@@ -41,17 +41,22 @@ export const Header = () => {
   const isAuthenticated = false;
   const [displayAuthModal, setDisplayAuthModal] = useState(false);
 
-  const accountButtonClickHandler = () => {
-    if (!isAuthenticated) {
-      setDisplayAuthModal(true);
-    } else {
-      setDisplayAuthModal(false);
-    }
+  const openAuthModalClickHandler = () => {
+    setDisplayAuthModal(true);
+  };
+
+  const closeAuthModalClickHandler = () => {
+    setDisplayAuthModal(false);
   };
 
   return (
     <>
-      {displayAuthModal && <Auth />}
+      {displayAuthModal && (
+        <Auth
+          closeAuthModalClickHandler={closeAuthModalClickHandler}
+          displayAuthModal={displayAuthModal}
+        />
+      )}
       <div
         className={`${styles["container"]} ${
           isHidden ? styles["container_hidden"] : styles["container_visible"]
@@ -65,7 +70,7 @@ export const Header = () => {
             <div className={styles["container__buttons"]}>
               <SearchButton />
               <AccountButton
-                accountButtonClickHandler={accountButtonClickHandler}
+                openAuthModalClickHandler={openAuthModalClickHandler}
               />
               <QuantityIndicatedLink
                 url={"/wishlist"}

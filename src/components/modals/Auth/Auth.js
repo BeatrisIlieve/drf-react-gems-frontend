@@ -3,9 +3,18 @@ import { useState } from "react";
 import { FirstNameForm } from "./FirstNameForm/FirstNameForm";
 import { EmailForm } from "./EmailForm/EmailForm";
 import { PasswordForm } from "./PasswordForm/PasswordForm";
-
+import { CursorImageEffect } from "../utils/CursorImageEffect/CursorImageEffect";
+import { XMark } from "../utils/XMark/XMark";
 import styles from "./Auth.module.scss";
-export const Auth = () => {
+import { usePopup } from "../../../hooks/usePopup";
+export const Auth = ({
+  displayAuthModal,
+  closeAuthModalClickHandler,
+}) => {
+  const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
+    closeAuthModalClickHandler,
+    displayAuthModal,
+  });
   const movePopup = false;
 
   const [emailFilled, setEmailFilled] = useState(false);
@@ -44,18 +53,23 @@ export const Auth = () => {
 
   const displayFirstNameForm =
     !emailAlreadyRegistered && emailFilled && !displayPasswordForm;
-    
+
   return (
+    <>
+
     <section
       className={`${styles["overlay"]}  ${
         movePopup ? styles["transition-out"] : styles["transition-in"]
       }`}
     >
+            <CursorImageEffect />
       <div
+        ref={popupRef}
         className={`${styles["modal"]}  ${
           movePopup ? styles["slide-out"] : styles["slide-in"]
         }`}
       >
+        <XMark callbackFunction={closeAuthModalClickHandler} />
         {displayEmailForm && (
           <EmailForm
             updateEmailFilled={updateEmailFilled}
@@ -75,5 +89,6 @@ export const Auth = () => {
         )}
       </div>
     </section>
+    </>
   );
 };

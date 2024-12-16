@@ -15,7 +15,6 @@
   }
 
   &__paragraph {
-    // font-family: variables.$main-font-family;
     color: variables.$color-medium-gray;
     font-size: variables.$font-medium;
     margin-bottom: 3rem;
@@ -25,6 +24,4 @@
   &__children {
     margin-bottom: 4rem;
   }
-
-
 }
