@@ -68,7 +68,7 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
       <div
         ref={popupRef}
         className={`${styles["overlay__modal"]}  ${
-          movePopup ? styles["slide-out"] : styles["slide-in"]
+          movePopup ? styles["overlay_slide-out"] : styles["overlay_slide-in"]
         }`}
       >
         <XMark callbackFunction={closeAuthModalClickHandler} />

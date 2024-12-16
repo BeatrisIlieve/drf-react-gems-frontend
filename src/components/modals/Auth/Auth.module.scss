@@ -16,7 +16,7 @@
   &_transition-in {
     animation: transitionIn 1s forwards;
   }
-  
+
   &_transition-out {
     animation: transitionOut 1s forwards;
   }
@@ -35,50 +35,48 @@
     z-index: 99999;
     overflow-y: auto;
   }
-}
 
-.slide-in {
-  animation: slideInTop 1s forwards;
-}
-
-.slide-out {
-  animation: slideOutTop 1s forwards;
-}
-
-@keyframes slideInTop {
-  from {
-    top: -100%;
+  &_slide-in {
+    animation: slideInTop 1s forwards;
   }
-  to {
-    top: 0;
-  }
-}
 
-@keyframes slideOutTop {
-  from {
-    top: 0;
+  &_slide-out {
+    animation: slideOutTop 1s forwards;
   }
-  to {
-    top: -100%;
-  }
-}
 
-
-
-@keyframes transitionIn {
-  from {
-    opacity: 0;
+  @keyframes slideInTop {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 0;
+    }
   }
-  to {
-    opacity: 1;
-  }
-}
 
-@keyframes transitionOut {
-  from {
-    opacity: 1;
+  @keyframes slideOutTop {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100%;
+    }
   }
-  to {
-    opacity: 0;
+
+  @keyframes transitionIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes transitionOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 }
