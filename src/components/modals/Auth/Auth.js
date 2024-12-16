@@ -22,7 +22,6 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
   const [emailFilled, setEmailFilled] = useState(false);
 
   const updateEmailFilled = (value) => {
-
     setEmailFilled(value);
   };
 
@@ -57,8 +56,6 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
   const displayFirstNameForm =
     !emailAlreadyRegistered && emailFilled && !displayPasswordForm;
 
-
-
   return (
     <>
       <section
@@ -69,31 +66,31 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
         <CursorImageEffect />
         <div
           ref={popupRef}
-          className={`${styles["modal"]}  ${
+          className={`${styles["overlay__modal"]}  ${
             movePopup ? styles["slide-out"] : styles["slide-in"]
           }`}
         >
           <XMark callbackFunction={closeAuthModalClickHandler} />
 
-            {displayEmailForm && (
-              <EmailForm
-                updateEmailFilled={updateEmailFilled}
-                updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
-                updateEmail={updateEmail}
-              />
-            )}
+          {displayEmailForm && (
+            <EmailForm
+              updateEmailFilled={updateEmailFilled}
+              updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
+              updateEmail={updateEmail}
+            />
+          )}
 
-            {displayFirstNameForm && (
-              <FirstNameForm
-                email={email}
-                updateFirstNameFilled={updateFirstNameFilled}
-                updateFirstName={updateFirstName}
-              />
-            )}
-            {displayPasswordForm && (
-              <PasswordForm email={email} firstName={firstName} />
-            )}
-          </div>
+          {displayFirstNameForm && (
+            <FirstNameForm
+              email={email}
+              updateFirstNameFilled={updateFirstNameFilled}
+              updateFirstName={updateFirstName}
+            />
+          )}
+          {displayPasswordForm && (
+            <PasswordForm email={email} firstName={firstName} />
+          )}
+        </div>
       </section>
     </>
   );
