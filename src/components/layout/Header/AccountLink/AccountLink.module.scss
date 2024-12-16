@@ -1,7 +1,7 @@
 @use "../../../../styles/partials/variables";
 
 .container {
-  cursor: pointer;
+  all: unset;
   div {
     position: relative;
 
