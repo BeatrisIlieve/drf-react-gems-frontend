@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { LogoImage } from "./LogoImage/LogoImage";
 import { CollectionLink } from "./CollectionLink/CollectionLink";
 import { SearchButton } from "./SearchButton/SearchButton";
-import { AccountLink } from "./AccountLink/AccountLink";
+import { AccountButton } from "./AccountButton/AccountButton";
 import { ProductSetDiscount } from "./ProductSetDiscount/ProductSetDiscount";
 
 import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
@@ -64,7 +64,7 @@ export const Header = () => {
             <LogoImage />
             <div className={styles["container__buttons"]}>
               <SearchButton />
-              <AccountLink
+              <AccountButton
                 accountButtonClickHandler={accountButtonClickHandler}
               />
               <QuantityIndicatedLink
