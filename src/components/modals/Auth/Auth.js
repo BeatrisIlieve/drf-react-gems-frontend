@@ -7,11 +7,13 @@ import { CursorImageEffect } from "../utils/CursorImageEffect/CursorImageEffect"
 import { XMark } from "../utils/XMark/XMark";
 import styles from "./Auth.module.scss";
 import { usePopup } from "../../../hooks/usePopup";
-export const Auth = ({
-  displayAuthModal,
-  closeAuthModalClickHandler,
-}) => {
-  const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
+export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
+  const {
+    isTransitioning,
+    popupRef,
+    popupCloseHandler,
+    updateIsTransitioningHandler,
+  } = usePopup({
     closeAuthModalClickHandler,
     displayAuthModal,
   });
@@ -20,6 +22,7 @@ export const Auth = ({
   const [emailFilled, setEmailFilled] = useState(false);
 
   const updateEmailFilled = (value) => {
+
     setEmailFilled(value);
   };
 
@@ -54,41 +57,44 @@ export const Auth = ({
   const displayFirstNameForm =
     !emailAlreadyRegistered && emailFilled && !displayPasswordForm;
 
+
+
   return (
     <>
-
-    <section
-      className={`${styles["overlay"]}  ${
-        movePopup ? styles["transition-out"] : styles["transition-in"]
-      }`}
-    >
-            <CursorImageEffect />
-      <div
-        ref={popupRef}
-        className={`${styles["modal"]}  ${
-          movePopup ? styles["slide-out"] : styles["slide-in"]
+      <section
+        className={`${styles["overlay"]}  ${
+          displayAuthModal ? styles["transition-in"] : styles["transition-out"]
         }`}
       >
-        <XMark callbackFunction={closeAuthModalClickHandler} />
-        {displayEmailForm && (
-          <EmailForm
-            updateEmailFilled={updateEmailFilled}
-            updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
-            updateEmail={updateEmail}
-          />
-        )}
-        {displayFirstNameForm && (
-          <FirstNameForm
-            email={email}
-            updateFirstNameFilled={updateFirstNameFilled}
-            updateFirstName={updateFirstName}
-          />
-        )}
-        {displayPasswordForm && (
-          <PasswordForm email={email} firstName={firstName} />
-        )}
-      </div>
-    </section>
+        <CursorImageEffect />
+        <div
+          ref={popupRef}
+          className={`${styles["modal"]}  ${
+            movePopup ? styles["slide-out"] : styles["slide-in"]
+          }`}
+        >
+          <XMark callbackFunction={closeAuthModalClickHandler} />
+
+            {displayEmailForm && (
+              <EmailForm
+                updateEmailFilled={updateEmailFilled}
+                updateEmailAlreadyRegistered={updateEmailAlreadyRegistered}
+                updateEmail={updateEmail}
+              />
+            )}
+
+            {displayFirstNameForm && (
+              <FirstNameForm
+                email={email}
+                updateFirstNameFilled={updateFirstNameFilled}
+                updateFirstName={updateFirstName}
+              />
+            )}
+            {displayPasswordForm && (
+              <PasswordForm email={email} firstName={firstName} />
+            )}
+          </div>
+      </section>
     </>
   );
 };

@@ -21,3 +21,38 @@
     margin-bottom: 2rem;
   }
 }
+
+
+.content {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.content-transition-out {
+  animation: slideOut 1s forwards;
+}
+
+.content-transition-in {
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    from {
+      right: -100%;
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      right: 0;
+      opacity: 1;
+    }
+    to {
+      right: 100%;
+      opacity: 0;
+    }
+  }
