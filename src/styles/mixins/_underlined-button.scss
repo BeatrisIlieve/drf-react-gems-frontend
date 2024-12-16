@@ -1,6 +1,9 @@
 @use "../partials/variables";
 
-@mixin underlined-button($color: variables.$color-black, $background:variables.$color-black) {
+@mixin underlined-button(
+  $color: variables.$color-black,
+  $background: variables.$color-black
+) {
   all: unset;
   cursor: pointer;
   text-underline-offset: 0.3rem;

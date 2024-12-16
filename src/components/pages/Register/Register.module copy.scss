@@ -39,9 +39,9 @@
 
   &__button {
     @include underlined-button.underlined_button();
-    
+
     &:hover {
-        color: variables.$color-black;
-      }
+      color: variables.$color-black;
+    }
   }
 }

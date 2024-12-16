@@ -4,10 +4,11 @@ import { useService } from "../../../../hooks/useService";
 import { Form } from "../reusable/Form";
 import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
 import { useAuthenticationContext } from "../../../../contexts/AuthenticationContext";
-
+import styles from "./PasswordForm.module.scss";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const PasswordForm = ({ email, firstName }) => {
-
-
   const { updateAuthentication } = useAuthenticationContext();
   const userCredentialsService = useService(userCredentialsServiceFactory);
 
@@ -72,7 +73,6 @@ export const PasswordForm = ({ email, firstName }) => {
       const loginResult = await userCredentialsService.login(loginCredentials);
 
       updateAuthentication(loginResult);
-
     } catch (err) {
       if ("password" in err) {
         setIsValid(false);
@@ -81,6 +81,12 @@ export const PasswordForm = ({ email, firstName }) => {
         console.log(err);
       }
     }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword((showPassword) => !showPassword);
   };
 
   return (
@@ -92,7 +98,7 @@ export const PasswordForm = ({ email, firstName }) => {
     >
       <div className="form-floating mb-3">
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           className={`form-control ${
             isValid === true
               ? "is-valid"
@@ -108,6 +114,11 @@ export const PasswordForm = ({ email, firstName }) => {
           onBlur={handleBlur}
         />
         <label htmlFor="floatingInput">Password *</label>
+        <FontAwesomeIcon
+          icon={showPassword ? faEyeSlash : faEye}
+          className={styles["icon"]}
+          onClick={toggleShowPassword}
+        />
         <div className="invalid-feedback">{errorMessage}</div>
       </div>
     </Form>

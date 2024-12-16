@@ -8,11 +8,7 @@ import { XMark } from "../utils/XMark/XMark";
 import styles from "./Auth.module.scss";
 import { usePopup } from "../../../hooks/usePopup";
 export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
-  const {
-    isTransitioning,
-    popupRef,
-    popupCloseHandler,
-  } = usePopup({
+  const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
     closeAuthModalClickHandler,
     displayAuthModal,
   });
@@ -66,7 +62,9 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
       <div
         ref={popupRef}
         className={`${styles["overlay__modal"]}  ${
-            isTransitioning ? styles["overlay_slide-out"] : styles["overlay_slide-in"]
+          isTransitioning
+            ? styles["overlay_slide-out"]
+            : styles["overlay_slide-in"]
         }`}
       >
         <XMark callbackFunction={popupCloseHandler} />
