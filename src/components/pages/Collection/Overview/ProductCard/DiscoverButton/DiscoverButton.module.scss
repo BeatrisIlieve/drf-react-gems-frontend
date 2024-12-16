@@ -2,7 +2,10 @@
 @use "../../../../../../styles/partials/variables";
 
 .button {
-  @include underlined-button.underlined-button();
+  @include underlined-button.underlined-button(
+    $color: variables.$color-medium-gray,
+    $background: variables.$color-medium-gray
+  );
 
   color: variables.$color-medium-gray;
 
