@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { LogoImage } from "./LogoImage/LogoImage";
 import { CollectionLink } from "./CollectionLink/CollectionLink";
 import { SearchButton } from "./SearchButton/SearchButton";
 import { AccountButton } from "./AccountButton/AccountButton";
 import { ProductSetDiscount } from "./ProductSetDiscount/ProductSetDiscount";
-
+import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
 import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
 import { Auth } from "../../modals/Auth/Auth";
 import { faHeart, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const wishlistCount = 2;
   const bagCount = 3;
+
+  const { isAuthenticated } = useAuthenticationContext();
 
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -38,10 +41,12 @@ export const Header = () => {
     };
   }, [lastScrollY]);
 
-  const isAuthenticated = false;
   const [displayAuthModal, setDisplayAuthModal] = useState(false);
 
   const openAuthModalClickHandler = () => {
+    if (isAuthenticated) {
+      navigate("/account");
+    }
     setDisplayAuthModal(true);
   };
 
@@ -51,7 +56,7 @@ export const Header = () => {
 
   return (
     <>
-      {displayAuthModal && (
+      {displayAuthModal && !isAuthenticated && (
         <Auth
           closeAuthModalClickHandler={closeAuthModalClickHandler}
           displayAuthModal={displayAuthModal}

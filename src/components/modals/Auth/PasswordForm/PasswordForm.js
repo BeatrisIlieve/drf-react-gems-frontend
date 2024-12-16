@@ -6,6 +6,8 @@ import { userCredentialsServiceFactory } from "../../../../services/userCredenti
 import { useAuthenticationContext } from "../../../../contexts/AuthenticationContext";
 
 export const PasswordForm = ({ email, firstName }) => {
+
+
   const { updateAuthentication } = useAuthenticationContext();
   const userCredentialsService = useService(userCredentialsServiceFactory);
 
@@ -70,6 +72,7 @@ export const PasswordForm = ({ email, firstName }) => {
       const loginResult = await userCredentialsService.login(loginCredentials);
 
       updateAuthentication(loginResult);
+
     } catch (err) {
       if ("password" in err) {
         setIsValid(false);
