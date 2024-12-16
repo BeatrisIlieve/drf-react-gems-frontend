@@ -43,18 +43,9 @@ export const usePopup = ({ closeAuthModalClickHandler, displayAuthModal }) => {
     };
   }, [displayAuthModal, popupCloseHandler]);
 
-  const updateIsTransitioningHandler = () => {
-    setIsTransitioning(true);
-
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 400);
-  };
-
   return {
     isTransitioning,
     popupRef,
     popupCloseHandler,
-    updateIsTransitioningHandler,
   };
 };

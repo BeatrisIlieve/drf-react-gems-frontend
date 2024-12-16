@@ -12,12 +12,10 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
     isTransitioning,
     popupRef,
     popupCloseHandler,
-    updateIsTransitioningHandler,
   } = usePopup({
     closeAuthModalClickHandler,
     displayAuthModal,
   });
-  const movePopup = false;
 
   const [emailFilled, setEmailFilled] = useState(false);
 
@@ -68,11 +66,10 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
       <div
         ref={popupRef}
         className={`${styles["overlay__modal"]}  ${
-          movePopup ? styles["overlay_slide-out"] : styles["overlay_slide-in"]
+            isTransitioning ? styles["overlay_slide-out"] : styles["overlay_slide-in"]
         }`}
       >
-        <XMark callbackFunction={closeAuthModalClickHandler} />
-
+        <XMark callbackFunction={popupCloseHandler} />
         {displayEmailForm && (
           <EmailForm
             updateEmailFilled={updateEmailFilled}
@@ -80,7 +77,6 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
             updateEmail={updateEmail}
           />
         )}
-
         {displayFirstNameForm && (
           <FirstNameForm
             email={email}
