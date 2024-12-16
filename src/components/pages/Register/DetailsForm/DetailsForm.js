@@ -61,8 +61,8 @@ export const DetailsForm = ({ updateFirstNameFilled, updateFirstName }) => {
   return (
     <Form
       formTitle={"Welcome!"}
-      formParagraph={"Create an account."}
-      buttonLabel={"Create account"}
+      formParagraph={"Share your name to help us tailor a personalized shopping experience for you"}
+      buttonLabel={"Continue"}
       submitHandler={submitHandler}
     >
       <div className="form-floating mb-3">

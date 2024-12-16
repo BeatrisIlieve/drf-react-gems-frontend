@@ -1,17 +1,30 @@
 @use "../../../../styles/partials/variables";
 
 .form-container {
-    background-color: variables.$color-white;
-    padding: 0 0 0 2rem;
-    margin-right: 1rem;
-    margin-top: auto;
-    margin-bottom: auto;
+  background-color: variables.$color-white;
+  padding: 0 0 0 2rem;
+  margin-right: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
 
-    &__title {
-        font-size: variables.$font-xlarge;
-        color: variables.$color-black;
-        margin-bottom: 2rem;
-      }
+  &__title {
+    font-size: variables.$font-xlarge;
+    color: variables.$color-black;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  &__paragraph {
+    // font-family: variables.$main-font-family;
+    color: variables.$color-medium-gray;
+    font-size: variables.$font-medium;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  &__children {
+    margin-bottom: 4rem;
   }
 
 
+}

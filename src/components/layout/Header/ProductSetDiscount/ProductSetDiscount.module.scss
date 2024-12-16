@@ -1,0 +1,20 @@
+@use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/underlined-button";
+@use "../../../../styles/mixins/flexbox";
+
+.product-set-discount {
+  @include flexbox.flexbox($justify: center, $align: center);
+  background-color: variables.$color-gray;
+  height: 2rem;
+
+  &__button {
+    @include underlined-button.underlined-button(
+      $color: variables.$color-white,
+      $background: variables.$color-white
+    );
+    color: variables.$color-white;
+    font-size: variables.$font-small;
+    font-family: variables.$main-font-family;
+    margin: auto 0;
+  }
+}

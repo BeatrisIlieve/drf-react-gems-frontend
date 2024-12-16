@@ -4,6 +4,7 @@ import { LogoImage } from "./LogoImage/LogoImage";
 import { CollectionLink } from "./CollectionLink/CollectionLink";
 import { SearchButton } from "./SearchButton/SearchButton";
 import { AccountLink } from "./AccountLink/AccountLink";
+import { ProductSetDiscount } from "./ProductSetDiscount/ProductSetDiscount";
 
 import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
 
@@ -21,7 +22,7 @@ export const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 96 && currentScrollY > lastScrollY) {
+      if (currentScrollY > 160 && currentScrollY > lastScrollY) {
         setIsHidden(true);
       } else if (currentScrollY < lastScrollY) {
         setIsHidden(false);
@@ -43,6 +44,7 @@ export const Header = () => {
         isHidden ? styles["container_hidden"] : styles["container_visible"]
       }`}
     >
+      <ProductSetDiscount/>
       <header className={styles["container__header"]}>
         <nav className={styles["container__nav"]}>
           <CollectionLink />

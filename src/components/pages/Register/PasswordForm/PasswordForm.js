@@ -82,8 +82,8 @@ export const PasswordForm = ({ email, firstName }) => {
 
   return (
     <Form
-      formTitle={"Welcome!"}
-      formParagraph={"Create an account."}
+      formTitle={"Create an account"}
+      formParagraph={"Choose a secure password to protect your treasure"}
       buttonLabel={"Create account"}
       submitHandler={submitHandler}
     >
@@ -99,12 +99,12 @@ export const PasswordForm = ({ email, firstName }) => {
           }`.trim()}
           id="password"
           name="password"
-          placeholder="Create password *"
+          placeholder="Password *"
           value={password}
           onChange={handleChange}
           onBlur={handleBlur}
         />
-        <label htmlFor="floatingInput">Create password *</label>
+        <label htmlFor="floatingInput">Password *</label>
         <div className="invalid-feedback">{errorMessage}</div>
       </div>
     </Form>

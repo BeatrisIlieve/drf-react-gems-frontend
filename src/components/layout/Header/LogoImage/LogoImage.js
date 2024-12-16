@@ -13,11 +13,11 @@ export const LogoImage = () => {
           }
           alt="logo-image"
         />
-        <img
+        {/* <img
           className={styles["logo-image__text"]}
           src="https://res.cloudinary.com/deztgvefu/image/upload/v1733837454/forget-me-not-collection/miniImages/Screenshot_2024-12-10_at_15.29.46_vs8dyj.png"
           alt="logo-text"
-        />
+        /> */}
       </div>
     </Link>
   );

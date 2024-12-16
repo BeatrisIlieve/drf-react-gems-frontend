@@ -59,7 +59,7 @@ export const EmailForm = ({
     <Form
       formTitle={"Good day!"}
       formParagraph={
-        "Fill in your e-mail address to log in or create an account."
+        "Fill in your e-mail address to log in or create an account"
       }
       buttonLabel={"Continue"}
       submitHandler={submitHandler}
