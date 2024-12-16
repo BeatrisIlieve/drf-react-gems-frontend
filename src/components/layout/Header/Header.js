@@ -43,7 +43,7 @@ export const Header = () => {
 
   const [displayAuthModal, setDisplayAuthModal] = useState(false);
 
-  const openAuthModalClickHandler = () => {
+  const userIconClickHandler = () => {
     if (isAuthenticated) {
       navigate("/account");
     }
@@ -74,9 +74,7 @@ export const Header = () => {
             <LogoImage />
             <div className={styles["container__buttons"]}>
               <SearchButton />
-              <AccountButton
-                openAuthModalClickHandler={openAuthModalClickHandler}
-              />
+              <AccountButton callBackFunction={userIconClickHandler} />
               <QuantityIndicatedLink
                 url={"/wishlist"}
                 icon={faHeart}
