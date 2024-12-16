@@ -2,6 +2,15 @@
 
 .form-container {
   background-color: variables.$color-white;
+  transition: opacity 1s ease, transform 1s ease;
+
+  &_transition-out {
+    animation: slideOut 1s forwards;
+  }
+
+  &_transition-in {
+    animation: slideIn 1s forwards;
+  }
 
   &__title {
     font-size: variables.$font-large;
@@ -20,22 +29,8 @@
   &__children {
     margin-bottom: 2rem;
   }
-}
 
-
-.content {
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.content-transition-out {
-  animation: slideOut 1s forwards;
-}
-
-.content-transition-in {
-  animation: slideIn 1s forwards;
-}
-
-@keyframes slideIn {
+  @keyframes slideIn {
     from {
       right: -100%;
       opacity: 0;
@@ -45,7 +40,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes slideOut {
     from {
       right: 0;
@@ -56,3 +51,4 @@
       opacity: 0;
     }
   }
+}
