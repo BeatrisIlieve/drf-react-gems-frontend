@@ -18,7 +18,7 @@ export const ProfilePicture = () => {
     >
       <img
         className={styles["profile-picture__img"]}
-        src="https://res.cloudinary.com/deztgvefu/image/upload/v1734438185/forget-me-not-collection/miniImages/3d-illustration-beautiful-young-woman-pink-suit_1142-51471_qbi0bs.avif"
+        src="https://res.cloudinary.com/deztgvefu/image/upload/v1734448095/forget-me-not-collection/miniImages/bb23850fff6159c25e0592de567c355e_yzbr5u.jpg"
         alt="profile-picture"
       />
 

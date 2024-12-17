@@ -4,11 +4,11 @@
   margin: 2rem;
 
   &__header {
-    @include flexbox.flexbox (
+    @include flexbox.flexbox(
       $justify: center,
       $align: center,
       $gap: 1rem,
-      $direction:column ,
-    )
+      $direction: column
+    );
   }
 }

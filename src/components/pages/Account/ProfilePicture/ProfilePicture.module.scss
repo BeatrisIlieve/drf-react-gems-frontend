@@ -3,9 +3,11 @@
 .profile-picture {
   width: 7rem;
   position: relative;
+  cursor: pointer;
 
   &__img {
     object-fit: contain;
+    border: 0.08rem solid variables.$color-browser-gray;
   }
 
   &__img,
