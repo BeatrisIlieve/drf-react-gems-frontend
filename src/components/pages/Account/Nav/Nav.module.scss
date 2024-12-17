@@ -12,5 +12,18 @@
       $gap: 3rem,
       $direction: row
     );
+    cursor: pointer;
+  }
+
+  &__item {
+    color: variables.$color-medium-gray;
+
+    &_selected {
+      color: variables.$color-black;
+      text-decoration: underline;
+      text-decoration-color: variables.$color-violet;
+      text-underline-offset: 0.175rem;
+      text-decoration-thickness: 0.06rem;
+    }
   }
 }
