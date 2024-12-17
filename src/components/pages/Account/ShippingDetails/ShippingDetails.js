@@ -68,17 +68,7 @@ export const ShippingDetails = () => {
       const postalCode = formItems.postalCode.userInput;
       const apartment = formItems.apartment.userInput;
 
-      const data = {
-        // firstName,
-        // lastName,
-        // phone_number: phoneNumber,
-        // street_address: streetAddress,
-        // postal_code: postalCode,
-        // apartment,
-        // country,
-        // city
-      };
-console.log(userData, "here")
+
       await userShippingDetailsService.put(userData);
     } catch (err) {
       console.log(err);
