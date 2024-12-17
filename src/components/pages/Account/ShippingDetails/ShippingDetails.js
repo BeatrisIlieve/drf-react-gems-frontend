@@ -11,7 +11,6 @@ import { FORM_ITEMS } from "./constants/formItems";
 export const ShippingDetails = () => {
   const [userData, setUserData] = useState({});
 
-  // const [firstName, setFi] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [isValid, setIsValid] = useState(true);
@@ -31,8 +30,6 @@ export const ShippingDetails = () => {
       });
   }, [userShippingDetailsService]);
 
-  const [formItems, setFormItems] = useState(FORM_ITEMS);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -40,8 +37,6 @@ export const ShippingDetails = () => {
       ...prevFormItems,
       [name]: value,
     }));
-
-    // console.log(userData)
   };
 
   //   const handleBlur = (e) => {
