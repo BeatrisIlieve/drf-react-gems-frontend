@@ -1,3 +1,14 @@
+@use "../../../styles/mixins/flexbox";
+
 .account {
-    margin: 2rem;
+  margin: 2rem;
+
+  &__header {
+    @include flexbox.flexbox (
+      $justify: center,
+      $align: center,
+      $gap: 1rem,
+      $direction:column ,
+    )
+  }
 }

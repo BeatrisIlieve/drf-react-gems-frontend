@@ -1,0 +1,16 @@
+@use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/flexbox";
+
+.nav {
+  margin-top: 5rem;
+  border-bottom: 0.08rem solid variables.$color-browser-gray;
+
+  &__list {
+    @include flexbox.flexbox(
+      $justify: center,
+      $align: center,
+      $gap: 3rem,
+      $direction: row
+    );
+  }
+}

@@ -1,0 +1,5 @@
+@use "../../../../styles/partials/variables";
+
+.greeting {
+  font-size: variables.$font-xlarge;
+}
