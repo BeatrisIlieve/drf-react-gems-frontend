@@ -1,7 +1,8 @@
 @use "../../../../styles/partials/variables";
 
 .info-paragraph {
-  font-size: variables.$font-normal;
+  font-size: variables.$font-medium;
+  font-family: variables.$main-font-family;
   color: variables.$color-medium-gray;
   width: 44%;
   text-align: center;
