@@ -24,13 +24,12 @@ export const ShippingDetails = () => {
     userShippingDetailsService
       .get()
       .then((data) => {
-        setUserData(data[0])
+        setUserData(data[0]);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [userShippingDetailsService]);
-
 
   const [formItems, setFormItems] = useState(FORM_ITEMS);
 
@@ -61,14 +60,6 @@ export const ShippingDetails = () => {
     e.preventDefault();
 
     try {
-      const firstName = formItems.firstName.userInput;
-      const lastName = formItems.lastName.userInput;
-      const phoneNumber = formItems.phoneNumber.userInput;
-      const streetAddress = formItems.streetAddress.userInput;
-      const postalCode = formItems.postalCode.userInput;
-      const apartment = formItems.apartment.userInput;
-
-
       await userShippingDetailsService.put(userData);
     } catch (err) {
       console.log(err);
