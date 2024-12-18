@@ -3,9 +3,9 @@ import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
 
-export const CountrySelector = ({
-  selectedCountry,
-  updateSelectedCountry,
+export const CitySelector = ({
+  selectedCity,
+  updateSelectedCity,
   error,
   setError,
 }) => {
@@ -13,13 +13,13 @@ export const CountrySelector = ({
     userShippingDetailsServiceFactory
   );
 
-  const [countries, setCountries] = useState([]);
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     userShippingDetailsService
-      .getCountries()
+      .getCities()
       .then((data) => {
-        setCountries(data);
+        setCities(data);
       })
       .catch((err) => {
         console.error(err);
@@ -28,11 +28,11 @@ export const CountrySelector = ({
 
   return (
     <Select
-      items={countries}
-      selectedItem={selectedCountry}
-      updateSelectedItem={updateSelectedCountry}
-      label={"Country *"}
-      errorMessage={"Please select a country."}
+      items={cities}
+      selectedItem={selectedCity}
+      updateSelectedItem={updateSelectedCity}
+      label={"City *"}
+      errorMessage={"Please select a city."}
       error={error}
       setError={setError}
     />

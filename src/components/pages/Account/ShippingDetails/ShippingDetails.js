@@ -6,7 +6,7 @@ import { useService } from "../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../services/userShippingDetailsService";
 import styles from "./ShippingDetails.module.scss";
 import { useAuthenticationContext } from "../../../../contexts/AuthenticationContext";
-
+import { CitySelector } from "./CitySelector/CitySelector";
 import { FORM_ITEMS } from "./constants/formItems";
 
 export const ShippingDetails = () => {
@@ -80,6 +80,12 @@ export const ShippingDetails = () => {
     setCountryError(value);
   };
 
+  const [cityError, setCityError] = useState(false);
+
+  const updateCityError = (value) => {
+    setCityError(value);
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -89,10 +95,15 @@ export const ShippingDetails = () => {
 
     if (countryErrorOccurred) {
       setCountryError(true);
-      return;
     }
 
-    if (!isFormValid) {
+    const cityErrorOccurred = !userData.city;
+
+    if (cityErrorOccurred) {
+      setCityError(true);
+    }
+
+    if (!isFormValid || countryErrorOccurred | cityErrorOccurred) {
       return;
     }
 
@@ -107,6 +118,13 @@ export const ShippingDetails = () => {
     setUserData((prevFormItems) => ({
       ...prevFormItems,
       ["country"]: value,
+    }));
+  };
+
+  const updateSelectedCity = (value) => {
+    setUserData((prevFormItems) => ({
+      ...prevFormItems,
+      ["city"]: value,
     }));
   };
 
@@ -145,6 +163,14 @@ export const ShippingDetails = () => {
               updateSelectedCountry={updateSelectedCountry}
               error={countryError}
               setError={updateCountryError}
+            />
+          </div>
+          <div className="form-floating mb-3">
+            <CitySelector
+              selectedCity={userData.city}
+              updateSelectedCity={updateSelectedCity}
+              error={cityError}
+              setError={updateCityError}
             />
           </div>
           <Button label={"Continue"} color={"black"} buttonType={"submit"} />
