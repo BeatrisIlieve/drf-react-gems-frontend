@@ -42,6 +42,14 @@ export const ShippingDetails = () => {
       ...prevFormItems,
       [name]: value,
     }));
+
+    setFormItems((prevFormItems) => ({
+      ...prevFormItems,
+      [name]: {
+        ...prevFormItems[name],
+        isValid: new RegExp(prevFormItems[name].pattern).test(value),
+      },
+    }));
   };
 
   const handleBlur = (e) => {
