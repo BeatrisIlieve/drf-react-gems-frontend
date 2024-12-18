@@ -10,17 +10,6 @@ export const FORM_ITEMS = {
     invalidMessage: "Please enter a valid first name",
   },
 
-  country: {
-    type: "text",
-    isValid: true,
-    id: "country",
-    name: "country",
-    placeholder: "First Name *",
-    label: "First Name *",
-    pattern: "(^[A-Za-z]{1,255}$)|(^[A-Za-z]{1,}[s-]{1}[A-Za-z]{1,253}$)",
-    invalidMessage: "Please enter a valid first name",
-  },
-
   // lastName: {
   //   type: "text",
   //   isValid: true,

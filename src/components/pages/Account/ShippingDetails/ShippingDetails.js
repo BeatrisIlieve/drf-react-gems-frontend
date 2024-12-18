@@ -10,6 +10,7 @@ import { useAuthenticationContext } from "../../../../contexts/AuthenticationCon
 import { FORM_ITEMS } from "./constants/formItems";
 
 export const ShippingDetails = () => {
+  const [formItems, setFormItems] = useState(FORM_ITEMS);
   const { userId } = useAuthenticationContext();
 
   const [userData, setUserData] = useState({});
@@ -43,20 +44,48 @@ export const ShippingDetails = () => {
     }));
   };
 
-  //   const handleBlur = (e) => {
-  //     const { name, value } = e.target;
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
 
-  //     setFormItems((prevFormItems) => ({
-  //       ...prevFormItems,
-  //       [name]: {
-  //         ...prevFormItems[name],
-  //         isValid: new RegExp(prevFormItems[name].pattern).test(value),
-  //       },
-  //     }));
-  //   };
+    setFormItems((prevFormItems) => ({
+      ...prevFormItems,
+      [name]: {
+        ...prevFormItems[name],
+        isValid: new RegExp(prevFormItems[name].pattern).test(value),
+      },
+    }));
+  };
+
+  const validateForm = () => {
+    let isValid = true; 
+
+    Object.entries(formItems).forEach(([key, field]) => {
+      console.log(key, field, "here")
+      const value = userData[key];
+
+      // Validate using the regex pattern from the field
+      const isFieldValid = new RegExp(field.pattern).test(value);
+
+      // Store whether the field is valid or invalid
+      field.isValid = isFieldValid;
+
+      // If any field is invalid, set isValid to false
+      if (!isFieldValid) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    const isFormValid = validateForm();
+
+    if (!isFormValid) {
+      return;
+    }
 
     try {
       await userShippingDetailsService.put(userId, userData);
@@ -64,8 +93,6 @@ export const ShippingDetails = () => {
       console.log(err);
     }
   };
-
-  const [selectedCountry, setSelectedCountry] = useState(userData.country);
 
   const updateSelectedCountry = (value) => {
     // setSelectedCountry(value);
@@ -93,46 +120,28 @@ export const ShippingDetails = () => {
               updateSelectedCountry={updateSelectedCountry}
             />
           </div>
-          <div className="form-floating mb-3">
-            <input
-              type={"text"}
-              className={`form-control ${
-                isValid === true
-                  ? "is-valid"
-                  : isValid === false
-                  ? "is-invalid"
-                  : ""
-              }`.trim()}
-              id="first_name"
-              name="first_name"
-              placeholder="First Name *"
-              value={userData.first_name}
-              onChange={handleChange}
-              //   onBlur={handleBlur}
-            />
-            <label htmlFor="floatingInput">First Name *</label>
-            <div className="invalid-feedback">{errorMessage}</div>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type={"text"}
-              className={`form-control ${
-                isValid === true
-                  ? "is-valid"
-                  : isValid === false
-                  ? "is-invalid"
-                  : ""
-              }`.trim()}
-              id="first_name"
-              name="first_name"
-              placeholder="First Name *"
-              value={userData.first_name}
-              onChange={handleChange}
-              //   onBlur={handleBlur}
-            />
-            <label htmlFor="floatingInput">First Name *</label>
-            <div className="invalid-feedback">{errorMessage}</div>
-          </div>
+          {Object.entries(formItems).map(([key, field]) => (
+            <div className="form-floating mb-3" key={key}>
+              <input
+                type={field.type}
+                className={`form-control ${
+                  field.isValid === true
+                    ? "is-valid"
+                    : field.isValid === false
+                    ? "is-invalid"
+                    : ""
+                }`.trim()}
+                id={field.id}
+                name={field.name}
+                placeholder={field.placeholder}
+                value={userData[key] || ""}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <label htmlFor="floatingInput">{field.label}</label>
+              <div className="invalid-feedback">{field.invalidMessage}</div>
+            </div>
+          ))}
           <Button label={"Continue"} color={"black"} buttonType={"submit"} />
         </form>
       </div>

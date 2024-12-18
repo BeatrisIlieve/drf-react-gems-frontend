@@ -272,7 +272,7 @@ export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
   };
 
   return (
-    <Form>
+    // <Form>
       <FormGroup controlId="countrySelector">
         {/* Conditionally render FloatingLabel only when a country is selected */}
         {selectedCountry && (
@@ -320,6 +320,6 @@ export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
           </Form.Control.Feedback>
         )}
       </FormGroup>
-    </Form>
+    // </Form>
   );
 };
