@@ -151,7 +151,7 @@ input[type="radio"] {
 
 .mb-3 {
   margin: 0 !important;
-  padding-bottom: 0.5rem !important;
+  padding-bottom: 0.2rem !important;
 }
 
 .form-floating > .form-control,
@@ -222,7 +222,7 @@ input:-internal-autofill-selected:active {
   border-bottom-right-radius: unset;
   background-color: white;
   background-image: none;
-  padding: 0 !important;
+  padding: 1.2rem 0 0 0 !important;
 }
 
 .form-select.is-valid:focus {
@@ -240,7 +240,7 @@ input:-internal-autofill-selected:active {
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
-  color: variables.$color-red;
+  color: variables.$color-gray;
 }
 
 .form-select.is-invalid:focus {
@@ -250,7 +250,7 @@ input:-internal-autofill-selected:active {
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
-  color: variables.$color-red;
+  color: variables.$color-gray;
 }
 
 .form-select:focus {

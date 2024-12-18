@@ -70,7 +70,7 @@ export const ShippingDetails = () => {
     Object.entries(formItems).forEach(([key, field]) => {
       const value = userData[key];
 
-      const isFieldValid = new RegExp(field.pattern).test(value);
+      const isFieldValid = new RegExp(field.pattern).test(value || "");
 
       field.isValid = isFieldValid;
 
@@ -181,7 +181,7 @@ export const ShippingDetails = () => {
               setError={updateCityError}
             />
           </div>
-          <Button label={"Continue"} color={"black"} buttonType={"submit"} />
+          <Button label={"Save"} color={"black"} buttonType={"submit"} />
         </form>
       </div>
     </section>

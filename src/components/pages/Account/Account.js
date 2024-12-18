@@ -3,7 +3,8 @@ import { Greeting } from "./Greeting/Greeting";
 import { InfoParagraph } from "./InfoParagraph/InfoParagraph";
 import { Nav } from "./Nav/Nav";
 import { ShippingDetails } from "./ShippingDetails/ShippingDetails";
-
+import { DeliveryInformation } from "./DeliveryInformation/DeliveryInformation";
+import { LoginInformation } from "./LoginInformation/LoginInformation";
 import styles from "./Account.module.scss";
 
 export const Account = () => {
@@ -13,9 +14,12 @@ export const Account = () => {
         <ProfilePicture />
         <Greeting />
         <InfoParagraph />
-        <Nav />
       </header>
-      <ShippingDetails />
+      <Nav />
+      <main className={styles["account__main"]}>
+        <DeliveryInformation/>
+        <LoginInformation/>
+      </main>
     </section>
   );
 };

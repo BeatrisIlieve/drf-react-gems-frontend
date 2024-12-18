@@ -2,7 +2,7 @@
 @use "../../../../styles/mixins/flexbox";
 
 .nav {
-  margin-top: 5rem;
+  margin: 5rem 0 5rem 0;
   border-bottom: 0.08rem solid variables.$color-browser-gray;
 
   &__list {

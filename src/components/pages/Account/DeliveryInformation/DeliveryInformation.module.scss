@@ -1,0 +1,38 @@
+@use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/flexbox";
+
+.delivery-info {
+  border: 0.08rem solid variables.$color-browser-gray;
+  padding: 2rem;
+
+  &__title {
+    font-size: variables.$font-large;
+    text-align: center;
+  }
+
+  &__separator {
+    border-bottom: 0.08rem solid variables.$color-browser-gray;
+    margin: 2rem 0;
+  }
+
+  &__paragraph {
+    font-family: variables.$main-font-family;
+    font-size: variables.$font-normal;
+    color: variables.$color-medium-gray;
+  }
+
+  &__button {
+    all: unset;
+  }
+
+  &__icon {
+    border: 0.08rem solid variables.$color-browser-gray;
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+
+  &__span {
+    font-size: variables.$font-normal;
+    margin-left: 0.5rem;
+  }
+}

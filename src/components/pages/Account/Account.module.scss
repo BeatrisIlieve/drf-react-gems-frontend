@@ -11,4 +11,12 @@
       $direction: column
     );
   }
+
+  &__main {
+    @include flexbox.flexbox(
+      $justify: space-evenly,
+      $align: center,
+      // $gap: 5rem
+    );
+  }
 }
