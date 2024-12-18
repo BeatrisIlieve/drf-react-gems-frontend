@@ -10,7 +10,7 @@ import { useAuthenticationContext } from "../../../../contexts/AuthenticationCon
 import { FORM_ITEMS } from "./constants/formItems";
 
 export const ShippingDetails = () => {
-  const {userId} = useAuthenticationContext()
+  const { userId } = useAuthenticationContext();
 
   const [userData, setUserData] = useState({});
 
@@ -27,7 +27,7 @@ export const ShippingDetails = () => {
       .get(userId)
       .then((data) => {
         setUserData(data);
-        console.log(data)
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -65,14 +65,54 @@ export const ShippingDetails = () => {
     }
   };
 
+  const [selectedCountry, setSelectedCountry] = useState(userData.country);
+
+  const updateSelectedCountry = (value) => {
+    // setSelectedCountry(value);
+
+    setUserData((prevFormItems) => ({
+      ...prevFormItems,
+      ["country"]: value,
+    }));
+  };
+
   return (
     <section className={styles["shipping-details"]}>
-      <CountrySelector />
       <div className="container mt-5">
         <form
           className={styles["form-container__form"]}
           onSubmit={submitHandler}
         >
+          <div className={styles["dropdowns-container"]}>
+            <CountrySelector
+              selectedCountry={userData.country}
+              updateSelectedCountry={updateSelectedCountry}
+            />
+            <CountrySelector
+              selectedCountry={userData.country}
+              updateSelectedCountry={updateSelectedCountry}
+            />
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type={"text"}
+              className={`form-control ${
+                isValid === true
+                  ? "is-valid"
+                  : isValid === false
+                  ? "is-invalid"
+                  : ""
+              }`.trim()}
+              id="first_name"
+              name="first_name"
+              placeholder="First Name *"
+              value={userData.first_name}
+              onChange={handleChange}
+              //   onBlur={handleBlur}
+            />
+            <label htmlFor="floatingInput">First Name *</label>
+            <div className="invalid-feedback">{errorMessage}</div>
+          </div>
           <div className="form-floating mb-3">
             <input
               type={"text"}

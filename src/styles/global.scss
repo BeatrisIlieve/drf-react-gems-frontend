@@ -82,6 +82,7 @@ input[type="radio"] {
 .was-validated .form-control:invalid {
   background-image: none;
   background-color: transparent;
+  color: variables.$color-red;
 }
 
 .form-control.is-invalid {
@@ -90,13 +91,14 @@ input[type="radio"] {
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
+  color: variables.$color-red;
 }
 
 .form-control:focus {
-  color: variables.$color-pink;
+  color: variables.$color-gray;
   box-shadow: none;
   border-color: transparent;
-  border-bottom: 0.16rem solid variables.$color-pink;
+  border-bottom: 0.1rem solid variables.$color-pink;
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
@@ -105,10 +107,11 @@ input[type="radio"] {
 .form-control.is-invalid:focus {
   border-color: transparent;
   box-shadow: none;
-  border-bottom: 0.14rem solid variables.$color-red;
+  border-bottom: 0.1rem solid variables.$color-red;
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
+  color: variables.$color-red;
 }
 
 .form-control.is-valid,
@@ -122,7 +125,7 @@ input[type="radio"] {
 .form-control.is-valid:focus {
   border-color: transparent;
   box-shadow: none;
-  border-bottom: 0.14rem solid variables.$color-pink;
+  border-bottom: 0.1rem solid variables.$color-pink;
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
   background-color: transparent;
@@ -153,6 +156,11 @@ input[type="radio"] {
 
 .form-floating > .form-control,
 .form-floating > .form-control-plaintext {
+  padding: 1.75rem 0 0 0 !important;
+}
+
+.form-floating > .form-select,
+.form-floating > .form-select-plaintext {
   padding: 1.75rem 0 0 0 !important;
 }
 
@@ -198,3 +206,63 @@ input:-internal-autofill-selected:active {
   // max-width: calc(360px - 2rem) !important;
   // min-width: calc(360px - 2rem) !important;
 }
+
+// select {
+//   border-color: variables.$color-pink;
+//   background-color: variables.$color-white;
+//   color: variables.$color-gray;
+//   font-family: variables.$main-font-family;
+//   border-radius: 0.3rem;
+// }
+
+.form-select {
+  border-color: transparent;
+  border-bottom: 0.08rem solid variables.$color-pink;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: white;
+  background-image: none;
+  padding: 0 !important;
+}
+
+
+.form-select.is-valid:focus {
+  border-color: transparent;
+  border-bottom: 0.08rem solid variables.$color-pink;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: white;
+  background-image: none;
+}
+
+.form-select.is-invalid {
+  border-color: transparent;
+  border-bottom: 0.08rem solid variables.$color-red;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
+  color: variables.$color-red;
+}
+
+
+.form-select.is-invalid:focus {
+  border-color: transparent;
+  box-shadow: none;
+  border-bottom: 0.1rem solid variables.$color-red;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
+  color: variables.$color-red;
+}
+
+.form-select:focus {
+  color: variables.$color-gray;
+  box-shadow: none;
+  border-color: transparent;
+  border-bottom: 0.1rem solid variables.$color-pink;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  background-color: transparent;
+}
+
+
