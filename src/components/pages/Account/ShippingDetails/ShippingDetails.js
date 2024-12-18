@@ -5,10 +5,13 @@ import { CountrySelector } from "./CountrySelector/CountrySelector";
 import { useService } from "../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../services/userShippingDetailsService";
 import styles from "./ShippingDetails.module.scss";
+import { useAuthenticationContext } from "../../../../contexts/AuthenticationContext";
 
 import { FORM_ITEMS } from "./constants/formItems";
 
 export const ShippingDetails = () => {
+  const {userId} = useAuthenticationContext()
+
   const [userData, setUserData] = useState({});
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,7 +24,7 @@ export const ShippingDetails = () => {
 
   useEffect(() => {
     userShippingDetailsService
-      .get()
+      .get(userId)
       .then((data) => {
         setUserData(data);
         console.log(data)
@@ -56,7 +59,7 @@ export const ShippingDetails = () => {
     e.preventDefault();
 
     try {
-      await userShippingDetailsService.put(userData);
+      await userShippingDetailsService.put(userId, userData);
     } catch (err) {
       console.log(err);
     }

@@ -9,8 +9,8 @@ export const userShippingDetailsServiceFactory = (token) => {
 
   return {
 
-    get: () => request.get(`${baseUrl}/users/5/`),
-    put: (data) => request.put(`${baseUrl}/users/5/`, data),
+    get: (id) => request.get(`${baseUrl}/${id}/`),
+    put: (id, data) => request.put(`${baseUrl}/${id}/`, data),
     create: (data) => request.post(`${baseUrl}/create/`, data),
 
     getCountries: () => request.get(`${baseUrl}/countries/`),
