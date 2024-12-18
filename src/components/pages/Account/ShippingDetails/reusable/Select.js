@@ -7,8 +7,9 @@ export const Select = ({
   updateSelectedItem,
   label,
   errorMessage,
+  error, setError
 }) => {
-  const [error, setError] = useState(false);
+
 
   const handleChange = (event) => {
     const value = event.target.value;

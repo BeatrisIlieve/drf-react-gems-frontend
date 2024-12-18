@@ -74,10 +74,23 @@ export const ShippingDetails = () => {
     return isValid;
   };
 
+  const [countryError, setCountryError] = useState(false);
+
+  const updateCountryError = (value) => {
+    setCountryError(value);
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
     const isFormValid = validateForm();
+
+    const countryErrorOccurred = !userData.country;
+
+    if (countryErrorOccurred) {
+      setCountryError(true);
+      return;
+    }
 
     if (!isFormValid) {
       return;
@@ -91,8 +104,6 @@ export const ShippingDetails = () => {
   };
 
   const updateSelectedCountry = (value) => {
-    // setSelectedCountry(value);
-
     setUserData((prevFormItems) => ({
       ...prevFormItems,
       ["country"]: value,
@@ -132,6 +143,8 @@ export const ShippingDetails = () => {
             <CountrySelector
               selectedCountry={userData.country}
               updateSelectedCountry={updateSelectedCountry}
+              error={countryError}
+              setError={updateCountryError}
             />
           </div>
           <Button label={"Continue"} color={"black"} buttonType={"submit"} />

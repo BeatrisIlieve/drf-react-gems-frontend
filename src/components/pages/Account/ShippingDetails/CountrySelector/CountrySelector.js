@@ -3,7 +3,7 @@ import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
 
-export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
+export const CountrySelector = ({ selectedCountry, updateSelectedCountry, error, setError }) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
@@ -28,6 +28,7 @@ export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
       updateSelectedItem={updateSelectedCountry}
       label={"Country *"}
       errorMessage={"Please select a country."}
+      error={error} setError={setError}
     />
   );
 };
