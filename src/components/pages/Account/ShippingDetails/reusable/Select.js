@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Form, FormGroup, FloatingLabel } from "react-bootstrap";
 
-export const Select = ({ items, selectedItem, updateSelectedItem }) => {
+export const Select = ({
+  items,
+  selectedItem,
+  updateSelectedItem,
+  label,
+  errorMessage,
+}) => {
   const [error, setError] = useState(false);
 
   const handleChange = (event) => {
@@ -17,7 +23,7 @@ export const Select = ({ items, selectedItem, updateSelectedItem }) => {
   return (
     <FormGroup controlId="countrySelector">
       {selectedItem && (
-        <FloatingLabel controlId="floatingSelect" label="Country *">
+        <FloatingLabel controlId="floatingSelect" label={label}>
           <Form.Select
             onChange={handleChange}
             onBlur={validateSelection}
@@ -25,7 +31,7 @@ export const Select = ({ items, selectedItem, updateSelectedItem }) => {
             isInvalid={error}
           >
             <option value="" disabled>
-              Country *
+              {label}
             </option>
             {items.map((item) => (
               <option key={item.id} value={item.id}>
@@ -43,7 +49,7 @@ export const Select = ({ items, selectedItem, updateSelectedItem }) => {
           isInvalid={error}
         >
           <option value="" disabled>
-            Country *
+            {label}
           </option>
           {items.map((item) => (
             <option key={item.id} value={item.id}>
@@ -54,7 +60,7 @@ export const Select = ({ items, selectedItem, updateSelectedItem }) => {
       )}
       {error && (
         <Form.Control.Feedback type="invalid">
-          Please select a country.
+          {errorMessage}
         </Form.Control.Feedback>
       )}
     </FormGroup>

@@ -60,16 +60,12 @@ export const ShippingDetails = () => {
     let isValid = true;
 
     Object.entries(formItems).forEach(([key, field]) => {
-      console.log(key, field, "here");
       const value = userData[key];
 
-      // Validate using the regex pattern from the field
       const isFieldValid = new RegExp(field.pattern).test(value);
 
-      // Store whether the field is valid or invalid
       field.isValid = isFieldValid;
 
-      // If any field is invalid, set isValid to false
       if (!isFieldValid) {
         isValid = false;
       }

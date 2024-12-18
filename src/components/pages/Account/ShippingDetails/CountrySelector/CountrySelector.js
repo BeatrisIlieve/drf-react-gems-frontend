@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
+
 export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
@@ -26,6 +26,8 @@ export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
       items={countries}
       selectedItem={selectedCountry}
       updateSelectedItem={updateSelectedCountry}
+      label={"Country *"}
+      errorMessage={"Please select a country."}
     />
   );
 };
