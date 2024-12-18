@@ -7,8 +7,8 @@ export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
-  const [countries, setCountries] = useState([]); // List of countries
-  const [error, setError] = useState(false); // Error state for validation
+  const [countries, setCountries] = useState([]); 
+  const [error, setError] = useState(false); 
 
   useEffect(() => {
     userShippingDetailsService
@@ -24,27 +24,23 @@ export const CountrySelector = ({ selectedCountry, updateSelectedCountry }) => {
   const handleChange = (event) => {
     const value = event.target.value;
 
-    // Update selected country and clear validation error
     updateSelectedCountry(value);
     if (value) setError(false);
   };
 
   const validateSelection = () => {
-    // Show error if no country is selected
     if (!selectedCountry) setError(true);
   };
 
   return (
-    // <Form>
     <FormGroup controlId="countrySelector">
-      {/* Conditionally render FloatingLabel only when a country is selected */}
       {selectedCountry && (
         <FloatingLabel controlId="floatingSelect" label="Country *">
           <Form.Select
             onChange={handleChange}
-            onBlur={validateSelection} // Validate on losing focus
+            onBlur={validateSelection} 
             value={selectedCountry || ""}
-            isInvalid={error} // Apply error styling if validation fails
+            isInvalid={error}
           >
             <option value="" disabled>
               Country *
