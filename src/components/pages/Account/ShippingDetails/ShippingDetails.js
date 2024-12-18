@@ -23,7 +23,8 @@ export const ShippingDetails = () => {
     userShippingDetailsService
       .get()
       .then((data) => {
-        setUserData(data[0]);
+        setUserData(data);
+        console.log(data)
       })
       .catch((err) => {
         console.log(err);
