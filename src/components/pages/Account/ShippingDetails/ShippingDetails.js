@@ -57,10 +57,10 @@ export const ShippingDetails = () => {
   };
 
   const validateForm = () => {
-    let isValid = true; 
+    let isValid = true;
 
     Object.entries(formItems).forEach(([key, field]) => {
-      console.log(key, field, "here")
+      console.log(key, field, "here");
       const value = userData[key];
 
       // Validate using the regex pattern from the field
@@ -110,16 +110,6 @@ export const ShippingDetails = () => {
           className={styles["form-container__form"]}
           onSubmit={submitHandler}
         >
-          <div className={styles["dropdowns-container"]}>
-            <CountrySelector
-              selectedCountry={userData.country}
-              updateSelectedCountry={updateSelectedCountry}
-            />
-            <CountrySelector
-              selectedCountry={userData.country}
-              updateSelectedCountry={updateSelectedCountry}
-            />
-          </div>
           {Object.entries(formItems).map(([key, field]) => (
             <div className="form-floating mb-3" key={key}>
               <input
@@ -142,6 +132,12 @@ export const ShippingDetails = () => {
               <div className="invalid-feedback">{field.invalidMessage}</div>
             </div>
           ))}
+          <div className="form-floating mb-3">
+            <CountrySelector
+              selectedCountry={userData.country}
+              updateSelectedCountry={updateSelectedCountry}
+            />
+          </div>
           <Button label={"Continue"} color={"black"} buttonType={"submit"} />
         </form>
       </div>
