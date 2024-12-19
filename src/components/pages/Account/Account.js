@@ -18,7 +18,8 @@ export const Account = () => {
       <Nav />
       <main className={styles["account__main"]}>
         <DeliveryInformation/>
-        <LoginInformation/>
+        {/* <LoginInformation/> */}
+        <ShippingDetails/>
       </main>
     </section>
   );
