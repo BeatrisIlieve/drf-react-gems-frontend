@@ -1,0 +1,31 @@
+@use "../../../../../styles/partials/variables";
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+  border-style: dashed solid solid dotted;
+  border-color: variables.$color-pink variables.$color-pink transparent
+    variables.$color-pink;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  transform: rotate(-40deg);
+  margin-top: 2rem;
+}
+// .loader::after {
+//   box-sizing: border-box;
+//   transform: rotate(-40deg);
+//   position: absolute;
+//   bottom: 50px;
+// }
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

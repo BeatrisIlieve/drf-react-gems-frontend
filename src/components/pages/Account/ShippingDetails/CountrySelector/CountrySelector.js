@@ -3,12 +3,16 @@ import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
 
-export const CountrySelector = ({
-  selectedCountry,
-  updateSelectedCountry,
-  error,
-  setError,
-}) => {
+import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
+
+export const CountrySelector = () => {
+  const {
+    selectedCountry,
+    updateSelectedCountry,
+    countryError,
+    updateCountryError,
+  } = useShippingDetailsContext();
+
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
@@ -33,8 +37,8 @@ export const CountrySelector = ({
       updateSelectedItem={updateSelectedCountry}
       label={"Country *"}
       errorMessage={"Please select a country."}
-      error={error}
-      setError={setError}
+      error={countryError}
+      setError={updateCountryError}
     />
   );
 };

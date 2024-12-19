@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
+import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
-export const CitySelector = ({
-  selectedCity,
-  updateSelectedCity,
-  error,
-  setError,
-}) => {
+export const CitySelector = () => {
+  const { selectedCity, updateSelectedCity, cityError, updateCityError } =
+    useShippingDetailsContext();
+
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
@@ -33,8 +32,8 @@ export const CitySelector = ({
       updateSelectedItem={updateSelectedCity}
       label={"City *"}
       errorMessage={"Please select a city."}
-      error={error}
-      setError={setError}
+      error={cityError}
+      setError={updateCityError}
     />
   );
 };

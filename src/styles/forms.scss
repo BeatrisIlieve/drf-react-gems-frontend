@@ -33,6 +33,14 @@
   background-color: white;
 }
 
+.form-select.is-valid,
+.was-validated .form-select:valid {
+  border-color: transparent;
+  border-bottom: 0.08rem solid variables.$color-pink;
+  background-image: none;
+  background-color: white;
+}
+
 .form-control.is-valid:focus {
   border-color: transparent;
   box-shadow: none;
@@ -41,6 +49,15 @@
   border-bottom-right-radius: unset;
   background-color: transparent;
 }
+
+.form-select.is-valid:focus {
+    border-color: transparent;
+    box-shadow: none;
+    border-bottom: 0.1rem solid variables.$color-pink;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    background-color: transparent;
+  }
 
 .valid-feedback {
   color: transparent;

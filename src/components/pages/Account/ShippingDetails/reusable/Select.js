@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Form, FormGroup, FloatingLabel } from "react-bootstrap";
 
+import styles from "./Select.module.scss";
+
 export const Select = ({
   items,
   selectedItem,
@@ -10,7 +12,7 @@ export const Select = ({
   error,
   setError,
 }) => {
-  const handleChange = (event) => {
+  const changeHandler = (event) => {
     const value = event.target.value;
 
     updateSelectedItem(value);
@@ -20,49 +22,38 @@ export const Select = ({
   const validateSelection = () => {
     if (!selectedItem) setError(true);
   };
+
   return (
-    <FormGroup controlId="countrySelector">
-      {selectedItem && (
-        <FloatingLabel controlId="floatingSelect" label={label}>
-          <Form.Select
-            onChange={handleChange}
-            onBlur={validateSelection}
-            value={selectedItem || ""}
-            isInvalid={error}
-          >
-            <option value="" disabled>
-              {label}
-            </option>
-            {items.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </Form.Select>
-        </FloatingLabel>
-      )}
-      {!selectedItem && (
-        <Form.Select
-          onChange={handleChange}
-          onBlur={validateSelection}
-          value={selectedItem || ""}
-          isInvalid={error}
-        >
-          <option value="" disabled>
-            {label}
+    <div className="form-floating mb-3">
+      <select
+        className={`form-select ${error ? "is-invalid" : "is-valid"}`}
+        id="floatingSelect"
+        aria-label="Floating label select example"
+        value={selectedItem || ""}
+        onChange={changeHandler}
+        onBlur={validateSelection}
+      >
+        <option value="" disabled>
+          {items.length === 0 ? "" : label}
+        </option>
+
+        {items.map((item) => (
+          <option key={item.id} value={item.id}>
+            {item.name}
           </option>
-          {items.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.name}
-            </option>
-          ))}
-        </Form.Select>
-      )}
-      {error && (
-        <Form.Control.Feedback type="invalid">
-          {errorMessage}
-        </Form.Control.Feedback>
-      )}
-    </FormGroup>
+        ))}
+      </select>
+      <label htmlFor="floatingSelect">
+        {items.length === 0 ? (
+          <span className={styles["loader"]}></span>
+        ) : selectedItem ? (
+          label
+        ) : (
+          ""
+        )}
+      </label>
+      <div className="valid-feedback">Looks good!</div>
+      <div className="invalid-feedback">{errorMessage}</div>
+    </div>
   );
 };

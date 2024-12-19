@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState} from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import { useService } from "../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../services/userShippingDetailsService";
@@ -118,6 +118,9 @@ export const ShippingDetailsProvider = ({ children }) => {
     }));
   };
 
+  const selectedCountry = userData.country;
+  const selectedCity = userData.city;
+
   const context = {
     formItems,
     userData,
@@ -130,6 +133,8 @@ export const ShippingDetailsProvider = ({ children }) => {
     submitHandler,
     updateSelectedCountry,
     updateSelectedCity,
+    selectedCity,
+    selectedCountry
   };
 
   return (
