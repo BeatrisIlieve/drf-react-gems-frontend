@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useService } from "../../../../../../hooks/useService";
-import { userShippingDetailsServiceFactory } from "../../../../../../services/userShippingDetailsService";
+import { useService } from "../../../../../hooks/useService";
+import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
-import { useShippingDetailsContext } from "../../../../../../contexts/ShippingDetailsContext";
+import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
 export const CitySelector = () => {
   const {
