@@ -46,26 +46,25 @@ input[type="radio"] {
   display: none;
 }
 
-// ::-webkit-scrollbar {
-//   width: 0.375rem;
-// }
+::-webkit-scrollbar {
+  width: 0.375rem;
+}
 
-// ::-webkit-scrollbar-track {
-//   background: var(--light-pink);
-//   border-radius: 0.375rem;
-// }
+::-webkit-scrollbar-track {
+  background: variables.$color-light-pink;
+  border-radius: 0.375rem;
+}
 
-// ::-webkit-scrollbar-thumb {
-//   background: var(--medium-pink);
-//   border-radius: 0.375rem;
-// }
+::-webkit-scrollbar-thumb {
+  background: variables.$color-medium-pink;
+  border-radius: 0.375rem;
+}
 
-// ::-webkit-scrollbar-thumb:hover {
-//   background: var(--pink);
-// }
+::-webkit-scrollbar-thumb:hover {
+  background: variables.$color-pink;
+}
 
-// body::-webkit-scrollbar {
-//   width: 0.25rem;
-//   height: 0rem;
-// }
-
+body::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0rem;
+}

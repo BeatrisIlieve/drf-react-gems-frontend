@@ -182,7 +182,7 @@ export const ShippingDetails = () => {
             />
           </div>
           <div className={styles["shipping-details__button"]}>
-          <Button label={"Save"} color={"black"} buttonType={"submit"} />
+            <Button label={"Save"} color={"black"} buttonType={"submit"} />
           </div>
         </form>
       </div>

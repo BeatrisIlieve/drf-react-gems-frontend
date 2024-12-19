@@ -1,22 +1,16 @@
 .shipping-details {
-    // padding: 1rem;
-    &__form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 
-    }
-
-    &__button {
-        margin: 0 auto;
-        padding-bottom: 0.2rem !important;
-        width: calc(360px - 2rem);
-    }
+  &__button {
+    margin: 0 auto;
+    padding-bottom: 0.2rem !important;
+    width: calc(360px - 2rem);
+  }
 }
 
-.dropdowns-container {
-
-    // display: flex;
-}
