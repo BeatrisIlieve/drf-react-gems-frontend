@@ -2,15 +2,12 @@ import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetai
 import { CountrySelector } from "../CountrySelector/CountrySelector";
 import { CitySelector } from "../CitySelector/CitySelector";
 
-
 export const SelectFields = () => {
-    const {selectedCountry} = useShippingDetailsContext()
+  const { selectedCountry } = useShippingDetailsContext();
   return (
     <>
       <CountrySelector />
-      {
-        selectedCountry && (<CitySelector />)
-      }
+      <CitySelector />
     </>
   );
 };

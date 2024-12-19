@@ -39,6 +39,7 @@ export const CountrySelector = () => {
       errorMessage={"Please select a country."}
       error={countryError}
       setError={updateCountryError}
+      isDisabled={false}
     />
   );
 };

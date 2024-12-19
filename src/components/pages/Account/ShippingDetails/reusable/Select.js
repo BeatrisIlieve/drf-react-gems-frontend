@@ -11,6 +11,7 @@ export const Select = ({
   errorMessage,
   error,
   setError,
+  isDisabled,
 }) => {
   const changeHandler = (event) => {
     const value = event.target.value;
@@ -32,9 +33,11 @@ export const Select = ({
         value={selectedItem || ""}
         onChange={changeHandler}
         onBlur={validateSelection}
+        disabled={isDisabled}
       >
         <option value="" disabled>
-          {items.length === 0 ? "" : label}
+          {/* {label} */}
+          {items.length === 0 && !isDisabled ? "" : label}
         </option>
         {items.map((item) => (
           <option key={item.id} value={item.id}>
@@ -42,8 +45,15 @@ export const Select = ({
           </option>
         ))}
       </select>
+      {/* <label
+        htmlFor="floatingSelect"
+      >
+
+        {selectedItem ? label : ""}
+      </label> */}
+      
       <label htmlFor="floatingSelect">
-        {items.length === 0 ? (
+        {items.length === 0 && !isDisabled ? (
           <span className={styles["loader"]}></span>
         ) : selectedItem ? (
           label

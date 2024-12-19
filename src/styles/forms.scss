@@ -202,3 +202,11 @@ input:-internal-autofill-selected:active {
   background-color: transparent;
 }
 
+select {
+    cursor: pointer;
+}
+
+select:disabled {
+    color: variables.$color-medium-gray;
+    cursor: not-allowed;
+}

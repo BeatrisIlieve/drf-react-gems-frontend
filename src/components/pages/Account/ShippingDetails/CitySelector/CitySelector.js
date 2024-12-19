@@ -23,7 +23,7 @@ export const CitySelector = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [selectedCountry]);
 
   return (
     <Select
@@ -34,6 +34,7 @@ export const CitySelector = () => {
       errorMessage={"Please select a city."}
       error={cityError}
       setError={updateCityError}
+      isDisabled={!selectedCountry}
     />
   );
 };
