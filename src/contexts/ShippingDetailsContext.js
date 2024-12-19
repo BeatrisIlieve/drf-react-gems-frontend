@@ -76,6 +76,12 @@ export const ShippingDetailsProvider = ({ children }) => {
     setCityError(value);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleIsModalOpen = () => {
+    setIsModalOpen((isModalOpen) => !isModalOpen);
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -99,6 +105,8 @@ export const ShippingDetailsProvider = ({ children }) => {
 
     try {
       await userShippingDetailsService.put(userId, userData);
+
+      toggleIsModalOpen();
     } catch (err) {
       console.log(err);
     }
@@ -134,7 +142,9 @@ export const ShippingDetailsProvider = ({ children }) => {
     updateSelectedCountry,
     updateSelectedCity,
     selectedCity,
-    selectedCountry
+    selectedCountry,
+    isModalOpen,
+    toggleIsModalOpen,
   };
 
   return (

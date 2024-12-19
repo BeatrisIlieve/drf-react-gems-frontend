@@ -5,20 +5,17 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ShippingDetails } from "../ShippingDetails/ShippingDetails";
 import { Modal } from "../../../reusable/Modal/Modal";
+import { useShippingDetailsContext } from "../../../../contexts/ShippingDetailsContext";
 
 export const DeliveryInformation = () => {
-  const [displayModal, setDisplayModal] = useState(false);
-
-  const closeModalHandler = () => {
-    setDisplayModal(false);
-  };
+  const { isModalOpen, toggleIsModalOpen } = useShippingDetailsContext();
 
   return (
     <>
-      {displayModal && (
+      {isModalOpen && (
         <Modal
-          closeModalClickHandler={closeModalHandler}
-          displayModal={displayModal}
+          closeModalClickHandler={toggleIsModalOpen}
+          displayModal={isModalOpen}
         >
           <ShippingDetails />
         </Modal>
@@ -32,7 +29,7 @@ export const DeliveryInformation = () => {
         <div className={styles["delivery-info__separator"]}></div>
         <button
           className={styles["delivery-info__button"]}
-          onClick={() => setDisplayModal(true)}
+          onClick={toggleIsModalOpen}
         >
           <FontAwesomeIcon
             icon={faPlus}
