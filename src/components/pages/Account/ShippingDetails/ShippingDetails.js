@@ -138,6 +138,7 @@ export const ShippingDetails = () => {
 
   return (
     <section className={styles["shipping-details"]}>
+      <h2 className={styles["shipping-details__title"]}>Shipping Details</h2>
       <div className="container mt-5">
         <form
           className={styles["shipping-details__form"]}
