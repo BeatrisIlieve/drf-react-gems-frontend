@@ -5,7 +5,7 @@ import { Select } from "../reusable/Select";
 import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
 export const CitySelector = () => {
-  const { selectedCity, updateSelectedCity, cityError, updateCityError } =
+  const { selectedCountry, selectedCity, updateSelectedCity, cityError, updateCityError } =
     useShippingDetailsContext();
 
   const userShippingDetailsService = useService(
@@ -16,7 +16,7 @@ export const CitySelector = () => {
 
   useEffect(() => {
     userShippingDetailsService
-      .getCities()
+      .getCities(selectedCountry)
       .then((data) => {
         setCities(data);
       })

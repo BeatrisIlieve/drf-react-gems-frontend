@@ -13,6 +13,6 @@ export const userShippingDetailsServiceFactory = (token) => {
     create: (data) => request.post(`${baseUrl}/create/`, data),
 
     getCountries: () => request.get(`${baseUrl}/countries/`),
-    getCities: () => request.get(`${baseUrl}/cities/`),
+    getCities: (selectedCountry) => request.get(`${baseUrl}/cities/?country=${selectedCountry}`),
   };
 };

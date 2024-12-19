@@ -2,15 +2,15 @@ import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetai
 import { CountrySelector } from "../CountrySelector/CountrySelector";
 import { CitySelector } from "../CitySelector/CitySelector";
 
+
 export const SelectFields = () => {
+    const {selectedCountry} = useShippingDetailsContext()
   return (
     <>
-      {/* <div className="form-floating mb-3"> */}
-        <CountrySelector />
-      {/* </div> */}
-      {/* <div className="form-floating mb-3"> */}
-        <CitySelector />
-      {/* </div> */}
+      <CountrySelector />
+      {
+        selectedCountry && (<CitySelector />)
+      }
     </>
   );
 };

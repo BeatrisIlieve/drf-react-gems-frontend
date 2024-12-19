@@ -36,7 +36,6 @@ export const Select = ({
         <option value="" disabled>
           {items.length === 0 ? "" : label}
         </option>
-
         {items.map((item) => (
           <option key={item.id} value={item.id}>
             {item.name}
