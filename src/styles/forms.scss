@@ -74,13 +74,11 @@
 .container {
   margin: 0 !important;
   padding: 0 !important;
-  // width: calc(720px - 2rem) !important;
 }
 
 .mt-5 {
   margin-top: 0 !important;
   margin: 0 !important;
-  // width: calc(720px - 2rem) !important;
 }
 
 .mb-3 {
@@ -108,20 +106,18 @@ form {
 }
 
 .form-floating label {
-  transform: translateY(1.2rem); /* Move label 0.5rem down */
+  transform: translateY(1.2rem);
 }
 
 .form-floating input:focus ~ label,
 .form-floating input:not(:placeholder-shown) ~ label {
-  transform: translateY(
-    -1.2rem
-  ); /* Ensure it moves back up when input is active */
+  transform: translateY(-1.2rem);
 }
 input:-internal-autofill-selected,
 input:-webkit-autofill {
-  background-color: transparent !important; /* Transparent background */
-  color: inherit !important; /* Inherit text color */
-  -webkit-box-shadow: 0 0 0px 1000px white inset !important; /* Mask autofill highlight */
+  background-color: transparent !important;
+  color: inherit !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
   box-shadow: 0 0 0px 1000px white inset !important;
 }
 
@@ -141,7 +137,6 @@ input:-internal-autofill-selected:active {
   max-width: calc(720px - 2rem) !important;
   min-width: calc(720px - 2rem) !important;
 }
-
 
 .form-select {
   border-color: transparent;
