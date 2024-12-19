@@ -9,7 +9,7 @@ export const usePopup = ({ toggleIsModalOpen, displayModal }) => {
       setIsTransitioning(true);
 
       setTimeout(() => {
-        toggleIsModalOpen();  
+        toggleIsModalOpen();
         setIsTransitioning(false);
         resolve();
       }, 400);
@@ -17,7 +17,7 @@ export const usePopup = ({ toggleIsModalOpen, displayModal }) => {
   }, [toggleIsModalOpen]);
 
   useEffect(() => {
-    console.log(displayModal)
+    console.log(displayModal);
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         popupCloseHandler();

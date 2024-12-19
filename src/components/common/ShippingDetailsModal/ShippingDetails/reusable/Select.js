@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { Form, FormGroup, FloatingLabel } from "react-bootstrap";
-
 import styles from "./Select.module.scss";
 
 export const Select = ({
@@ -36,7 +33,6 @@ export const Select = ({
         disabled={isDisabled}
       >
         <option value="" disabled>
-          {/* {label} */}
           {items.length === 0 && !isDisabled ? "" : label}
         </option>
         {items.map((item) => (
@@ -45,13 +41,6 @@ export const Select = ({
           </option>
         ))}
       </select>
-      {/* <label
-        htmlFor="floatingSelect"
-      >
-
-        {selectedItem ? label : ""}
-      </label> */}
-      
       <label htmlFor="floatingSelect">
         {items.length === 0 && !isDisabled ? (
           <span className={styles["loader"]}></span>
