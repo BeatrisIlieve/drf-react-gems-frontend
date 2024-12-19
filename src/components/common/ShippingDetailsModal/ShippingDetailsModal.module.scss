@@ -25,15 +25,10 @@
     background-color: variables.$color-white;
     position: relative;
     transition: opacity 1s ease, transform 1s ease;
-    // padding: 40px 10px;
-    // display: flex;
-    // flex-wrap: wrap;
-    // flex-direction: column;
     box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
     border-radius: 0.3rem;
     width: 720px;
     padding: 1rem;
-    // width: 352px;
     pointer-events: auto;
     z-index: 99999;
     overflow-y: auto;

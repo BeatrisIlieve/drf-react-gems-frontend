@@ -1,25 +1,15 @@
-import { useState } from "react";
-
 import styles from "./DeliveryInformation.module.scss";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ShippingDetails } from "../ShippingDetails/ShippingDetails";
-import { Modal } from "../../../reusable/Modal/Modal";
 import { useShippingDetailsContext } from "../../../../contexts/ShippingDetailsContext";
+import { ShippingDetailsModal } from "../../../common/ShippingDetailsModal/ShippingDetailsModal";
 
 export const DeliveryInformation = () => {
-  const { isModalOpen, toggleIsModalOpen } = useShippingDetailsContext();
+  const { toggleIsModalOpen } = useShippingDetailsContext();
 
   return (
     <>
-      {isModalOpen && (
-        <Modal
-          closeModalClickHandler={toggleIsModalOpen}
-          displayModal={isModalOpen}
-        >
-          <ShippingDetails />
-        </Modal>
-      )}
+      <ShippingDetailsModal />
       <section className={styles["delivery-info"]}>
         <h4 className={styles["delivery-info__title"]}>Delivery Information</h4>
         <div className={styles["delivery-info__separator"]}></div>

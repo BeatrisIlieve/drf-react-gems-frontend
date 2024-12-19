@@ -14,12 +14,6 @@
   transform: rotate(-40deg);
   margin-top: 2rem;
 }
-// .loader::after {
-//   box-sizing: border-box;
-//   transform: rotate(-40deg);
-//   position: absolute;
-//   bottom: 50px;
-// }
 
 @keyframes rotation {
   0% {
@@ -29,9 +23,3 @@
     transform: rotate(360deg);
   }
 }
-
-.disabled {
-  color: red !important;
-}
-
-

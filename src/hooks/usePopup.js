@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 
-export const usePopup = ({ closeModalClickHandler, displayModal }) => {
+export const usePopup = ({ toggleIsModalOpen, displayModal }) => {
   const popupRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -9,14 +9,15 @@ export const usePopup = ({ closeModalClickHandler, displayModal }) => {
       setIsTransitioning(true);
 
       setTimeout(() => {
-        closeModalClickHandler();
+        toggleIsModalOpen();  
         setIsTransitioning(false);
         resolve();
       }, 400);
     });
-  }, [closeModalClickHandler]);
+  }, [toggleIsModalOpen]);
 
   useEffect(() => {
+    console.log(displayModal)
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         popupCloseHandler();
