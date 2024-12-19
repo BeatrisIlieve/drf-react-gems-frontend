@@ -3,7 +3,7 @@ import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetai
 export const InputFields = () => {
   const { userData, formItems, updateFormItems, updateUserData } =
     useShippingDetailsContext();
-    
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
