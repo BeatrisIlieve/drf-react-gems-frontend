@@ -2,12 +2,12 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import { useService } from "../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../services/userShippingDetailsService";
-import { FORM_ITEMS } from "../constants/formItems";
+import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
 export const ShippingDetailsContext = createContext();
 
 export const ShippingDetailsProvider = ({ children }) => {
-  const [formItems, setFormItems] = useState(FORM_ITEMS);
+  const [formItems, setFormItems] = useState(SHIPPING_DETAILS_FORM_ITEMS);
 
   const { userId } = useAuthenticationContext();
 

@@ -1,4 +1,4 @@
-export const FORM_ITEMS = {
+export const SHIPPING_DETAILS_FORM_ITEMS = {
   first_name: {
     type: "text",
     isValid: true,
