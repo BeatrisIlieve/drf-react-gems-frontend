@@ -41,7 +41,7 @@ export const FORM_ITEMS = {
     placeholder: "Street Address *",
     userInput: "",
     label: "Street Address *",
-    pattern: "^([A-Za-z0-9])([A-Za-z0-9 -\.\,']{6,253})([A-Za-z0-9])$",
+    pattern: "^([A-Za-z0-9])([A-Za-z0-9 -.,']{6,253})([A-Za-z0-9])$",
     invalidMessage: "Please enter a valid street address.",
   },
 
@@ -53,7 +53,7 @@ export const FORM_ITEMS = {
     placeholder: "Apartment",
     userInput: "",
     label: "Apartment",
-    pattern: "^[A-Za-z0-9]([A-Za-z0-9 -\.]{0,6}[A-Za-z0-9])?$",
+    pattern: "^[A-Za-z0-9]([A-Za-z0-9 -.]{0,6}[A-Za-z0-9])?$",
     invalidMessage: "Please enter a valid apartment.",
   },
 
@@ -65,7 +65,7 @@ export const FORM_ITEMS = {
     placeholder: "Postal Code *",
     userInput: "",
     label: "Postal Code *",
-    pattern: "^([A-Za-z0-9]{1,})([A-Za-z0-9 -\.\,]{0,12})([A-Za-z0-9]{1})$",
+    pattern: "^([A-Za-z0-9]{1,})([A-Za-z0-9 -.,]{0,12})([A-Za-z0-9]{1})$",
     invalidMessage: "Please enter a valid postal code.",
   },
 };

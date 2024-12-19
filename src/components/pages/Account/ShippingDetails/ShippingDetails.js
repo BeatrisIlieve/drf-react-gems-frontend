@@ -140,7 +140,7 @@ export const ShippingDetails = () => {
     <section className={styles["shipping-details"]}>
       <div className="container mt-5">
         <form
-          className={styles["form-container__form"]}
+          className={styles["shipping-details__form"]}
           onSubmit={submitHandler}
         >
           {Object.entries(formItems).map(([key, field]) => (
@@ -181,7 +181,9 @@ export const ShippingDetails = () => {
               setError={updateCityError}
             />
           </div>
+          <div className={styles["shipping-details__button"]}>
           <Button label={"Save"} color={"black"} buttonType={"submit"} />
+          </div>
         </form>
       </div>
     </section>

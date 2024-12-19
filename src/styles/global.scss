@@ -143,15 +143,20 @@ input[type="radio"] {
 .container {
   margin: 0 !important;
   padding: 0 !important;
+  // width: calc(720px - 2rem) !important;
+  
 }
 
 .mt-5 {
   margin-top: 0 !important;
+  margin: 0 !important;
+  // width: calc(720px - 2rem) !important;
 }
 
 .mb-3 {
   margin: 0 !important;
   padding-bottom: 0.2rem !important;
+  width: calc(360px - 2rem);
 }
 
 .form-floating > .form-control,
@@ -203,8 +208,8 @@ input:-internal-autofill-selected:active {
 .container-sm,
 .container-xl,
 .container-xxl {
-  // max-width: calc(360px - 2rem) !important;
-  // min-width: calc(360px - 2rem) !important;
+    max-width: calc(720px - 2rem) !important;
+    min-width: calc(720px - 2rem) !important;
 }
 
 // select {

@@ -8,7 +8,6 @@ export const userShippingDetailsServiceFactory = (token) => {
   const request = requestFactory(token);
 
   return {
-
     get: (id) => request.get(`${baseUrl}/${id}/`),
     put: (id, data) => request.put(`${baseUrl}/${id}/`, data),
     create: (data) => request.post(`${baseUrl}/create/`, data),

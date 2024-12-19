@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 
-export const usePopup = ({ closeAuthModalClickHandler, displayAuthModal }) => {
+export const usePopup = ({ closeModalClickHandler, displayModal }) => {
   const popupRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -9,12 +9,12 @@ export const usePopup = ({ closeAuthModalClickHandler, displayAuthModal }) => {
       setIsTransitioning(true);
 
       setTimeout(() => {
-        closeAuthModalClickHandler();
+        closeModalClickHandler();
         setIsTransitioning(false);
         resolve();
       }, 400);
     });
-  }, [closeAuthModalClickHandler]);
+  }, [closeModalClickHandler]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -29,7 +29,7 @@ export const usePopup = ({ closeAuthModalClickHandler, displayAuthModal }) => {
       }
     };
 
-    if (displayAuthModal) {
+    if (displayModal) {
       document.addEventListener("mousedown", handleClickOutside);
       window.addEventListener("keydown", handleKeyDown);
     } else {
@@ -41,7 +41,7 @@ export const usePopup = ({ closeAuthModalClickHandler, displayAuthModal }) => {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [displayAuthModal, popupCloseHandler]);
+  }, [displayModal, popupCloseHandler]);
 
   return {
     isTransitioning,

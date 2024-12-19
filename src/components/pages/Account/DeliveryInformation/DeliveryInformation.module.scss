@@ -3,7 +3,7 @@
 
 .delivery-info {
   border: 0.08rem solid variables.$color-browser-gray;
-  padding: 2rem;
+  padding: 3rem;
 
   &__title {
     font-size: variables.$font-large;
@@ -12,7 +12,7 @@
 
   &__separator {
     border-bottom: 0.08rem solid variables.$color-browser-gray;
-    margin: 2rem 0;
+    margin: 3rem 0;
   }
 
   &__paragraph {
@@ -23,6 +23,7 @@
 
   &__button {
     all: unset;
+    @include flexbox.flexbox($justify: flex-start, $align: center);
   }
 
   &__icon {
