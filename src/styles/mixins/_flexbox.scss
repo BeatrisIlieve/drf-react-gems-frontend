@@ -2,6 +2,7 @@
   $direction: row,
   $justify: flex-start,
   $align: flex-start,
+  $flex-wrap: nowrap,
   $gap: 0,
   $flex-grow: 0
 ) {
@@ -12,4 +13,5 @@
   align-items: $align;
   gap: $gap;
   flex-grow: $flex-grow;
+  flex-wrap: $flex-wrap;
 }
