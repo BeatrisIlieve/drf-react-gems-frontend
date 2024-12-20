@@ -1,5 +1,5 @@
 export const validateForm = (formItems, userData, callBackFunction) => {
-  let isValid = true;
+  let isFormValid = true;
 
   Object.entries(formItems).forEach(([key, field]) => {
     const value = userData[key];
@@ -9,9 +9,9 @@ export const validateForm = (formItems, userData, callBackFunction) => {
     const isFieldValid = field.isValid;
 
     if (!isFieldValid) {
-      isValid = false;
+      isFormValid = false;
     }
   });
 
-  return isValid;
+  return isFormValid;
 };

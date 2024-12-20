@@ -1,35 +1,72 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 import { useService } from "../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../services/userShippingDetailsService";
 import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
-import { validateForm } from "../utils/validateForm";
-import { useManageUserData } from "../hooks/useManageUserData";
-
-import { useUpdateFormItems } from "../hooks/useUpdateFormItems";
 
 export const ShippingDetailsContext = createContext();
 
 export const ShippingDetailsProvider = ({ children }) => {
-  const { formItems, updateFormItems } = useUpdateFormItems({
-    initialValues: SHIPPING_DETAILS_FORM_ITEMS,
-  });
-
   const { userId } = useAuthenticationContext();
 
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
 
-  const fetchFunction = userShippingDetailsService.get;
+  const [userData, setUserData] = useState({});
 
-  const { userData, updateUserData } = useManageUserData({ fetchFunction });
+  useEffect(() => {
+    userShippingDetailsService
+      .get(userId)
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [userShippingDetailsService]);
+
+  const updateUserData = (name, value) => {
+    setUserData((prevFormItems) => ({
+      ...prevFormItems,
+      [name]: value,
+    }));
+  };
+
+  const [formItems, setFormItems] = useState(SHIPPING_DETAILS_FORM_ITEMS);
+
+  const updateFormItems = (name, value) => {
+    setFormItems((prevFormItems) => ({
+      ...prevFormItems,
+      [name]: {
+        ...prevFormItems[name],
+        isValid: new RegExp(prevFormItems[name].pattern).test(value),
+      },
+    }));
+  };
 
   const submitHandler = async (e, childFunction) => {
     e.preventDefault();
+    let isFormValid = true;
 
-    const isFormValid = validateForm(formItems, userData, updateFormItems);
+    Object.entries(formItems).forEach(([key, field]) => {
+      const value = userData[key];
+
+      const isFieldValid = new RegExp(field.pattern).test(value || "");
+
+      if (!isFieldValid) {
+        isFormValid = false;
+      }
+
+      setFormItems((prevFormItems) => ({
+        ...prevFormItems,
+        [key]: {
+          ...field,
+          isValid: isFieldValid,
+        },
+      }));
+    });
 
     if (!isFormValid) {
       return;

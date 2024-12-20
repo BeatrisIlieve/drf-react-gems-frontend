@@ -71,13 +71,15 @@ export const SHIPPING_DETAILS_FORM_ITEMS = {
 
   country: {
     isValid: true,
-    pattern: "[0-9]+",
+    name: "country",
+    pattern: "[0-9]{1,}",
     invalidMessage: "Please select a country.",
   },
 
   city: {
     isValid: true,
-    pattern: "[0-9]+",
+    name: "city",
+    pattern: "[0-9]{1,}",
     invalidMessage: "Please select a city.",
   },
 };
