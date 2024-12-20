@@ -35,8 +35,7 @@ export const ShippingDetailsModal = () => {
             }`}
           >
             <XMark callbackFunction={popupCloseHandler} />
-            <ShippingDetails
-            />
+            <ShippingDetails />
           </div>
         </section>
       )}
