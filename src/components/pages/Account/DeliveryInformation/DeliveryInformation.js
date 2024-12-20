@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "./DeliveryInformation.module.scss";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useShippingDetailsContext } from "../../../../contexts/ShippingDetailsContext";
 import { ShippingDetailsModal } from "../../../common/ShippingDetailsModal/ShippingDetailsModal";
 
 export const DeliveryInformation = () => {

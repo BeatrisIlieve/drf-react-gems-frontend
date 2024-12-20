@@ -76,11 +76,9 @@ export const ShippingDetailsProvider = ({ children }) => {
     setCityError(value);
   };
 
-
-
   const executeChildFunction = (childFunction) => {
     if (typeof childFunction === "function") {
-      childFunction(); 
+      childFunction();
     }
   };
 
@@ -108,7 +106,10 @@ export const ShippingDetailsProvider = ({ children }) => {
     try {
       await userShippingDetailsService.put(userId, userData);
 
-      childFunction();
+      if (typeof childFunction === "function") {
+        childFunction();
+      }
+      
     } catch (err) {
       console.log(err);
     }
