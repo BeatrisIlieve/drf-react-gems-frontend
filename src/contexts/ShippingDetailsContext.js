@@ -5,10 +5,15 @@ import { userShippingDetailsServiceFactory } from "../services/userShippingDetai
 import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
 import { validateForm } from "../utils/validateForm";
+
+import { useUpdateFormItems } from "../hooks/useUpdateFormItems";
+
 export const ShippingDetailsContext = createContext();
 
 export const ShippingDetailsProvider = ({ children }) => {
-  const [formItems, setFormItems] = useState(SHIPPING_DETAILS_FORM_ITEMS);
+  const { formItems, updateFormItems } = useUpdateFormItems({
+    initialValues: SHIPPING_DETAILS_FORM_ITEMS,
+  });
 
   const { userId } = useAuthenticationContext();
 
@@ -30,16 +35,6 @@ export const ShippingDetailsProvider = ({ children }) => {
       });
   }, [userShippingDetailsService]);
 
-  const updateFormItems = (name, value) => {
-    setFormItems((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: {
-        ...prevFormItems[name],
-        isValid: new RegExp(prevFormItems[name].pattern).test(value),
-      },
-    }));
-  };
-
   const updateUserData = (name, value) => {
     setUserData((prevFormItems) => ({
       ...prevFormItems,
@@ -57,12 +52,6 @@ export const ShippingDetailsProvider = ({ children }) => {
 
   const updateCityError = (value) => {
     setCityError(value);
-  };
-
-  const executeChildFunction = (childFunction) => {
-    if (typeof childFunction === "function") {
-      childFunction();
-    }
   };
 
   const submitHandler = async (e, childFunction) => {
@@ -107,7 +96,6 @@ export const ShippingDetailsProvider = ({ children }) => {
     cityError,
     updateCityError,
     submitHandler,
-    executeChildFunction,
   };
 
   return (

@@ -12,12 +12,6 @@ export const InputFields = () => {
     updateFormItems(name, value);
   };
 
-  const handleBlur = (e) => {
-    const { name, value } = e.target;
-
-    updateFormItems(name, value);
-  };
-
   return (
     <>
       {Object.entries(formItems).map(([key, field]) => (
@@ -36,7 +30,7 @@ export const InputFields = () => {
             placeholder={field.placeholder}
             value={userData[key] || ""}
             onChange={handleChange}
-            onBlur={handleBlur}
+            onBlur={(e) => updateFormItems(key, e.target.value)}
           />
           <label htmlFor="floatingInput">{field.label}</label>
           <div className="invalid-feedback">{field.invalidMessage}</div>
