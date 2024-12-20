@@ -53,7 +53,7 @@ export const SHIPPING_DETAILS_FORM_ITEMS = {
     placeholder: "Apartment",
     userInput: "",
     label: "Apartment",
-    pattern: "^[A-Za-z0-9]([A-Za-z0-9 -.]{0,6}[A-Za-z0-9])?$",
+    pattern: "^[A-Za-z0-9]*([A-Za-z0-9 -.]*[A-Za-z0-9])*$",
     invalidMessage: "Please enter a valid apartment.",
   },
 
