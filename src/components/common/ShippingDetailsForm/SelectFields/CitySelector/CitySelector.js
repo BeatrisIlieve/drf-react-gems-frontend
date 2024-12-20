@@ -4,13 +4,11 @@ import { userShippingDetailsServiceFactory } from "../../../../../services/userS
 import { Select } from "../reusable/Select";
 import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
-export const CitySelector = () => {
-  const {
-    userData,
-    cityError,
-    updateCityError,
-    updateUserData
-  } = useShippingDetailsContext();
+export const CitySelector = ({
+  userData,
+  updateUserData,
+}) => {
+
 
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
@@ -22,6 +20,10 @@ export const CitySelector = () => {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
+    if (!selectedCountry) {
+      return;
+    }
+
     userShippingDetailsService
       .getCities(selectedCountry)
       .then((data) => {
@@ -32,18 +34,14 @@ export const CitySelector = () => {
       });
   }, [selectedCountry]);
 
-
-
   return (
     <Select
       items={cities}
       selectedItem={selectedCity}
       updateSelectedItem={(value) => updateUserData("city", value)}
       label={"City *"}
-      errorMessage={"Please select a city."}
-      error={cityError}
-      setError={updateCityError}
       isDisabled={!selectedCountry}
+      inputName={"city"}
     />
   );
 };

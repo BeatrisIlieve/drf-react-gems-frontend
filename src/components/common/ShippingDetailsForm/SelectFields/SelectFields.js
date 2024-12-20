@@ -1,11 +1,14 @@
 import { CountrySelector } from "./CountrySelector/CountrySelector";
 import { CitySelector } from "./CitySelector/CitySelector";
 
-export const SelectFields = () => {
+export const SelectFields = ({
+  userData,
+  updateUserData,
+}) => {
   return (
     <>
-      <CountrySelector />
-      <CitySelector />
+      <CountrySelector userData={userData} updateUserData={updateUserData} />
+      <CitySelector userData={userData} updateUserData={updateUserData} />
     </>
   );
 };

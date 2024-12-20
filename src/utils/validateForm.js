@@ -1,12 +1,12 @@
-export const validateForm = (formItems, userData) => {
+export const validateForm = (formItems, userData, callBackFunction) => {
   let isValid = true;
 
   Object.entries(formItems).forEach(([key, field]) => {
     const value = userData[key];
 
-    const isFieldValid = new RegExp(field.pattern).test(value || "");
+    callBackFunction(key, value)
 
-    field.isValid = isFieldValid;
+    const isFieldValid = field.isValid;
 
     if (!isFieldValid) {
       isValid = false;

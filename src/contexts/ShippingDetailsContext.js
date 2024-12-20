@@ -26,36 +26,12 @@ export const ShippingDetailsProvider = ({ children }) => {
 
   const { userData, updateUserData } = useManageUserData({ fetchFunction });
 
-  const [countryError, setCountryError] = useState(false);
-
-  const updateCountryError = (value) => {
-    setCountryError(value);
-  };
-
-  const [cityError, setCityError] = useState(false);
-
-  const updateCityError = (value) => {
-    setCityError(value);
-  };
-
   const submitHandler = async (e, childFunction) => {
     e.preventDefault();
 
-    const isFormValid = validateForm(formItems, userData);
+    const isFormValid = validateForm(formItems, userData, updateFormItems);
 
-    const countryErrorOccurred = !userData.country;
-
-    if (countryErrorOccurred) {
-      setCountryError(true);
-    }
-
-    const cityErrorOccurred = !userData.city;
-
-    if (cityErrorOccurred) {
-      setCityError(true);
-    }
-
-    if (!isFormValid || countryErrorOccurred || cityErrorOccurred) {
+    if (!isFormValid) {
       return;
     }
 
@@ -75,10 +51,6 @@ export const ShippingDetailsProvider = ({ children }) => {
     userData,
     updateFormItems,
     updateUserData,
-    countryError,
-    updateCountryError,
-    cityError,
-    updateCityError,
     submitHandler,
   };
 

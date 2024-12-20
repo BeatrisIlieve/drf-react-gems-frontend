@@ -68,4 +68,16 @@ export const SHIPPING_DETAILS_FORM_ITEMS = {
     pattern: "^([A-Za-z0-9]{1,})([A-Za-z0-9 -.,]{0,12})([A-Za-z0-9]{1})$",
     invalidMessage: "Please enter a valid postal code.",
   },
+
+  country: {
+    isValid: true,
+    pattern: "[0-9]+",
+    invalidMessage: "Please select a country.",
+  },
+
+  city: {
+    isValid: true,
+    pattern: "[0-9]+",
+    invalidMessage: "Please select a city.",
+  },
 };

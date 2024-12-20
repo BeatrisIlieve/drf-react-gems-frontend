@@ -5,9 +5,10 @@ import { Select } from "../reusable/Select";
 
 import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
-export const CountrySelector = () => {
-  const { countryError, updateCountryError, userData, updateUserData } =
-    useShippingDetailsContext();
+export const CountrySelector = ({
+  userData,
+  updateUserData,
+}) => {
 
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
@@ -33,10 +34,8 @@ export const CountrySelector = () => {
       selectedItem={selectedCountry}
       updateSelectedItem={(value) => updateUserData("country", value)}
       label={"Country *"}
-      errorMessage={"Please select a country."}
-      error={countryError}
-      setError={updateCountryError}
       isDisabled={false}
+      inputName={"country"}
     />
   );
 };

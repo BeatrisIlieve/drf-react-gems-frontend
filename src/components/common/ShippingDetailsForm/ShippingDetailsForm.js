@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { InputFields } from "./InputFields/InputFields";
 import { SelectFields } from "./SelectFields/SelectFields";
 
@@ -6,16 +8,30 @@ import { useShippingDetailsContext } from "../../../contexts/ShippingDetailsCont
 import styles from "./ShippingDetailsForm.module.scss";
 
 export const ShippingDetailsForm = ({ callBackFunction }) => {
-  const { submitHandler } = useShippingDetailsContext();
-  
+  const {
+    submitHandler,
+    formItems,
+    userData,
+    updateFormItems,
+    updateUserData,
+  } = useShippingDetailsContext();
+
   return (
     <div className="container mt-5">
       <form
         className={styles["shipping-details-form"]}
         onSubmit={(e) => submitHandler(e, callBackFunction)}
       >
-        <InputFields />
-        <SelectFields />
+        <InputFields
+          formItems={formItems}
+          userData={userData}
+          updateFormItems={updateFormItems}
+          updateUserData={updateUserData}
+        />
+        <SelectFields
+          userData={userData}
+          updateUserData={updateUserData}
+        />
         <div className={styles["shipping-details-form__button"]}>
           <Button label={"Save"} color={"black"} buttonType={"submit"} />
         </div>

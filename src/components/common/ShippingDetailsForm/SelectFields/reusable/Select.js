@@ -1,35 +1,36 @@
 import styles from "./Select.module.scss";
+import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
 export const Select = ({
   items,
   selectedItem,
-  updateSelectedItem,
   label,
-  errorMessage,
-  error,
-  setError,
   isDisabled,
+  inputName,
 }) => {
-  const changeHandler = (event) => {
-    const value = event.target.value;
+  const { formItems, updateFormItems, updateUserData } =
+    useShippingDetailsContext();
 
-    updateSelectedItem(value);
-    if (value) setError(false);
-  };
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
 
-  const validateSelection = () => {
-    if (!selectedItem) setError(true);
+    updateUserData(name, value);
+
+    updateFormItems(name, value);
   };
 
   return (
     <div className="form-floating mb-3">
       <select
-        className={`form-select ${error ? "is-invalid" : "is-valid"}`}
+        className={`form-select ${
+          !formItems[inputName].isValid ? "is-invalid" : "is-valid"
+        }`}
         id="floatingSelect"
         aria-label="Floating label select example"
         value={selectedItem || ""}
+        name={inputName}
         onChange={changeHandler}
-        onBlur={validateSelection}
+        onBlur={(e) => updateFormItems(inputName, e.target.value)}
         disabled={isDisabled}
       >
         <option value="" disabled>
@@ -42,7 +43,7 @@ export const Select = ({
         ))}
       </select>
       <label htmlFor="floatingSelect">
-        {items.length === 0 && !isDisabled ? (
+        {items.length === 0 && !isDisabled && !formItems.country.isValid ? (
           <span className={styles["loader"]}></span>
         ) : selectedItem ? (
           label
@@ -51,7 +52,9 @@ export const Select = ({
         )}
       </label>
       <div className="valid-feedback">Looks good!</div>
-      <div className="invalid-feedback">{errorMessage}</div>
+      <div className="invalid-feedback">
+        {formItems[inputName].invalidMessage}
+      </div>
     </div>
   );
 };
