@@ -5,13 +5,13 @@ import { Button } from "../../reusable/Button/Button";
 import { useShippingDetailsContext } from "../../../contexts/ShippingDetailsContext";
 import styles from "./ShippingDetailsForm.module.scss";
 
-export const ShippingDetailsForm = ({ toggleIsModalOpen }) => {
+export const ShippingDetailsForm = ({ callBackFunction }) => {
   const { submitHandler } = useShippingDetailsContext();
   return (
     <div className="container mt-5">
       <form
         className={styles["shipping-details-form"]}
-        onSubmit={(e) => submitHandler(e, toggleIsModalOpen)}
+        onSubmit={(e) => submitHandler(e, callBackFunction)}
       >
         <InputFields />
         <SelectFields />

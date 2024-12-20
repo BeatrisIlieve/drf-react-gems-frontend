@@ -5,6 +5,7 @@ import { Nav } from "./Nav/Nav";
 import { DeliveryInformation } from "./DeliveryInformation/DeliveryInformation";
 import { LoginInformation } from "./LoginInformation/LoginInformation";
 import styles from "./Account.module.scss";
+import { ShippingDetailsForm } from "../../common/ShippingDetailsForm/ShippingDetailsForm";
 
 export const Account = () => {
   return (

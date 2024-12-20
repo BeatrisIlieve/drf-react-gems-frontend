@@ -6,7 +6,7 @@ export const ShippingDetails = ({ toggleIsModalOpen }) => {
   return (
     <section className={styles["shipping-details"]}>
       <h2 className={styles["shipping-details__title"]}>Shipping Details</h2>
-      <ShippingDetailsForm toggleIsModalOpen={toggleIsModalOpen} />
+      <ShippingDetailsForm callBackFunction={toggleIsModalOpen} />
     </section>
   );
 };
