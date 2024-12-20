@@ -3,13 +3,7 @@ import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
 
-import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
-
-export const CountrySelector = ({
-  userData,
-  updateUserData,
-}) => {
-
+export const CountrySelector = ({ userData, updateUserData }) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
