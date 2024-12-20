@@ -4,7 +4,6 @@ import styles from "./ShippingDetailsModal.module.scss";
 
 import { CursorImageEffect } from "../../modals/utils/CursorImageEffect/CursorImageEffect";
 import { XMark } from "../../modals/utils/XMark/XMark";
-import { useShippingDetailsContext } from "../../../contexts/ShippingDetailsContext";
 import { ShippingDetails } from "./ShippingDetails/ShippingDetails";
 
 export const ShippingDetailsModal = ({ isModalOpen, toggleIsModalOpen }) => {
