@@ -5,10 +5,7 @@ import { Button } from "../../reusable/Button/Button";
 import { useShippingDetailsContext } from "../../../contexts/ShippingDetailsContext";
 import styles from "./ShippingDetailsForm.module.scss";
 
-import { useToggleIsModalOpen } from "../../../hooks/useToggleIsModalOpen";
-export const ShippingDetailsForm = () => {
-  const { toggleIsModalOpen } = useToggleIsModalOpen();
-
+export const ShippingDetailsForm = ({ toggleIsModalOpen }) => {
   const { submitHandler } = useShippingDetailsContext();
   return (
     <div className="container mt-5">

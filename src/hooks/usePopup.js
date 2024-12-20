@@ -17,7 +17,6 @@ export const usePopup = ({ toggleIsModalOpen, displayModal }) => {
   }, [toggleIsModalOpen]);
 
   useEffect(() => {
-    console.log(displayModal);
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         popupCloseHandler();

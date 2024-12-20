@@ -5,11 +5,14 @@ import { ShippingDetailsModal } from "../../../common/ShippingDetailsModal/Shipp
 import { useToggleIsModalOpen } from "../../../../hooks/useToggleIsModalOpen";
 
 export const DeliveryInformation = () => {
-  const { toggleIsModalOpen } = useToggleIsModalOpen();
+  const { isModalOpen, toggleIsModalOpen } = useToggleIsModalOpen();
 
   return (
     <>
-      <ShippingDetailsModal />
+      <ShippingDetailsModal
+        isModalOpen={isModalOpen}
+        toggleIsModalOpen={toggleIsModalOpen}
+      />
       <section className={styles["delivery-info"]}>
         <h4 className={styles["delivery-info__title"]}>Delivery Information</h4>
         <div className={styles["delivery-info__separator"]}></div>
