@@ -7,6 +7,7 @@ import styles from "./ShippingDetailsForm.module.scss";
 
 export const ShippingDetailsForm = ({ callBackFunction }) => {
   const { submitHandler } = useShippingDetailsContext();
+  
   return (
     <div className="container mt-5">
       <form

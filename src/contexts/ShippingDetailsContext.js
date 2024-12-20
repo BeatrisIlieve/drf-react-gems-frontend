@@ -4,6 +4,7 @@ import { useService } from "../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../services/userShippingDetailsService";
 import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
+import { validateForm } from "../utils/validateForm";
 export const ShippingDetailsContext = createContext();
 
 export const ShippingDetailsProvider = ({ children }) => {
@@ -46,23 +47,7 @@ export const ShippingDetailsProvider = ({ children }) => {
     }));
   };
 
-  const validateForm = () => {
-    let isValid = true;
 
-    Object.entries(formItems).forEach(([key, field]) => {
-      const value = userData[key];
-
-      const isFieldValid = new RegExp(field.pattern).test(value || "");
-
-      field.isValid = isFieldValid;
-
-      if (!isFieldValid) {
-        isValid = false;
-      }
-    });
-
-    return isValid;
-  };
 
   const [countryError, setCountryError] = useState(false);
 
@@ -85,7 +70,7 @@ export const ShippingDetailsProvider = ({ children }) => {
   const submitHandler = async (e, childFunction) => {
     e.preventDefault();
 
-    const isFormValid = validateForm();
+    const isFormValid = validateForm(formItems, userData);
 
     const countryErrorOccurred = !userData.country;
 
