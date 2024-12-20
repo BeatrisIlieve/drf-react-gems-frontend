@@ -2,8 +2,11 @@ import styles from "./DeliveryInformation.module.scss";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ShippingDetailsModal } from "../../../common/ShippingDetailsModal/ShippingDetailsModal";
+import { useToggleIsModalOpen } from "../../../../hooks/useToggleIsModalOpen";
 
 export const DeliveryInformation = () => {
+  const { toggleIsModalOpen } = useToggleIsModalOpen();
+
   return (
     <>
       <ShippingDetailsModal />
