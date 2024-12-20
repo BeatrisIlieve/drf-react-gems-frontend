@@ -1,46 +1,3 @@
-// import { useShippingDetailsContext } from "../../../../contexts/ShippingDetailsContext";
-
-// export const InputFields = () => {
-//   const { userData, formItems, updateFormItems, updateUserData } =
-//     useShippingDetailsContext();
-
-//   const changeHandler = (e) => {
-//     const { name, value } = e.target;
-
-//     updateUserData(name, value);
-
-//     updateFormItems(name, value);
-//   };
-
-//   return (
-//     <>
-//       {Object.entries(formItems).map(([key, field]) => (
-//         <div className="form-floating mb-3" key={key}>
-//           <input
-//             type={field.type}
-//             className={`form-control ${
-//               field.isValid === true
-//                 ? "is-valid"
-//                 : field.isValid === false
-//                 ? "is-invalid"
-//                 : ""
-//             }`.trim()}
-//             id={field.id}
-//             name={field.name}
-//             placeholder={field.placeholder}
-//             value={userData[key] || ""}
-//             onChange={changeHandler}
-//             onBlur={(e) => updateFormItems(key, e.target.value)}
-//           />
-//           <label htmlFor="floatingInput">{field.label}</label>
-//           <div className="invalid-feedback">{field.invalidMessage}</div>
-//           <div className="valid-feedback">Looks good</div>
-//         </div>
-//       ))}
-//     </>
-//   );
-// };
-
 export const InputFields = ({
   userData,
   formItems,
@@ -54,7 +11,6 @@ export const InputFields = ({
     updateFormItems(name, value);
   };
 
-  // Helper function to render input fields
   const renderInputField = (key, field) => (
     <div className="form-floating mb-3" key={key}>
       <input
