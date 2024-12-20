@@ -1,10 +1,11 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 import { useService } from "../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../services/userShippingDetailsService";
 import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
 import { validateForm } from "../utils/validateForm";
+import { useManageUserData } from "../hooks/useManageUserData";
 
 import { useUpdateFormItems } from "../hooks/useUpdateFormItems";
 
@@ -17,30 +18,13 @@ export const ShippingDetailsProvider = ({ children }) => {
 
   const { userId } = useAuthenticationContext();
 
-  const [userData, setUserData] = useState({});
-
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
 
-  useEffect(() => {
-    userShippingDetailsService
-      .get(userId)
-      .then((data) => {
-        setUserData(data);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [userShippingDetailsService]);
+  const fetchFunction = userShippingDetailsService.get;
 
-  const updateUserData = (name, value) => {
-    setUserData((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: value,
-    }));
-  };
+  const { userData, updateUserData } = useManageUserData({ fetchFunction });
 
   const [countryError, setCountryError] = useState(false);
 
