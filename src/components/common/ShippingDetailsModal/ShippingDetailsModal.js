@@ -5,8 +5,11 @@ import styles from "./ShippingDetailsModal.module.scss";
 import { CursorImageEffect } from "../../modals/utils/CursorImageEffect/CursorImageEffect";
 import { XMark } from "../../modals/utils/XMark/XMark";
 import { ShippingDetails } from "./ShippingDetails/ShippingDetails";
+import { useToggleIsModalOpen } from "../../../hooks/useToggleIsModalOpen";
 
-export const ShippingDetailsModal = ({ isModalOpen, toggleIsModalOpen }) => {
+export const ShippingDetailsModal = () => {
+  const { isModalOpen, toggleIsModalOpen } = useToggleIsModalOpen();
+
   const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
     toggleIsModalOpen,
     displayModal: isModalOpen,
