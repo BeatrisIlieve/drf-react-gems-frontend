@@ -7,9 +7,7 @@ import { XMark } from "../../modals/utils/XMark/XMark";
 import { useShippingDetailsContext } from "../../../contexts/ShippingDetailsContext";
 import { ShippingDetails } from "./ShippingDetails/ShippingDetails";
 
-export const ShippingDetailsModal = () => {
-  const { isModalOpen, toggleIsModalOpen } = useShippingDetailsContext();
-
+export const ShippingDetailsModal = ({ isModalOpen, toggleIsModalOpen }) => {
   const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
     toggleIsModalOpen,
     displayModal: isModalOpen,
@@ -35,7 +33,10 @@ export const ShippingDetailsModal = () => {
             }`}
           >
             <XMark callbackFunction={popupCloseHandler} />
-            <ShippingDetails />
+            <ShippingDetails
+              isModalOpen={isModalOpen}
+              toggleIsModalOpen={toggleIsModalOpen}
+            />
           </div>
         </section>
       )}
