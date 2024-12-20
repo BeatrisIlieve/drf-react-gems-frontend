@@ -97,19 +97,19 @@ export const ShippingDetailsProvider = ({ children }) => {
     }
   };
 
-  const updateSelectedCountry = (value) => {
-    setUserData((prevFormItems) => ({
-      ...prevFormItems,
-      ["country"]: value,
-    }));
-  };
+  // const updateSelectedCountry = (value) => {
+  //   setUserData((prevFormItems) => ({
+  //     ...prevFormItems,
+  //     ["country"]: value,
+  //   }));
+  // };
 
-  const updateSelectedCity = (value) => {
-    setUserData((prevFormItems) => ({
-      ...prevFormItems,
-      ["city"]: value,
-    }));
-  };
+  // const updateSelectedCity = (value) => {
+  //   setUserData((prevFormItems) => ({
+  //     ...prevFormItems,
+  //     ["city"]: value,
+  //   }));
+  // };
 
   const context = {
     formItems,
@@ -121,8 +121,8 @@ export const ShippingDetailsProvider = ({ children }) => {
     cityError,
     updateCityError,
     submitHandler,
-    updateSelectedCountry,
-    updateSelectedCity,
+    // updateSelectedCountry,
+    // updateSelectedCity,
     executeChildFunction,
   };
 

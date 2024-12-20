@@ -6,7 +6,7 @@ import { Select } from "../reusable/Select";
 import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
 export const CountrySelector = () => {
-  const { updateSelectedCountry, countryError, updateCountryError, userData } =
+  const { countryError, updateCountryError, userData, updateUserData } =
     useShippingDetailsContext();
 
   const userShippingDetailsService = useService(
@@ -31,7 +31,7 @@ export const CountrySelector = () => {
     <Select
       items={countries}
       selectedItem={selectedCountry}
-      updateSelectedItem={updateSelectedCountry}
+      updateSelectedItem={(value) => updateUserData("country", value)}
       label={"Country *"}
       errorMessage={"Please select a country."}
       error={countryError}

@@ -7,9 +7,9 @@ import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetai
 export const CitySelector = () => {
   const {
     userData,
-    updateSelectedCity,
     cityError,
     updateCityError,
+    updateUserData
   } = useShippingDetailsContext();
 
   const userShippingDetailsService = useService(
@@ -38,7 +38,7 @@ export const CitySelector = () => {
     <Select
       items={cities}
       selectedItem={selectedCity}
-      updateSelectedItem={updateSelectedCity}
+      updateSelectedItem={(value) => updateUserData("city", value)}
       label={"City *"}
       errorMessage={"Please select a city."}
       error={cityError}
