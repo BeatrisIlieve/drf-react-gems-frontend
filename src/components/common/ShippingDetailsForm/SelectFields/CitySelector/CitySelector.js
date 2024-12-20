@@ -6,8 +6,7 @@ import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetai
 
 export const CitySelector = () => {
   const {
-    selectedCountry,
-    selectedCity,
+    userData,
     updateSelectedCity,
     cityError,
     updateCityError,
@@ -16,6 +15,9 @@ export const CitySelector = () => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
+
+  const selectedCity = userData.city;
+  const selectedCountry = userData.country;
 
   const [cities, setCities] = useState([]);
 
@@ -29,6 +31,8 @@ export const CitySelector = () => {
         console.error(err);
       });
   }, [selectedCountry]);
+
+
 
   return (
     <Select

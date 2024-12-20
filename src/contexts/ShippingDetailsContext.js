@@ -47,8 +47,6 @@ export const ShippingDetailsProvider = ({ children }) => {
     }));
   };
 
-
-
   const [countryError, setCountryError] = useState(false);
 
   const updateCountryError = (value) => {
@@ -94,7 +92,6 @@ export const ShippingDetailsProvider = ({ children }) => {
       if (typeof childFunction === "function") {
         childFunction();
       }
-      
     } catch (err) {
       console.log(err);
     }
@@ -114,9 +111,6 @@ export const ShippingDetailsProvider = ({ children }) => {
     }));
   };
 
-  const selectedCountry = userData.country;
-  const selectedCity = userData.city;
-
   const context = {
     formItems,
     userData,
@@ -129,8 +123,6 @@ export const ShippingDetailsProvider = ({ children }) => {
     submitHandler,
     updateSelectedCountry,
     updateSelectedCity,
-    selectedCity,
-    selectedCountry,
     executeChildFunction,
   };
 

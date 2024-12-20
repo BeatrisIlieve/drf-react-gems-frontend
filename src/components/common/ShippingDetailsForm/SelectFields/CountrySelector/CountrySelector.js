@@ -6,16 +6,13 @@ import { Select } from "../reusable/Select";
 import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
 export const CountrySelector = () => {
-  const {
-    selectedCountry,
-    updateSelectedCountry,
-    countryError,
-    updateCountryError,
-  } = useShippingDetailsContext();
+  const { updateSelectedCountry, countryError, updateCountryError, userData } =
+    useShippingDetailsContext();
 
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
+  const selectedCountry = userData.country;
 
   const [countries, setCountries] = useState([]);
 
