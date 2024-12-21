@@ -74,6 +74,7 @@ export const SHIPPING_DETAILS_FORM_ITEMS = {
     name: "country",
     pattern: "[0-9]{1,}",
     invalidMessage: "Please select a country.",
+    label: "Country *",
   },
 
   city: {
@@ -81,5 +82,6 @@ export const SHIPPING_DETAILS_FORM_ITEMS = {
     name: "city",
     pattern: "[0-9]{1,}",
     invalidMessage: "Please select a city.",
+    label: "City *",
   },
 };

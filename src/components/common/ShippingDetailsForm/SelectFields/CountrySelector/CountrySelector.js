@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
-import { Select } from "../reusable/Select";
+import { Select } from "../reusable/Select/Select";
 
 export const CountrySelector = ({
   userData,
@@ -33,7 +33,6 @@ export const CountrySelector = ({
       items={countries}
       selectedItem={selectedCountry}
       updateSelectedItem={(value) => updateUserData("country", value)}
-      label={"Country *"}
       isDisabled={false}
       inputName={"country"}
       changeHandler={changeHandler}
