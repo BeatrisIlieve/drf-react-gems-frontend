@@ -1,6 +1,20 @@
 @use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/flexbox";
 
 .form-container {
+  @include flexbox.flexbox(
+    $justify: center,
+    $align: center,
+    $gap: 1rem,
+    $flex-wrap: wrap
+  );
+
+  &__button {
+    margin: 2rem auto 0 auto;
+    padding-bottom: 0.2rem !important;
+    width: calc(360px - 2rem);
+  }
+  
   background-color: variables.$color-white;
   transition: opacity 1s ease, transform 1s ease;
 

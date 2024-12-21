@@ -26,14 +26,11 @@
     position: relative;
     transition: opacity 1s ease, transform 1s ease;
     padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
     box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
     border-radius: 0.3rem;
-    width: 320px;
+    width: 360px;
     pointer-events: auto;
     z-index: 99999;
-    overflow-y: auto;
   }
 
   &_slide-in {

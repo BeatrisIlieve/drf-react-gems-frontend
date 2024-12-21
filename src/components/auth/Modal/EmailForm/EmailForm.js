@@ -3,13 +3,17 @@ import { useService } from "../../../../hooks/useService";
 import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
 import { Form } from "../../../reusable/Form/Form";
 import { InputField } from "../../../reusable/InputField/InputField";
-import { useForm } from "../../../../hooks/useForm";
 import { EMAIL_FORM_ITEMS } from "./constants/emailFormItems";
+import { useForm } from "../../../../hooks/useForm";
 
 export const EmailForm = ({ updateContentIsTransitioningHandler }) => {
-  const userCredentialsService = useService(userCredentialsServiceFactory);
-
   const [userData, setUserData] = useState({ email: "" });
+
+  const { formItems, updateFormItems, submitFunction } = useForm({
+    initialValues: EMAIL_FORM_ITEMS,
+    userData,
+  });
+  const userCredentialsService = useService(userCredentialsServiceFactory);
 
   const updateUserData = (name, value) => {
     setUserData((prevFormItems) => ({
@@ -18,29 +22,23 @@ export const EmailForm = ({ updateContentIsTransitioningHandler }) => {
     }));
   };
 
-  const { formItems, updateFormItems, submitFunction } = useForm({
-    initialValues: EMAIL_FORM_ITEMS,
-    userData,
-  });
-
   const submitHandler = async (e) => {
-    const isFormValid = submitFunction(e);
-
-    if (!isFormValid) {
-      return;
-    }
+    e.preventDefault();
 
     try {
-      const data = userData.email;
-
-      const result = await userCredentialsService.emailCheck(data);
+      const result = await userCredentialsService.emailCheck(userData);
 
       if ("registered" in result) {
-        EMAIL_FORM_ITEMS.alreadyRegistered = true;
-        return;
-      }
+        formItems.email.alreadyRegistered = true;
 
-      updateContentIsTransitioningHandler();
+        const isFormValid = submitFunction(e);
+
+        if (!isFormValid) {
+          return;
+        }
+      } else {
+        updateContentIsTransitioningHandler();
+      }
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +48,7 @@ export const EmailForm = ({ updateContentIsTransitioningHandler }) => {
     <Form
       buttonLabel={"Continue"}
       buttonColor={"black"}
-      buttonType={"button"}
+      buttonType={"submit"}
       submitHandler={submitHandler}
     >
       <InputField

@@ -2,10 +2,11 @@
 
 .form {
   @include flexbox.flexbox(
-    $justify: center,
-    $align: center,
+    // $justify: center,
+    // $align: center,
     $gap: 1rem,
-    $flex-wrap: wrap
+    $flex-wrap: wrap,
+    // $direction: column,
   );
 
   &__button {

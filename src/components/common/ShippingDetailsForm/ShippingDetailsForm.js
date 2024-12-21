@@ -61,26 +61,24 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
   };
 
   return (
-    <>
-      <Form
-        buttonLabel={"Save"}
-        buttonColor={"black"}
-        buttonType={"submit"}
-        submitHandler={submitHandler}
-      >
-        <InputField
-          formItems={formItems}
-          userData={userData}
-          updateFormItems={updateFormItems}
-          updateUserData={updateUserData}
-        />
-        <SelectField
-          userData={userData}
-          updateUserData={updateUserData}
-          formItems={formItems}
-          updateFormItems={updateFormItems}
-        />
-      </Form>
-    </>
+    <Form
+      buttonLabel={"Save"}
+      buttonColor={"black"}
+      buttonType={"submit"}
+      submitHandler={submitHandler}
+    >
+      <InputField
+        formItems={formItems}
+        userData={userData}
+        updateFormItems={updateFormItems}
+        updateUserData={updateUserData}
+      />
+      <SelectField
+        userData={userData}
+        updateUserData={updateUserData}
+        formItems={formItems}
+        updateFormItems={updateFormItems}
+      />
+    </Form>
   );
 };

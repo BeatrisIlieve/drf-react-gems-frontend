@@ -21,7 +21,13 @@ export const useForm = ({ initialValues, userData }) => {
     Object.entries(formItems).forEach(([key, field]) => {
       const value = userData[key];
 
-      const isFieldValid = new RegExp(field.pattern).test(value || "");
+      let isFieldValid;
+
+      if (!(key === "email" && field.alreadyRegistered === true)) {
+        isFieldValid = new RegExp(field.pattern).test(value || "");
+      } else {
+        isFieldValid = false;
+      }
 
       if (!isFieldValid) {
         isFormValid = false;
