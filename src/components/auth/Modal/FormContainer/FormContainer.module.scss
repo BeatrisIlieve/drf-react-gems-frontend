@@ -1,0 +1,54 @@
+@use "../../../../styles/partials/variables";
+
+.form-container {
+  background-color: variables.$color-white;
+  transition: opacity 1s ease, transform 1s ease;
+
+  &_transition-out {
+    animation: slideOut 1s forwards;
+  }
+
+  &_transition-in {
+    animation: slideIn 1s forwards;
+  }
+
+  &__title {
+    font-size: variables.$font-large;
+    color: variables.$color-black;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__paragraph {
+    color: variables.$color-medium-gray;
+    font-size: variables.$font-normal;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__children {
+    margin-bottom: 2rem;
+  }
+
+  @keyframes slideIn {
+    from {
+      right: -100%;
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      right: 0;
+      opacity: 1;
+    }
+    to {
+      right: 100%;
+      opacity: 0;
+    }
+  }
+}

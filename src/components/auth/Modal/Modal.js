@@ -3,33 +3,15 @@ import { useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
 import { XMark } from "../../reusable/XMark/XMark";
-import { EmailForm } from "./EmailForm/EmailForm";
+import { FormContainer } from "./FormContainer/FormContainer";
 
 import styles from "./Modal.module.scss";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
-  const [modalsDisplayedCounter, setModalsDisplayedCounter] = useState(1);
-
   const { isTransitioning, modalRef, modalCloseHandler } = useModal({
     toggleIsModalOpen,
     isModalOpen,
   });
-
-  const [contentIsTransitioning, setContentIsTransitioning] = useState(false);
-
-  const updateContentIsTransitioningHandler = () => {
-    setContentIsTransitioning(true);
-
-    setModalsDisplayedCounter((prevCounter) => prevCounter + 1);
-
-    if (modalsDisplayedCounter === 3) {
-      toggleIsModalOpen();
-    }
-
-    setTimeout(() => {
-      setContentIsTransitioning(false);
-    }, 400);
-  };
 
   return (
     <section
@@ -49,23 +31,7 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
         }`}
       >
         <XMark callbackFunction={modalCloseHandler} />
-        <div
-          className={`${styles["form-container"]} ${
-            contentIsTransitioning
-              ? styles["form-container_transition-out"]
-              : styles["form-container_transition-in"]
-          }`}
-        >
-          <h1 className={styles["form-container__title"]}>Title</h1>
-          <p className={styles["form-container__paragraph"]}>Par</p>
-          {modalsDisplayedCounter === 1 && (
-            <EmailForm
-              updateContentIsTransitioningHandler={
-                updateContentIsTransitioningHandler
-              }
-            />
-          )}
-        </div>
+        <FormContainer toggleIsModalOpen={toggleIsModalOpen}/>
       </div>
     </section>
   );
