@@ -12,12 +12,6 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
     isModalOpen,
   });
 
-  const [showGoBack, setShowGoBack] = useState(false);
-
-  const updateShowGoBack = (value) => {
-    setShowGoBack(value);
-  };
-
   return (
     <section
       className={`${styles["overlay"]}  ${
