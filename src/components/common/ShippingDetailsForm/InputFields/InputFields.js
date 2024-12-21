@@ -1,5 +1,7 @@
 import { ValidationFeedback } from "../../../reusable/ValidationFeedback/ValidationFeedback";
 import { Input } from "../../../reusable/Input/Input";
+import { Label } from "../../../reusable/Label/Label";
+
 export const InputFields = ({
   userData,
   formItems,
@@ -15,7 +17,7 @@ export const InputFields = ({
         field={field}
         fieldKey={key}
       />
-      <label htmlFor={field.id}>{field.label}</label>
+      <Label field={field} />
       <ValidationFeedback formItems={formItems} inputName={key} />
     </div>
   );
