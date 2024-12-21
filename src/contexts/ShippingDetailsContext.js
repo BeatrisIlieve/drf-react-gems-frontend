@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext } from "react";
 
 import { useService } from "../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../services/userShippingDetailsService";
@@ -18,69 +18,16 @@ export const ShippingDetailsProvider = ({ children }) => {
   );
 
   const fetchFunction = userShippingDetailsService.get;
+
   const { userData, updateUserData } = useManageUserData({ fetchFunction });
-
-  // const [userData, setUserData] = useState({});
-
-  // useEffect(() => {
-  //   userShippingDetailsService
-  //     .get(userId)
-  //     .then((data) => {
-  //       setUserData(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [userShippingDetailsService]);
-
-  // const updateUserData = (name, value) => {
-  //   setUserData((prevFormItems) => ({
-  //     ...prevFormItems,
-  //     [name]: value,
-  //   }));
-  // };
 
   const { formItems, updateFormItems, hookSubmitHandler } = useForm({
     initialValues: SHIPPING_DETAILS_FORM_ITEMS,
     userData,
   });
 
-  // const [formItems, setFormItems] = useState(SHIPPING_DETAILS_FORM_ITEMS);
-
-  // const updateFormItems = (name, value) => {
-  //   setFormItems((prevFormItems) => ({
-  //     ...prevFormItems,
-  //     [name]: {
-  //       ...prevFormItems[name],
-  //       isValid: new RegExp(prevFormItems[name].pattern).test(value),
-  //     },
-  //   }));
-  // };
-
   const submitHandler = async (e, childFunction) => {
-    // e.preventDefault();
-
     const isFormValid = hookSubmitHandler(e);
-
-    // let isFormValid = true;
-
-    // Object.entries(formItems).forEach(([key, field]) => {
-    //   const value = userData[key];
-
-    //   const isFieldValid = new RegExp(field.pattern).test(value || "");
-
-    //   if (!isFieldValid) {
-    //     isFormValid = false;
-    //   }
-
-    //   setFormItems((prevFormItems) => ({
-    //     ...prevFormItems,
-    //     [key]: {
-    //       ...field,
-    //       isValid: isFieldValid,
-    //     },
-    //   }));
-    // });
 
     if (!isFormValid) {
       return;
