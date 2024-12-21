@@ -63,7 +63,7 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <>
       <Form
         buttonLabel={"Save"}
         buttonColor={"black"}
@@ -85,6 +85,6 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
           updateFormItems={updateFormItems}
         />
       </Form>
-    </div>
+    </>
   );
 };

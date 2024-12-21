@@ -10,15 +10,17 @@ export const Form = ({
   submitHandler,
 }) => {
   return (
-    <form className={styles["form"]} onSubmit={submitHandler}>
-      {children}
-      <div className={styles["form__button"]}>
-        <Button
-          label={buttonLabel}
-          color={buttonColor}
-          buttonType={buttonType}
-        />
-      </div>
-    </form>
+    <div className="container mt-5">
+      <form className={styles["form"]} onSubmit={submitHandler}>
+        {children}
+        <div className={styles["form__button"]}>
+          <Button
+            label={buttonLabel}
+            color={buttonColor}
+            buttonType={buttonType}
+          />
+        </div>
+      </form>
+    </div>
   );
 };
