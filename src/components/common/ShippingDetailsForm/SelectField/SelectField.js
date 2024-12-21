@@ -1,7 +1,7 @@
 import { CountrySelector } from "./CountrySelector/CountrySelector";
 import { CitySelector } from "./CitySelector/CitySelector";
 
-export const SelectFields = ({
+export const SelectField = ({
   userData,
   updateUserData,
   changeHandler,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { InputField } from "../../reusable/InputField/InputField";
-import { SelectFields } from "./SelectFields/SelectFields";
+import { SelectField } from "./SelectField/SelectField";
 
 import { useService } from "../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../services/userShippingDetailsService";
@@ -77,7 +77,7 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
           updateUserData={updateUserData}
           changeHandler={changeHandler}
         />
-        <SelectFields
+        <SelectField
           userData={userData}
           updateUserData={updateUserData}
           formItems={formItems}
