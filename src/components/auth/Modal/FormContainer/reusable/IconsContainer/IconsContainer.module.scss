@@ -1,5 +1,5 @@
-@use "../../../../../styles/partials/variables";
-@use "../../../../../styles/mixins/flexbox";
+@use "../../../../../../styles/partials/variables";
+@use "../../../../../../styles/mixins/flexbox";
 
 .icons-container {
   @include flexbox.flexbox($justify: space-between, $align: center);

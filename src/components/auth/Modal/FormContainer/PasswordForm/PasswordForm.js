@@ -9,6 +9,7 @@ import { useAuthenticationContext } from "../../../../../contexts/Authentication
 
 export const PasswordForm = ({
   updateContentIsTransitioningHandler,
+  modalCloseHandler,
   email,
   firstName,
 }) => {
@@ -75,18 +76,30 @@ export const PasswordForm = ({
   };
 
   return (
-    <Form
-      buttonLabel={"Continue"}
-      buttonColor={"black"}
-      buttonType={"submit"}
-      submitHandler={submitHandler}
-    >
-      <InputField
-        formItems={formItems}
-        userData={userData}
-        updateFormItems={updateFormItems}
-        updateUserData={updateUserData}
+    <>
+      <IconsContainer
+        modalCloseHandler={modalCloseHandler}
+        updateContentIsTransitioningHandler={
+          updateContentIsTransitioningHandler
+        }
       />
-    </Form>
+      <TextContainer
+        titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
+        paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+      />
+      <Form
+        buttonLabel={"Continue"}
+        buttonColor={"black"}
+        buttonType={"submit"}
+        submitHandler={submitHandler}
+      >
+        <InputField
+          formItems={formItems}
+          userData={userData}
+          updateFormItems={updateFormItems}
+          updateUserData={updateUserData}
+        />
+      </Form>
+    </>
   );
 };

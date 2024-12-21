@@ -6,6 +6,7 @@ import { useForm } from "../../../../../hooks/useForm";
 
 export const FirstNameForm = ({
   updateContentIsTransitioningHandler,
+  modalCloseHandler,
   updateFirstName,
 }) => {
   const [userData, setUserData] = useState({ first_name: "" });
@@ -37,18 +38,30 @@ export const FirstNameForm = ({
   };
 
   return (
-    <Form
-      buttonLabel={"Continue"}
-      buttonColor={"black"}
-      buttonType={"submit"}
-      submitHandler={submitHandler}
-    >
-      <InputField
-        formItems={formItems}
-        userData={userData}
-        updateFormItems={updateFormItems}
-        updateUserData={updateUserData}
+    <>
+      <IconsContainer
+        modalCloseHandler={modalCloseHandler}
+        updateContentIsTransitioningHandler={
+          updateContentIsTransitioningHandler
+        }
       />
-    </Form>
+      <TextContainer
+        titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
+        paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+      />
+      <Form
+        buttonLabel={"Continue"}
+        buttonColor={"black"}
+        buttonType={"submit"}
+        submitHandler={submitHandler}
+      >
+        <InputField
+          formItems={formItems}
+          userData={userData}
+          updateFormItems={updateFormItems}
+          updateUserData={updateUserData}
+        />
+      </Form>
+    </>
   );
 };

@@ -5,10 +5,13 @@ import { Form } from "../../../../reusable/Form/Form";
 import { InputField } from "../../../../reusable/InputField/InputField";
 import { FORM_ITEMS } from "./constants/formItems";
 import { useForm } from "../../../../../hooks/useForm";
+import { XMark } from "../../../../reusable/XMark/XMark";
+import { TextContainer } from "../reusable/TextContainer/TextContainer";
 
 export const EmailForm = ({
   updateContentIsTransitioningHandler,
   updateEmail,
+  modalCloseHandler
 }) => {
   const [userData, setUserData] = useState({ email: "" });
 
@@ -55,18 +58,27 @@ export const EmailForm = ({
   };
 
   return (
-    <Form
-      buttonLabel={"Continue"}
-      buttonColor={"black"}
-      buttonType={"submit"}
-      submitHandler={submitHandler}
-    >
-      <InputField
-        formItems={formItems}
-        userData={userData}
-        updateFormItems={updateFormItems}
-        updateUserData={updateUserData}
+    <>
+      <XMark callbackFunction={modalCloseHandler} />
+      <TextContainer
+        titleContent={"Good Day!"}
+        paragraphContent={
+          "Fill in your e-mail address to log in or create an account"
+        }
       />
-    </Form>
+      <Form
+        buttonLabel={"Continue"}
+        buttonColor={"black"}
+        buttonType={"submit"}
+        submitHandler={submitHandler}
+      >
+        <InputField
+          formItems={formItems}
+          userData={userData}
+          updateFormItems={updateFormItems}
+          updateUserData={updateUserData}
+        />
+      </Form>
+    </>
   );
 };

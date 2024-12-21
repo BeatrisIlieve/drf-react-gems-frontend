@@ -1,5 +1,5 @@
 import { XMark } from "../../../../reusable/XMark/XMark";
-import { CircleLeft } from "./CircleLeft/CircleLeft";
+import { GoBack } from "./GoBack/GoBack";
 import styles from "./IconsContainer.module.scss";
 
 export const IconsContainer = ({
@@ -8,7 +8,7 @@ export const IconsContainer = ({
 }) => {
   return (
     <div className={styles["icons-container"]}>
-      <CircleLeft
+      <GoBack
         className={styles["icons-container__circle"]}
         updateContentIsTransitioningHandler={
           updateContentIsTransitioningHandler

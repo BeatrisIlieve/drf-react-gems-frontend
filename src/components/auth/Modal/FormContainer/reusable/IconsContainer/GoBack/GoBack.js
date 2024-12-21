@@ -1,9 +1,9 @@
-import styles from "./CircleLeft.module.scss";
+import styles from "./GoBack.module.scss";
 
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const CircleLeft = ({
+export const GoBack = ({
   callbackFunction,
   updateContentIsTransitioningHandler,
 }) => {
