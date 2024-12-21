@@ -1,4 +1,4 @@
-import { usePopup } from "../../../hooks/usePopup";
+import { useModal } from "../../../hooks/useModal";
 
 import styles from "./ShippingDetailsModal.module.scss";
 
@@ -7,9 +7,9 @@ import { XMark } from "../../modals/utils/XMark/XMark";
 import { ShippingDetails } from "./ShippingDetails/ShippingDetails";
 
 export const ShippingDetailsModal = ({ isModalOpen, toggleIsModalOpen }) => {
-  const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
+  const { isTransitioning, modalRef, modalCloseHandler } = useModal({
     toggleIsModalOpen,
-    displayModal: isModalOpen,
+    isModalOpen,
   });
 
   return (
@@ -24,14 +24,14 @@ export const ShippingDetailsModal = ({ isModalOpen, toggleIsModalOpen }) => {
         >
           <CursorImageEffect />
           <div
-            ref={popupRef}
+            ref={modalRef}
             className={`${styles["overlay__modal"]}  ${
               isTransitioning
                 ? styles["overlay_slide-out"]
                 : styles["overlay_slide-in"]
             }`}
           >
-            <XMark callbackFunction={popupCloseHandler} />
+            <XMark callbackFunction={modalCloseHandler} />
             <ShippingDetails toggleIsModalOpen={toggleIsModalOpen} />
           </div>
         </section>

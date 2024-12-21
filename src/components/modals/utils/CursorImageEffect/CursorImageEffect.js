@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import cursorImage from "../../../../assets/images/xmark.png";
 
-import styles from "./CursorImageEffect.module.css";
+import styles from "./CursorImageEffect.module.scss";
 
 export const CursorImageEffect = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -26,7 +26,7 @@ export const CursorImageEffect = () => {
       <img
         src={cursorImage}
         alt="cursor image"
-        className={styles["cursor-image"]}
+        className={styles["cursor-container__image"]}
         style={{
           transform: `translate(${cursorPos.x - imageOffsetX}px, ${
             cursorPos.y - imageOffsetY

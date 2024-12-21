@@ -6,9 +6,9 @@ import { PasswordForm } from "./PasswordForm/PasswordForm";
 import { CursorImageEffect } from "../utils/CursorImageEffect/CursorImageEffect";
 import { XMark } from "../utils/XMark/XMark";
 import styles from "./Auth.module.scss";
-import { usePopup } from "../../../hooks/usePopup";
+import { useModal } from "../../../hooks/useModal";
 export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
-  const { isTransitioning, popupRef, popupCloseHandler } = usePopup({
+  const { isTransitioning, modalRef, modalCloseHandler } = useModal({
     closeAuthModalClickHandler,
     displayAuthModal,
   });
@@ -60,14 +60,14 @@ export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
     >
       <CursorImageEffect />
       <div
-        ref={popupRef}
+        ref={modalRef}
         className={`${styles["overlay__modal"]}  ${
           isTransitioning
             ? styles["overlay_slide-out"]
             : styles["overlay_slide-in"]
         }`}
       >
-        <XMark callbackFunction={popupCloseHandler} />
+        <XMark callbackFunction={modalCloseHandler} />
         {displayEmailForm && (
           <EmailForm
             updateEmailFilled={updateEmailFilled}
