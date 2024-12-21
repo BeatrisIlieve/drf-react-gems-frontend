@@ -13,7 +13,7 @@ import { SHIPPING_DETAILS_FORM_ITEMS } from "../../../constants/shippingDetailsF
 import { useForm } from "../../../hooks/useForm";
 
 import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
-
+import { Form } from "../../reusable/Form/Form";
 export const ShippingDetailsForm = ({ callBackFunction }) => {
   const { userId } = useAuthenticationContext();
 
@@ -67,7 +67,23 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
 
   return (
     <div className="container mt-5">
-      <form
+      <Form buttonLabel={"Save"} buttonColor={"black"} buttonType={"submit"} submitHandler={submitHandler}>
+      <InputFields
+          formItems={formItems}
+          userData={userData}
+          updateFormItems={updateFormItems}
+          updateUserData={updateUserData}
+          changeHandler={changeHandler}
+        />
+        <SelectFields
+          userData={userData}
+          updateUserData={updateUserData}
+          formItems={formItems}
+          changeHandler={changeHandler}
+          updateFormItems={updateFormItems}
+        />
+      </Form>
+      {/* <form
         className={styles["shipping-details-form"]}
         onSubmit={submitHandler}
       >
@@ -88,7 +104,7 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
         <div className={styles["shipping-details-form__button"]}>
           <Button label={"Save"} color={"black"} buttonType={"submit"} />
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

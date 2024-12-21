@@ -3,8 +3,8 @@ import { useState } from "react";
 import { FirstNameForm } from "./FirstNameForm/FirstNameForm";
 import { EmailForm } from "./EmailForm/EmailForm";
 import { PasswordForm } from "./PasswordForm/PasswordForm";
-import { CursorImageEffect } from "../utils/CursorImageEffect/CursorImageEffect";
-import { XMark } from "../utils/XMark/XMark";
+import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
+import { XMark } from "../../reusable/XMark/XMark";
 import styles from "./Auth.module.scss";
 import { useModal } from "../../../hooks/useModal";
 export const Auth = ({ displayAuthModal, closeAuthModalClickHandler }) => {
