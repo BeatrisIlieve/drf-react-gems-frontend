@@ -1,8 +1,8 @@
-import { ValidationFeedback } from "../../../reusable/ValidationFeedback/ValidationFeedback";
-import { Input } from "../../../reusable/Input/Input";
-import { Label } from "../../../reusable/Label/Label";
+import { ValidationFeedback } from "../ValidationFeedback/ValidationFeedback";
+import { Input } from "../Input/Input";
+import { Label } from "../Label/Label";
 
-export const InputFields = ({
+export const InputField = ({
   userData,
   formItems,
   updateFormItems,
