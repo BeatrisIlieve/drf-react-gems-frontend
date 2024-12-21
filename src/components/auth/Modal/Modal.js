@@ -1,10 +1,7 @@
 import { useModal } from "../../../hooks/useModal";
 import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
-import { XMark } from "../../reusable/XMark/XMark";
 import { FormContainer } from "./FormContainer/FormContainer";
-
-import { CircleLeft } from "./CircleLeft/CircleLeft";
-
+import { IconsContainer } from "./IconsContainer/IconsContainer";
 import styles from "./Modal.module.scss";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
@@ -30,11 +27,8 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
             : styles["overlay_slide-in"]
         }`}
       >
-        <div className={styles["overlay__icons"]}>
-          <CircleLeft />
-          <XMark callbackFunction={modalCloseHandler} />
-        </div>
-        <FormContainer toggleIsModalOpen={toggleIsModalOpen} />
+        <IconsContainer />
+        <FormContainer modalCloseHandler={modalCloseHandler} />
       </div>
     </section>
   );

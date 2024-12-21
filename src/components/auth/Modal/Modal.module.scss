@@ -77,14 +77,4 @@
       opacity: 0;
     }
   }
-
-  &__icons {
-    @include flexbox.flexbox($justify: space-between);
-    margin-bottom: 2rem;
-
-    &__icons:hover,
-    &__icons:active {
-      color: variables.$color-gray;
-    }
-  }
 }

@@ -1,0 +1,12 @@
+@use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/flexbox";
+
+.icons-container {
+  @include flexbox.flexbox($justify: space-between, $align:center);
+  margin-bottom: 2rem;
+
+  &__icons:hover,
+  &__icons:active {
+    color: variables.$color-gray;
+  }
+}

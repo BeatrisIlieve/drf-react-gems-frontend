@@ -9,7 +9,7 @@ import { PARAGRAPHS_BY_COUNTER } from "./constants/paragraphsByCounter";
 
 import styles from "./FormContainer.module.scss";
 
-export const FormContainer = ({ toggleIsModalOpen }) => {
+export const FormContainer = ({ modalCloseHandler }) => {
   const [contentIsTransitioning, setContentIsTransitioning] = useState(false);
 
   const [modalsDisplayedCounter, setModalsDisplayedCounter] = useState(1);
@@ -20,7 +20,7 @@ export const FormContainer = ({ toggleIsModalOpen }) => {
     setModalsDisplayedCounter((prevCounter) => prevCounter + 1);
 
     if (modalsDisplayedCounter === 3) {
-      toggleIsModalOpen();
+      modalCloseHandler();
     }
 
     setTimeout(() => {

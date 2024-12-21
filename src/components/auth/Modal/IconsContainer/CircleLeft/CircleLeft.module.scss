@@ -1,5 +1,5 @@
-@use "../../../../styles/partials/variables";
-@use "../../../../styles/mixins/flexbox";
+@use "../../../../../styles/partials/variables";
+@use "../../../../../styles/mixins/flexbox";
 
 .circle-left {
   @include flexbox.flexbox($gap: 0.3rem, $align: center);
@@ -22,11 +22,4 @@
     color: variables.$color-medium-gray;
     font-size: variables.$font-normal;
   }
-
-  // &__icon:hover,
-  // &__icon:active,
-  // &__text:hover,
-  // &__text:active {
-  //   color: variables.$color-gray;
-  // }
 }
