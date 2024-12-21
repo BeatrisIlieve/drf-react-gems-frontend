@@ -1,11 +1,23 @@
 import { CountrySelector } from "./CountrySelector/CountrySelector";
 import { CitySelector } from "./CitySelector/CitySelector";
 
-export const SelectFields = ({ userData, updateUserData }) => {
+export const SelectFields = ({ userData, updateUserData, changeHandler, formItems, updateFormItems }) => {
   return (
     <>
-      <CountrySelector userData={userData} updateUserData={updateUserData} />
-      <CitySelector userData={userData} updateUserData={updateUserData} />
+      <CountrySelector
+        userData={userData}
+        updateUserData={updateUserData}
+        changeHandler={changeHandler}
+        formItems={formItems}
+        updateFormItems={updateFormItems}
+      />
+      <CitySelector
+        userData={userData}
+        updateUserData={updateUserData}
+        changeHandler={changeHandler}
+        formItems={formItems}
+        updateFormItems={updateFormItems}
+      />
     </>
   );
 };

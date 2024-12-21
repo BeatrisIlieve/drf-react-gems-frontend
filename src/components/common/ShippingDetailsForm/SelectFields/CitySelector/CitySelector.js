@@ -3,7 +3,7 @@ import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
 
-export const CitySelector = ({ userData, updateUserData }) => {
+export const CitySelector = ({ userData, updateUserData, changeHandler, formItems, updateFormItems }) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
@@ -36,6 +36,10 @@ export const CitySelector = ({ userData, updateUserData }) => {
       label={"City *"}
       isDisabled={!selectedCountry}
       inputName={"city"}
+      changeHandler={changeHandler}
+      formItems={formItems}
+      updateFormItems={updateFormItems}
+      updateUserData={updateUserData}
     />
   );
 };

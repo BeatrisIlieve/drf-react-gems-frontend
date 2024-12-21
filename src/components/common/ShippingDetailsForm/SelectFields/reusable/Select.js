@@ -1,5 +1,4 @@
 import styles from "./Select.module.scss";
-import { useShippingDetailsContext } from "../../../../../contexts/ShippingDetailsContext";
 
 export const Select = ({
   items,
@@ -7,25 +6,15 @@ export const Select = ({
   label,
   isDisabled,
   inputName,
+  formItems,
+  updateFormItems,
+  updateUserData,
 }) => {
-  const { formItems, updateFormItems, updateUserData } =
-    useShippingDetailsContext();
-
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-
-    updateUserData(name, value);
-
-    updateFormItems(name, value);
-  };
-
   return (
     <div className="form-floating mb-3">
       <select
-        className={`form-select ${
-          !formItems[inputName].isValid &&
-          !isDisabled &&
-          !formItems.country.isValid
+        className={`form-select ${ 
+          !formItems[inputName].isValid && !isDisabled 
             ? "is-invalid"
             : "is-valid"
         }`}
@@ -33,7 +22,10 @@ export const Select = ({
         aria-label="Floating label select example"
         value={selectedItem || ""}
         name={inputName}
-        onChange={changeHandler}
+        onChange={(e) => {
+          updateUserData(inputName, e.target.value);
+          updateFormItems(inputName, e.target.value);
+        }}
         onBlur={(e) => updateFormItems(inputName, e.target.value)}
         disabled={isDisabled}
       >
