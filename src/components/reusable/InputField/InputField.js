@@ -1,6 +1,6 @@
-import { ValidationFeedback } from "../ValidationFeedback/ValidationFeedback";
+import { ValidationFeedback } from "./ValidationFeedback/ValidationFeedback";
 import { Input } from "../Input/Input";
-import { Label } from "../Label/Label";
+import { Label } from "./Label/Label";
 
 export const InputField = ({
   userData,

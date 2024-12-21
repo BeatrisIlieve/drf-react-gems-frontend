@@ -1,6 +1,6 @@
 import { SelectField } from "./SelectField/SelectField";
 import { Label } from "./Label/Label";
-import { ValidationFeedback } from "../../../../../reusable/ValidationFeedback/ValidationFeedback";
+import { ValidationFeedback } from "../../../../../reusable/InputField/ValidationFeedback/ValidationFeedback";
 
 export const Select = ({
   items,
