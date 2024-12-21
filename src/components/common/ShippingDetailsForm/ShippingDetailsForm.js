@@ -41,14 +41,14 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
     }));
   };
 
-  const { formItems, updateFormItems, hookSubmitHandler, changeHandler } =
+  const { formItems, updateFormItems, submitFunction, changeHandler } =
     useForm({
       initialValues: SHIPPING_DETAILS_FORM_ITEMS,
       userData,
     });
 
   const submitHandler = async (e) => {
-    const isFormValid = hookSubmitHandler(e);
+    const isFormValid = submitFunction(e);
 
     if (!isFormValid) {
       return;

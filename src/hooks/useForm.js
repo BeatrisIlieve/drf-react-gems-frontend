@@ -13,7 +13,7 @@ export const useForm = ({ initialValues, userData }) => {
     }));
   };
 
-  const hookSubmitHandler = (e) => {
+  const submitFunction = (e) => {
     e.preventDefault();
 
     let isFormValid = true;
@@ -39,5 +39,5 @@ export const useForm = ({ initialValues, userData }) => {
     return isFormValid;
   };
 
-  return { formItems, updateFormItems, hookSubmitHandler };
+  return { formItems, updateFormItems, submitFunction };
 };
