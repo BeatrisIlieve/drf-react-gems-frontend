@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useService } from "../../../../hooks/useService";
-import { userCredentialsServiceFactory } from "../../../../services/userCredentialsService";
-import { Form } from "../../../reusable/Form/Form";
-import { InputField } from "../../../reusable/InputField/InputField";
-import { EMAIL_FORM_ITEMS } from "./constants/emailFormItems";
-import { useForm } from "../../../../hooks/useForm";
+import { useService } from "../../../../../hooks/useService";
+import { userCredentialsServiceFactory } from "../../../../../services/userCredentialsService";
+import { Form } from "../../../../reusable/Form/Form";
+import { InputField } from "../../../../reusable/InputField/InputField";
+import { FORM_ITEMS } from "./constants/formItems";
+import { useForm } from "../../../../../hooks/useForm";
 
 export const EmailForm = ({ updateContentIsTransitioningHandler }) => {
   const [userData, setUserData] = useState({ email: "" });
 
   const { formItems, updateFormItems, submitFunction } = useForm({
-    initialValues: EMAIL_FORM_ITEMS,
+    initialValues: FORM_ITEMS,
     userData,
   });
   const userCredentialsService = useService(userCredentialsServiceFactory);
