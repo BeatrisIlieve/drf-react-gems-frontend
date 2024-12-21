@@ -8,7 +8,7 @@ export const CountrySelector = ({
   updateUserData,
   changeHandler,
   formItems,
-  updateFormItems
+  updateFormItems,
 }) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory

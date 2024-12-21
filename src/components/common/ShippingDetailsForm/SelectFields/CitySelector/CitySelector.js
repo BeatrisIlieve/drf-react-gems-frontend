@@ -3,7 +3,13 @@ import { useService } from "../../../../../hooks/useService";
 import { userShippingDetailsServiceFactory } from "../../../../../services/userShippingDetailsService";
 import { Select } from "../reusable/Select";
 
-export const CitySelector = ({ userData, updateUserData, changeHandler, formItems, updateFormItems }) => {
+export const CitySelector = ({
+  userData,
+  updateUserData,
+  changeHandler,
+  formItems,
+  updateFormItems,
+}) => {
   const userShippingDetailsService = useService(
     userShippingDetailsServiceFactory
   );
