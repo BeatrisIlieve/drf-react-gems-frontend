@@ -79,16 +79,16 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
           <h1 className={styles["form-container__title"]}>{formTitle}</h1>
           <p className={styles["form-container__paragraph"]}>{formParagraph}</p>
           <Form
-            buttonLabel={""}
-            buttonColor={""}
-            buttonType={""}
+            buttonLabel={"Continue"}
+            buttonColor={"black"}
+            buttonType={"button"}
             submitHandler={submitHandler}
           >
             <InputField
-              userData={""}
-              formItems={""}
-              updateFormItems={""}
-              updateUserData={""}
+              formItems={formItems}
+              userData={userData}
+              updateFormItems={updateFormItems}
+              updateUserData={updateUserData}
             />
           </Form>
         </div>
