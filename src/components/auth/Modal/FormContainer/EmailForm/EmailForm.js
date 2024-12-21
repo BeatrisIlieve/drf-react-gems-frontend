@@ -47,7 +47,7 @@ export const EmailForm = ({
         }
       } else {
         updateEmail(userData.email);
-        updateContentIsTransitioningHandler();
+        updateContentIsTransitioningHandler(1);
       }
     } catch (err) {
       console.log(err);

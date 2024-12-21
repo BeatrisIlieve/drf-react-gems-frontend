@@ -56,7 +56,7 @@ export const PasswordForm = ({
 
       updateAuthentication(loginResult);
 
-      updateContentIsTransitioningHandler();
+      updateContentIsTransitioningHandler(0);
     } catch (err) {
       if ("password" in err) {
         formItems.password.responseError = true;

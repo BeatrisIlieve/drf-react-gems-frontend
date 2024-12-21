@@ -32,7 +32,7 @@ export const FirstNameForm = ({
     } else {
       updateFirstName(userData.first_name);
 
-      updateContentIsTransitioningHandler();
+      updateContentIsTransitioningHandler(1);
     }
   };
 

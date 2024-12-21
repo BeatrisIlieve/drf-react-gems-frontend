@@ -17,12 +17,12 @@ export const FormContainer = ({ modalCloseHandler }) => {
 
   const [modalsDisplayedCounter, setModalsDisplayedCounter] = useState(1);
 
-  const updateContentIsTransitioningHandler = () => {
+  const updateContentIsTransitioningHandler = (value) => {
     setContentIsTransitioning(true);
 
-    setModalsDisplayedCounter((prevCounter) => prevCounter + 1);
+    setModalsDisplayedCounter((prevCounter) => prevCounter + value);
 
-    if (modalsDisplayedCounter === 3) {
+    if (modalsDisplayedCounter > 3) {
       modalCloseHandler();
     }
 
@@ -68,7 +68,12 @@ export const FormContainer = ({ modalCloseHandler }) => {
       )}
       {modalsDisplayedCounter === 2 && (
         <>
-          <IconsContainer modalCloseHandler={modalCloseHandler} />
+          <IconsContainer
+            modalCloseHandler={modalCloseHandler}
+            updateContentIsTransitioningHandler={
+              updateContentIsTransitioningHandler
+            }
+          />
           <TextContainer
             titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
             paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
@@ -83,7 +88,12 @@ export const FormContainer = ({ modalCloseHandler }) => {
       )}
       {modalsDisplayedCounter === 3 && (
         <>
-          <IconsContainer modalCloseHandler={modalCloseHandler} />
+          <IconsContainer
+            modalCloseHandler={modalCloseHandler}
+            updateContentIsTransitioningHandler={
+              updateContentIsTransitioningHandler
+            }
+          />
           <TextContainer
             titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
             paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
