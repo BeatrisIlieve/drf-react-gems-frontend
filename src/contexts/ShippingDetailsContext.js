@@ -5,6 +5,9 @@ import { userShippingDetailsServiceFactory } from "../services/userShippingDetai
 import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
 
+import { useManageUserData } from "../hooks/useManageUserData";
+import { useForm } from "../hooks/useForm";
+
 export const ShippingDetailsContext = createContext();
 
 export const ShippingDetailsProvider = ({ children }) => {
@@ -14,59 +17,70 @@ export const ShippingDetailsProvider = ({ children }) => {
     userShippingDetailsServiceFactory
   );
 
-  const [userData, setUserData] = useState({});
+  const fetchFunction = userShippingDetailsService.get;
+  const { userData, updateUserData } = useManageUserData({ fetchFunction });
 
-  useEffect(() => {
-    userShippingDetailsService
-      .get(userId)
-      .then((data) => {
-        setUserData(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [userShippingDetailsService]);
+  // const [userData, setUserData] = useState({});
 
-  const updateUserData = (name, value) => {
-    setUserData((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: value,
-    }));
-  };
+  // useEffect(() => {
+  //   userShippingDetailsService
+  //     .get(userId)
+  //     .then((data) => {
+  //       setUserData(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [userShippingDetailsService]);
 
-  const [formItems, setFormItems] = useState(SHIPPING_DETAILS_FORM_ITEMS);
+  // const updateUserData = (name, value) => {
+  //   setUserData((prevFormItems) => ({
+  //     ...prevFormItems,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const updateFormItems = (name, value) => {
-    setFormItems((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: {
-        ...prevFormItems[name],
-        isValid: new RegExp(prevFormItems[name].pattern).test(value),
-      },
-    }));
-  };
+  const { formItems, updateFormItems, hookSubmitHandler } = useForm({
+    initialValues: SHIPPING_DETAILS_FORM_ITEMS,
+    userData,
+  });
+
+  // const [formItems, setFormItems] = useState(SHIPPING_DETAILS_FORM_ITEMS);
+
+  // const updateFormItems = (name, value) => {
+  //   setFormItems((prevFormItems) => ({
+  //     ...prevFormItems,
+  //     [name]: {
+  //       ...prevFormItems[name],
+  //       isValid: new RegExp(prevFormItems[name].pattern).test(value),
+  //     },
+  //   }));
+  // };
 
   const submitHandler = async (e, childFunction) => {
-    e.preventDefault();
-    let isFormValid = true;
+    // e.preventDefault();
 
-    Object.entries(formItems).forEach(([key, field]) => {
-      const value = userData[key];
+    const isFormValid = hookSubmitHandler(e);
 
-      const isFieldValid = new RegExp(field.pattern).test(value || "");
+    // let isFormValid = true;
 
-      if (!isFieldValid) {
-        isFormValid = false;
-      }
+    // Object.entries(formItems).forEach(([key, field]) => {
+    //   const value = userData[key];
 
-      setFormItems((prevFormItems) => ({
-        ...prevFormItems,
-        [key]: {
-          ...field,
-          isValid: isFieldValid,
-        },
-      }));
-    });
+    //   const isFieldValid = new RegExp(field.pattern).test(value || "");
+
+    //   if (!isFieldValid) {
+    //     isFormValid = false;
+    //   }
+
+    //   setFormItems((prevFormItems) => ({
+    //     ...prevFormItems,
+    //     [key]: {
+    //       ...field,
+    //       isValid: isFieldValid,
+    //     },
+    //   }));
+    // });
 
     if (!isFormValid) {
       return;

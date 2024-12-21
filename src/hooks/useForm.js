@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useUpdateFormItems = ({ initialValues, userData }) => {
+export const useForm = ({ initialValues, userData }) => {
   const [formItems, setFormItems] = useState(initialValues);
 
   const updateFormItems = (name, value) => {
@@ -15,21 +15,27 @@ export const useUpdateFormItems = ({ initialValues, userData }) => {
 
   const hookSubmitHandler = (e) => {
     e.preventDefault();
-    let isFormValid = true;
 
+    let isFormValid = true;
 
     Object.entries(formItems).forEach(([key, field]) => {
       const value = userData[key];
 
-      updateFormItems(key, value);
+      const isFieldValid = new RegExp(field.pattern).test(value || "");
 
-      const isFieldValid = field.isValid;
-
-      if (isFieldValid === false) {
-        console.log("invalid field")
+      if (!isFieldValid) {
         isFormValid = false;
       }
+
+      setFormItems((prevFormItems) => ({
+        ...prevFormItems,
+        [key]: {
+          ...field,
+          isValid: isFieldValid,
+        },
+      }));
     });
+
     return isFormValid;
   };
 

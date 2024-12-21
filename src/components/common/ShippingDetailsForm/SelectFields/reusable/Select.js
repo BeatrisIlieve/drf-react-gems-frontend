@@ -23,7 +23,7 @@ export const Select = ({
     <div className="form-floating mb-3">
       <select
         className={`form-select ${
-          !formItems[inputName].isValid ? "is-invalid" : "is-valid"
+          !formItems[inputName].isValid && !isDisabled && !formItems.country.isValid ? "is-invalid" : "is-valid"
         }`}
         id="floatingSelect"
         aria-label="Floating label select example"
@@ -34,7 +34,7 @@ export const Select = ({
         disabled={isDisabled}
       >
         <option value="" disabled>
-          {items.length === 0 && !isDisabled ? "" : label}
+          {items.length === 0 && !isDisabled  ? "" : label}
         </option>
         {items.map((item) => (
           <option key={item.id} value={item.id}>
@@ -43,7 +43,7 @@ export const Select = ({
         ))}
       </select>
       <label htmlFor="floatingSelect">
-        {items.length === 0 && !isDisabled && !formItems.country.isValid ? (
+        {items.length === 0 && !isDisabled  ? (
           <span className={styles["loader"]}></span>
         ) : selectedItem ? (
           label
