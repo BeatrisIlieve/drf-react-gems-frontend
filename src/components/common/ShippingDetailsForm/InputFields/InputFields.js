@@ -1,5 +1,5 @@
 import { ValidationFeedback } from "../../../reusable/ValidationFeedback/ValidationFeedback";
-
+import { Input } from "../../../reusable/Input/Input";
 export const InputFields = ({
   userData,
   formItems,
@@ -8,24 +8,12 @@ export const InputFields = ({
 }) => {
   const renderInputField = (key, field) => (
     <div className="form-floating mb-3" key={key}>
-      <input
-        type={field.type}
-        className={`form-control ${
-          field.isValid === true
-            ? "is-valid"
-            : field.isValid === false
-            ? "is-invalid"
-            : ""
-        }`.trim()}
-        id={field.id}
-        name={field.name}
-        placeholder={field.placeholder}
-        value={userData[key] || ""}
-        onChange={(e) => {
-          updateUserData(key, e.target.value);
-          updateFormItems(key, e.target.value);
-        }}
-        onBlur={(e) => updateFormItems(key, e.target.value)}
+      <Input
+        userData={userData}
+        updateUserData={updateUserData}
+        updateFormItems={updateFormItems}
+        field={field}
+        fieldKey={key}
       />
       <label htmlFor={field.id}>{field.label}</label>
       <ValidationFeedback formItems={formItems} inputName={key} />
