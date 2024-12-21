@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import cursorImage from "../../../../assets/images/xmark.png";
+import cursorImage from "../../../assets/images/xmark.png";
 
 import styles from "./CursorImageEffect.module.scss";
 

@@ -2,8 +2,8 @@ import { useModal } from "../../../hooks/useModal";
 
 import styles from "./ShippingDetailsModal.module.scss";
 
-import { CursorImageEffect } from "../../modals/utils/CursorImageEffect/CursorImageEffect";
-import { XMark } from "../../modals/utils/XMark/XMark";
+import { CursorImageEffect } from "../CursorImageEffect/CursorImageEffect";
+import { XMark } from "../../reusable/XMark/XMark";
 import { ShippingDetails } from "./ShippingDetails/ShippingDetails";
 
 export const ShippingDetailsModal = ({ isModalOpen, toggleIsModalOpen }) => {
