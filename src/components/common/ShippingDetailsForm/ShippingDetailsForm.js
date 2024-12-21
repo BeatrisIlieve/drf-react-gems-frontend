@@ -37,12 +37,10 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
     }));
   };
 
-  const { formItems, updateFormItems, submitFunction, changeHandler } = useForm(
-    {
-      initialValues: SHIPPING_DETAILS_FORM_ITEMS,
-      userData,
-    }
-  );
+  const { formItems, updateFormItems, submitFunction } = useForm({
+    initialValues: SHIPPING_DETAILS_FORM_ITEMS,
+    userData,
+  });
 
   const submitHandler = async (e) => {
     const isFormValid = submitFunction(e);
@@ -75,13 +73,11 @@ export const ShippingDetailsForm = ({ callBackFunction }) => {
           userData={userData}
           updateFormItems={updateFormItems}
           updateUserData={updateUserData}
-          changeHandler={changeHandler}
         />
         <SelectField
           userData={userData}
           updateUserData={updateUserData}
           formItems={formItems}
-          changeHandler={changeHandler}
           updateFormItems={updateFormItems}
         />
       </Form>

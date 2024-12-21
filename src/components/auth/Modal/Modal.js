@@ -3,6 +3,7 @@ import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEff
 import { XMark } from "../../reusable/XMark/XMark";
 import { Form } from "../../reusable/Form/Form";
 import { InputField } from "../../reusable/InputField/InputField";
+import { useForm } from "../../../hooks/useForm";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
   const { isTransitioning, modalRef, modalCloseHandler } = useModal({
@@ -18,6 +19,36 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
     setTimeout(() => {
       setContentIsTransitioning(false);
     }, 400);
+  };
+
+  const updateUserData = (name, value) => {
+    setUserData((prevFormItems) => ({
+      ...prevFormItems,
+      [name]: value,
+    }));
+  };
+
+  const { formItems, updateFormItems, submitFunction, changeHandler } = useForm(
+    {
+      initialValues: SHIPPING_DETAILS_FORM_ITEMS,
+      userData,
+    }
+  );
+
+  const submitHandler = async (e) => {
+    const isFormValid = submitFunction(e);
+
+    if (!isFormValid) {
+      return;
+    }
+
+    try {
+      //   await userShippingDetailsService.put(userId, userData);
+
+      updateContentIsTransitioningHandler();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -51,7 +82,7 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
             buttonLabel={""}
             buttonColor={""}
             buttonType={""}
-            submitHandler={updateContentIsTransitioningHandler}
+            submitHandler={submitHandler}
           >
             <InputField
               userData={""}
