@@ -1,4 +1,4 @@
-export const ValidationFeedback = ({formItems, inputName}) => {
+export const ValidationFeedback = ({ formItems, inputName }) => {
   return (
     <>
       <div className="valid-feedback">Looks good!</div>

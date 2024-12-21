@@ -1,3 +1,5 @@
+import { ValidationFeedback } from "../../../reusable/ValidationFeedback/ValidationFeedback";
+
 export const InputFields = ({
   userData,
   formItems,
@@ -26,8 +28,7 @@ export const InputFields = ({
         onBlur={(e) => updateFormItems(key, e.target.value)}
       />
       <label htmlFor={field.id}>{field.label}</label>
-      <div className="invalid-feedback">{field.invalidMessage}</div>
-      <div className="valid-feedback">Looks good</div>
+      <ValidationFeedback formItems={formItems} inputName={key} />
     </div>
   );
 
