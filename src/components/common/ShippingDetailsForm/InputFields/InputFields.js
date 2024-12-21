@@ -3,10 +3,7 @@ export const InputFields = ({
   formItems,
   updateFormItems,
   updateUserData,
-  changeHandler,
 }) => {
-
-
   const renderInputField = (key, field) => (
     <div className="form-floating mb-3" key={key}>
       <input
@@ -26,7 +23,6 @@ export const InputFields = ({
           updateUserData(key, e.target.value);
           updateFormItems(key, e.target.value);
         }}
-        // onChange={changeHandler}
         onBlur={(e) => updateFormItems(key, e.target.value)}
       />
       <label htmlFor={field.id}>{field.label}</label>

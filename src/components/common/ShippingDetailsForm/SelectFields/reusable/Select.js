@@ -13,8 +13,8 @@ export const Select = ({
   return (
     <div className="form-floating mb-3">
       <select
-        className={`form-select ${ 
-          !formItems[inputName].isValid && !isDisabled 
+        className={`form-select ${
+          !formItems[inputName].isValid && !isDisabled
             ? "is-invalid"
             : "is-valid"
         }`}

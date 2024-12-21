@@ -1,12 +1,7 @@
 import { useState } from "react";
 
-import { useUserData } from "./useUserData";
-
 export const useForm = ({ initialValues, userData }) => {
   const [formItems, setFormItems] = useState(initialValues);
-
-  // const { userData, updateUserData } = useUserData({ fetchFunction });
-
 
   const updateFormItems = (name, value) => {
     setFormItems((prevFormItems) => ({
@@ -18,18 +13,8 @@ export const useForm = ({ initialValues, userData }) => {
     }));
   };
 
-  // const changeHandler = (e) => {
-  //   const { name, value } = e.target;
-
-  //   updateUserData(name, value);
-
-  //   updateFormItems(name, value);
-  // };
-
   const hookSubmitHandler = (e) => {
     e.preventDefault();
-
-    console.log(userData)
 
     let isFormValid = true;
 
