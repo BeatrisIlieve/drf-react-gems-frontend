@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { useModal } from "../../../hooks/useModal";
 import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
 import { XMark } from "../../reusable/XMark/XMark";
@@ -31,7 +29,7 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
         }`}
       >
         <XMark callbackFunction={modalCloseHandler} />
-        <FormContainer toggleIsModalOpen={toggleIsModalOpen}/>
+        <FormContainer toggleIsModalOpen={toggleIsModalOpen} />
       </div>
     </section>
   );
