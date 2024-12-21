@@ -1,0 +1,15 @@
+@use "../../../../styles/partials/variables";
+
+.x-mark {
+  display: flex;
+  color: variables.$color-medium-gray;
+  font-size: variables.$font-medium;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  margin-left: auto;
+
+  &:hover,
+  &:active {
+    color: variables.$color-gray;
+  }
+}

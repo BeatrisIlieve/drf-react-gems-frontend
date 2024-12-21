@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./XMark.module.css";
+import styles from "./XMark.module.scss";
 
 export const XMark = ({ callbackFunction }) => {
   return (
