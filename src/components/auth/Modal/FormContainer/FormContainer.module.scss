@@ -12,19 +12,6 @@
     animation: slideIn 1s forwards;
   }
 
-  &__title {
-    font-size: variables.$font-large;
-    color: variables.$color-black;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  &__paragraph {
-    color: variables.$color-medium-gray;
-    font-size: variables.$font-normal;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
 
   @keyframes slideIn {
     from {

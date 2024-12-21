@@ -4,8 +4,10 @@
   color: variables.$color-medium-gray;
   font-size: variables.$font-medium;
   cursor: pointer;
+  display: flex;
   margin-left: auto;
   transition: color 0.3s;
+  margin-bottom: 2rem;
 
   &:hover,
   &:active {

@@ -1,7 +1,9 @@
+import { useState } from "react";
+
 import { useModal } from "../../../hooks/useModal";
 import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
 import { FormContainer } from "./FormContainer/FormContainer";
-import { IconsContainer } from "./IconsContainer/IconsContainer";
+import { IconsContainer } from "./FormContainer/IconsContainer/IconsContainer";
 import styles from "./Modal.module.scss";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
@@ -9,6 +11,12 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
     toggleIsModalOpen,
     isModalOpen,
   });
+
+  const [showGoBack, setShowGoBack] = useState(false);
+
+  const updateShowGoBack = (value) => {
+    setShowGoBack(value);
+  };
 
   return (
     <section
@@ -27,7 +35,6 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
             : styles["overlay_slide-in"]
         }`}
       >
-        <IconsContainer />
         <FormContainer modalCloseHandler={modalCloseHandler} />
       </div>
     </section>

@@ -6,6 +6,9 @@ import { PasswordForm } from "./PasswordForm/PasswordForm";
 
 import { TITLES_BY_COUNTER } from "./constants/titlesByCounter";
 import { PARAGRAPHS_BY_COUNTER } from "./constants/paragraphsByCounter";
+import { IconsContainer } from "./IconsContainer/IconsContainer";
+import { XMark } from "../../../reusable/XMark/XMark";
+import { TextContainer } from "./TextContainer/TextContainer";
 
 import styles from "./FormContainer.module.scss";
 
@@ -48,36 +51,51 @@ export const FormContainer = ({ modalCloseHandler }) => {
           : styles["form-container_transition-in"]
       }`}
     >
-      <h1 className={styles["form-container__title"]}>
-        {TITLES_BY_COUNTER[modalsDisplayedCounter]}
-      </h1>
-      <p className={styles["form-container__paragraph"]}>
-        {PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
-      </p>
       {modalsDisplayedCounter === 1 && (
-        <EmailForm
-          updateContentIsTransitioningHandler={
-            updateContentIsTransitioningHandler
-          }
-          updateEmail={updateEmail}
-        />
+        <>
+          <XMark callbackFunction={modalCloseHandler} />
+          <TextContainer
+            titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
+            paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+          />
+          <EmailForm
+            updateContentIsTransitioningHandler={
+              updateContentIsTransitioningHandler
+            }
+            updateEmail={updateEmail}
+          />
+        </>
       )}
       {modalsDisplayedCounter === 2 && (
-        <FirstNameForm
-          updateContentIsTransitioningHandler={
-            updateContentIsTransitioningHandler
-          }
-          updateFirstName={updateFirstName}
-        />
+        <>
+          <IconsContainer modalCloseHandler={modalCloseHandler} />
+          <TextContainer
+            titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
+            paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+          />
+          <FirstNameForm
+            updateContentIsTransitioningHandler={
+              updateContentIsTransitioningHandler
+            }
+            updateFirstName={updateFirstName}
+          />
+        </>
       )}
       {modalsDisplayedCounter === 3 && (
-        <PasswordForm
-          updateContentIsTransitioningHandler={
-            updateContentIsTransitioningHandler
-          }
-          email={email}
-          firstName={firstName}
-        />
+        <>
+          <IconsContainer modalCloseHandler={modalCloseHandler} />
+          <TextContainer
+            titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
+            paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+          />
+          <PasswordForm
+            updateContentIsTransitioningHandler={
+              updateContentIsTransitioningHandler
+            }
+            email={email}
+            firstName={firstName}
+          />
+        </>
       )}
     </div>
   );
