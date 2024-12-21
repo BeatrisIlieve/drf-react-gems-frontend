@@ -1,0 +1,32 @@
+@use "../../../../styles/partials/variables";
+@use "../../../../styles/mixins/flexbox";
+
+.circle-left {
+  @include flexbox.flexbox($gap: 0.3rem, $align: center);
+
+  &:hover .circle-left__icon,
+  &:hover .circle-left__text {
+    color: variables.$color-gray;
+  }
+  &__icon,
+  &__text {
+    color: variables.$color-medium-gray;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  &__icon {
+    font-size: variables.$font-medium;
+  }
+
+  &__text {
+    color: variables.$color-medium-gray;
+    font-size: variables.$font-normal;
+  }
+
+  // &__icon:hover,
+  // &__icon:active,
+  // &__text:hover,
+  // &__text:active {
+  //   color: variables.$color-gray;
+  // }
+}

@@ -3,6 +3,8 @@ import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEff
 import { XMark } from "../../reusable/XMark/XMark";
 import { FormContainer } from "./FormContainer/FormContainer";
 
+import { CircleLeft } from "./CircleLeft/CircleLeft";
+
 import styles from "./Modal.module.scss";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
@@ -28,7 +30,10 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
             : styles["overlay_slide-in"]
         }`}
       >
-        <XMark callbackFunction={modalCloseHandler} />
+        <div className={styles["overlay__icons"]}>
+          <CircleLeft />
+          <XMark callbackFunction={modalCloseHandler} />
+        </div>
         <FormContainer toggleIsModalOpen={toggleIsModalOpen} />
       </div>
     </section>
