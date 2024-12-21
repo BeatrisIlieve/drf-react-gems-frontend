@@ -5,7 +5,7 @@ import { userShippingDetailsServiceFactory } from "../services/userShippingDetai
 import { SHIPPING_DETAILS_FORM_ITEMS } from "../constants/shippingDetailsFormItems";
 import { useAuthenticationContext } from "./AuthenticationContext";
 
-import { useManageUserData } from "../hooks/useManageUserData";
+import { useUserData } from "../hooks/useUserData";
 import { useForm } from "../hooks/useForm";
 
 export const ShippingDetailsContext = createContext();
@@ -19,7 +19,7 @@ export const ShippingDetailsProvider = ({ children }) => {
 
   const fetchFunction = userShippingDetailsService.get;
 
-  const { userData, updateUserData } = useManageUserData({ fetchFunction });
+  const { userData, updateUserData } = useUserData({ fetchFunction });
 
   const { formItems, updateFormItems, hookSubmitHandler } = useForm({
     initialValues: SHIPPING_DETAILS_FORM_ITEMS,

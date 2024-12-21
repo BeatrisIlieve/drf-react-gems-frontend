@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuthenticationContext } from "../contexts/AuthenticationContext";
 
-export const useManageUserData = ({ fetchFunction }) => {
+export const useUserData = ({ fetchFunction }) => {
   const { userId } = useAuthenticationContext();
 
   const [userData, setUserData] = useState({});
