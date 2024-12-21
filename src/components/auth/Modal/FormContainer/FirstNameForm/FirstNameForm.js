@@ -8,7 +8,7 @@ export const FirstNameForm = ({
   updateContentIsTransitioningHandler,
   updateFirstName,
 }) => {
-  const [userData, setUserData] = useState({ firstName: "" });
+  const [userData, setUserData] = useState({ first_name: "" });
 
   const { formItems, updateFormItems, submitFunction } = useForm({
     initialValues: FORM_ITEMS,
@@ -30,9 +30,9 @@ export const FirstNameForm = ({
     if (!isFormValid) {
       return;
     } else {
-      updateContentIsTransitioningHandler();
+      updateFirstName(userData.first_name);
 
-      updateFirstName(userData.firstName);
+      updateContentIsTransitioningHandler();
     }
   };
 

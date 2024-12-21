@@ -57,7 +57,7 @@ export const Header = () => {
 
   return (
     <>
-      {isModalOpen && (
+      {isModalOpen && !isAuthenticated && (
         <Modal
           toggleIsModalOpen={toggleIsModalOpen}
           isModalOpen={isModalOpen}

@@ -40,8 +40,8 @@ export const EmailForm = ({
           return;
         }
       } else {
-        updateContentIsTransitioningHandler();
         updateEmail(userData.email);
+        updateContentIsTransitioningHandler();
       }
     } catch (err) {
       console.log(err);

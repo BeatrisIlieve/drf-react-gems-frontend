@@ -23,7 +23,10 @@ export const useForm = ({ initialValues, userData }) => {
 
       let isFieldValid;
 
-      if (!(key === "email" && field.alreadyRegistered === true)) {
+      if (
+        !(key === "email" && field.alreadyRegistered === true) &&
+        !(key === "password" && field.responseError === true)
+      ) {
         isFieldValid = new RegExp(field.pattern).test(value || "");
       } else {
         isFieldValid = false;

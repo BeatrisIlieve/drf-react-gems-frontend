@@ -30,19 +30,15 @@ export const PasswordForm = ({
   };
 
   const submitHandler = async (e) => {
-    const isFormValid = submitFunction(e);
+    e.preventDefault();
 
-    if (!isFormValid) {
-      return;
-    }
+    const registerCredentials = {
+      email,
+      password: userData.password,
+      first_name: firstName,
+    };
 
     try {
-      const registerCredentials = {
-        email,
-        password: userData.password,
-        first_name: firstName,
-      };
-
       await userCredentialsService.register(registerCredentials);
 
       const loginCredentials = {
@@ -57,8 +53,15 @@ export const PasswordForm = ({
       updateContentIsTransitioningHandler();
     } catch (err) {
       if ("password" in err) {
-        setIsValid(false);
-        setErrorMessage(err["password"][0]);
+        formItems.password.responseError = true;
+
+        formItems.password.responseMessage = err["password"][0];
+
+        const isFormValid = submitFunction(e);
+
+        if (!isFormValid) {
+          return;
+        }
       } else {
         console.log(err);
       }
