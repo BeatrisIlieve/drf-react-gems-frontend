@@ -19,10 +19,7 @@ export const Input = ({
       name={field.name}
       placeholder={field.placeholder}
       value={userData[fieldKey] || ""}
-      onChange={(e) => {
-        updateUserData(fieldKey, e.target.value);
-        updateFormItems(fieldKey, e.target.value);
-      }}
+      onChange={(e) => updateUserData(fieldKey, e.target.value)}
       onBlur={(e) => updateFormItems(fieldKey, e.target.value)}
     />
   );

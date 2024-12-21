@@ -28,6 +28,12 @@ export const EmailForm = ({
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    if (!userData.email) {
+      submitFunction(e);
+
+      return;
+    }
+
     try {
       const result = await userCredentialsService.emailCheck(userData);
 

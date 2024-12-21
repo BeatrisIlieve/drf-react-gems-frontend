@@ -32,6 +32,12 @@ export const PasswordForm = ({
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    if (!userData.password) {
+      submitFunction(e);
+
+      return;
+    }
+
     const registerCredentials = {
       email,
       password: userData.password,
