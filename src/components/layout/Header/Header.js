@@ -7,9 +7,10 @@ import { AccountButton } from "./AccountButton/AccountButton";
 import { ProductSetDiscount } from "./ProductSetDiscount/ProductSetDiscount";
 import { useAuthenticationContext } from "../../../contexts/AuthenticationContext";
 import { QuantityIndicatedLink } from "./reusable/QuantityIndicatedLink/QuantityIndicatedLink";
-import { Auth } from "../../modals/Auth/Auth";
 import { faHeart, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Header.module.scss";
+
+import { Modal } from "../../auth/Modal/Modal";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -41,25 +42,25 @@ export const Header = () => {
     };
   }, [lastScrollY]);
 
-  const [displayAuthModal, setDisplayAuthModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleIsModalOpen = () => {
+    setIsModalOpen((isModalOpen) => !isModalOpen);
+  };
 
   const userIconClickHandler = () => {
     if (isAuthenticated) {
       navigate("/account");
     }
-    setDisplayAuthModal(true);
-  };
-
-  const closeAuthModalClickHandler = () => {
-    setDisplayAuthModal(false);
+    toggleIsModalOpen();
   };
 
   return (
     <>
-      {displayAuthModal && !isAuthenticated && (
-        <Auth
-          closeAuthModalClickHandler={closeAuthModalClickHandler}
-          displayAuthModal={displayAuthModal}
+      {isModalOpen && (
+        <Modal
+          toggleIsModalOpen={toggleIsModalOpen}
+          isModalOpen={isModalOpen}
         />
       )}
       <div

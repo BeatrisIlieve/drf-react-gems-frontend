@@ -1,11 +1,15 @@
+import { useState } from "react";
+
 import { useModal } from "../../../hooks/useModal";
 import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
 import { XMark } from "../../reusable/XMark/XMark";
-import { Form } from "../../reusable/Form/Form";
-import { InputField } from "../../reusable/InputField/InputField";
-import { useForm } from "../../../hooks/useForm";
+import { EmailForm } from "./EmailForm/EmailForm";
+
+import styles from "./Modal.module.scss";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
+  const [modalsDisplayedCounter, setModalsDisplayedCounter] = useState(1);
+
   const { isTransitioning, modalRef, modalCloseHandler } = useModal({
     toggleIsModalOpen,
     isModalOpen,
@@ -16,45 +20,21 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
   const updateContentIsTransitioningHandler = () => {
     setContentIsTransitioning(true);
 
+    setModalsDisplayedCounter((prevCounter) => prevCounter + 1);
+
+    if (modalsDisplayedCounter === 3) {
+      toggleIsModalOpen();
+    }
+
     setTimeout(() => {
       setContentIsTransitioning(false);
     }, 400);
   };
 
-  const updateUserData = (name, value) => {
-    setUserData((prevFormItems) => ({
-      ...prevFormItems,
-      [name]: value,
-    }));
-  };
-
-  const { formItems, updateFormItems, submitFunction, changeHandler } = useForm(
-    {
-      initialValues: SHIPPING_DETAILS_FORM_ITEMS,
-      userData,
-    }
-  );
-
-  const submitHandler = async (e) => {
-    const isFormValid = submitFunction(e);
-
-    if (!isFormValid) {
-      return;
-    }
-
-    try {
-      //   await userShippingDetailsService.put(userId, userData);
-
-      updateContentIsTransitioningHandler();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <section
       className={`${styles["overlay"]}  ${
-        displayAuthModal
+        isModalOpen
           ? styles["overlay_transition-in"]
           : styles["overlay_transition-out"]
       }`}
@@ -76,21 +56,15 @@ export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {
               : styles["form-container_transition-in"]
           }`}
         >
-          <h1 className={styles["form-container__title"]}>{formTitle}</h1>
-          <p className={styles["form-container__paragraph"]}>{formParagraph}</p>
-          <Form
-            buttonLabel={"Continue"}
-            buttonColor={"black"}
-            buttonType={"button"}
-            submitHandler={submitHandler}
-          >
-            <InputField
-              formItems={formItems}
-              userData={userData}
-              updateFormItems={updateFormItems}
-              updateUserData={updateUserData}
+          <h1 className={styles["form-container__title"]}>Title</h1>
+          <p className={styles["form-container__paragraph"]}>Par</p>
+          {modalsDisplayedCounter === 1 && (
+            <EmailForm
+              updateContentIsTransitioningHandler={
+                updateContentIsTransitioningHandler
+              }
             />
-          </Form>
+          )}
         </div>
       </div>
     </section>
