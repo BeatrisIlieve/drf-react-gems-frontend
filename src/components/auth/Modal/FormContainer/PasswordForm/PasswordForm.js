@@ -5,12 +5,16 @@ import { Form } from "../../../../reusable/Form/Form";
 import { InputField } from "../../../../reusable/InputField/InputField";
 import { FORM_ITEMS } from "./constants/formItems";
 import { useForm } from "../../../../../hooks/useForm";
+import { useAuthenticationContext } from "../../../../../contexts/AuthenticationContext";
 
-export const EmailForm = ({
+export const PasswordForm = ({
   updateContentIsTransitioningHandler,
-  updateEmail,
+  email,
+  firstName,
 }) => {
-  const [userData, setUserData] = useState({ email: "" });
+  const { updateAuthentication } = useAuthenticationContext();
+
+  const [userData, setUserData] = useState({ password: "" });
 
   const { formItems, updateFormItems, submitFunction } = useForm({
     initialValues: FORM_ITEMS,
@@ -26,25 +30,38 @@ export const EmailForm = ({
   };
 
   const submitHandler = async (e) => {
-    e.preventDefault();
+    const isFormValid = submitFunction(e);
+
+    if (!isFormValid) {
+      return;
+    }
 
     try {
-      const result = await userCredentialsService.emailCheck(userData);
+      const registerCredentials = {
+        email,
+        password: userData.password,
+        first_name: firstName,
+      };
 
-      if ("registered" in result) {
-        formItems.email.alreadyRegistered = true;
+      await userCredentialsService.register(registerCredentials);
 
-        const isFormValid = submitFunction(e);
+      const loginCredentials = {
+        username: email,
+        password: userData.password,
+      };
 
-        if (!isFormValid) {
-          return;
-        }
-      } else {
-        updateContentIsTransitioningHandler();
-        updateEmail(userData.email);
-      }
+      const loginResult = await userCredentialsService.login(loginCredentials);
+
+      updateAuthentication(loginResult);
+
+      updateContentIsTransitioningHandler();
     } catch (err) {
-      console.log(err);
+      if ("password" in err) {
+        setIsValid(false);
+        setErrorMessage(err["password"][0]);
+      } else {
+        console.log(err);
+      }
     }
   };
 

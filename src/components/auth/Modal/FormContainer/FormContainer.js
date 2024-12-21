@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { EmailForm } from "./EmailForm/EmailForm";
 import { FirstNameForm } from "./FirstNameForm/FirstNameForm";
+import { PasswordForm } from "./PasswordForm/PasswordForm";
 
 import { TITLES_BY_COUNTER } from "./constants/titlesByCounter";
 import { PARAGRAPHS_BY_COUNTER } from "./constants/paragraphsByCounter";
@@ -39,12 +40,6 @@ export const FormContainer = ({ toggleIsModalOpen }) => {
     setFirstName(value);
   };
 
-  const [password, setPassword] = useState(null);
-
-  const updatePassword = (value) => {
-    setPassword(value);
-  };
-
   return (
     <div
       className={`${styles["form-container"]} ${
@@ -73,6 +68,15 @@ export const FormContainer = ({ toggleIsModalOpen }) => {
             updateContentIsTransitioningHandler
           }
           updateFirstName={updateFirstName}
+        />
+      )}
+      {modalsDisplayedCounter === 3 && (
+        <PasswordForm
+          updateContentIsTransitioningHandler={
+            updateContentIsTransitioningHandler
+          }
+          email={email}
+          firstName={firstName}
         />
       )}
     </div>
