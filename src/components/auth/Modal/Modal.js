@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 import { useModal } from "../../../hooks/useModal";
 import { CursorImageEffect } from "../../common/CursorImageEffect/CursorImageEffect";
 import { FormContainer } from "./FormContainer/FormContainer";
-import { IconsContainer } from "./FormContainer/IconsContainer/IconsContainer";
+
 import styles from "./Modal.module.scss";
 
 export const Modal = ({ toggleIsModalOpen, isModalOpen }) => {

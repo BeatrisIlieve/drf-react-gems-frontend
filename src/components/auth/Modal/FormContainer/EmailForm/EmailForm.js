@@ -8,10 +8,11 @@ import { useForm } from "../../../../../hooks/useForm";
 import { XMark } from "../../../../reusable/XMark/XMark";
 import { TextContainer } from "../reusable/TextContainer/TextContainer";
 
+
 export const EmailForm = ({
   updateContentIsTransitioningHandler,
   updateEmail,
-  modalCloseHandler
+  modalCloseHandler,
 }) => {
   const [userData, setUserData] = useState({ email: "" });
 

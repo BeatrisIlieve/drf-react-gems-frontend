@@ -1,4 +1,4 @@
-import { XMark } from "../../../../reusable/XMark/XMark";
+import { XMark } from "../../../../../reusable/XMark/XMark";
 import { GoBack } from "./GoBack/GoBack";
 import styles from "./IconsContainer.module.scss";
 

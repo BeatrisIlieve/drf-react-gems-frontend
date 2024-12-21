@@ -3,6 +3,8 @@ import { Form } from "../../../../reusable/Form/Form";
 import { InputField } from "../../../../reusable/InputField/InputField";
 import { FORM_ITEMS } from "./constants/formItems";
 import { useForm } from "../../../../../hooks/useForm";
+import {IconsContainer} from "../reusable/IconsContainer/IconsContainer";
+import { TextContainer } from "../reusable/TextContainer/TextContainer";
 
 export const FirstNameForm = ({
   updateContentIsTransitioningHandler,
@@ -46,8 +48,10 @@ export const FirstNameForm = ({
         }
       />
       <TextContainer
-        titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
-        paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+        titleContent={"Welcome!"}
+        paragraphContent={
+          "Share your name to help us tailor a personalized shopping experience"
+        }
       />
       <Form
         buttonLabel={"Continue"}

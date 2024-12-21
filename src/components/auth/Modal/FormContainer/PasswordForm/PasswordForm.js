@@ -6,6 +6,8 @@ import { InputField } from "../../../../reusable/InputField/InputField";
 import { FORM_ITEMS } from "./constants/formItems";
 import { useForm } from "../../../../../hooks/useForm";
 import { useAuthenticationContext } from "../../../../../contexts/AuthenticationContext";
+import {IconsContainer} from "../reusable/IconsContainer/IconsContainer";
+import { TextContainer } from "../reusable/TextContainer/TextContainer";
 
 export const PasswordForm = ({
   updateContentIsTransitioningHandler,
@@ -84,8 +86,8 @@ export const PasswordForm = ({
         }
       />
       <TextContainer
-        titleContent={TITLES_BY_COUNTER[modalsDisplayedCounter]}
-        paragraphContent={PARAGRAPHS_BY_COUNTER[modalsDisplayedCounter]}
+        titleContent={"Create an account"}
+        paragraphContent={"Choose a secure password to protect your treasure"}
       />
       <Form
         buttonLabel={"Continue"}
