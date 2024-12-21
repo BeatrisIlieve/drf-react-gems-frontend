@@ -6,7 +6,10 @@ import { InputField } from "../../../../reusable/InputField/InputField";
 import { FORM_ITEMS } from "./constants/formItems";
 import { useForm } from "../../../../../hooks/useForm";
 
-export const EmailForm = ({ updateContentIsTransitioningHandler }) => {
+export const EmailForm = ({
+  updateContentIsTransitioningHandler,
+  updateEmail,
+}) => {
   const [userData, setUserData] = useState({ email: "" });
 
   const { formItems, updateFormItems, submitFunction } = useForm({
@@ -38,6 +41,7 @@ export const EmailForm = ({ updateContentIsTransitioningHandler }) => {
         }
       } else {
         updateContentIsTransitioningHandler();
+        updateEmail(userData.email);
       }
     } catch (err) {
       console.log(err);
