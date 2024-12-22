@@ -9,7 +9,7 @@ export const ProductImage = ({
   firstImageIsActive,
 }) => {
   return (
-    <div
+    <figure
       onClick={() => clickHandler(categoryTitle, colorTitle)}
       className={styles["product-image"]}
     >
@@ -17,6 +17,6 @@ export const ProductImage = ({
         src={firstImageIsActive ? firstImageUrl : secondImageUrl}
         alt={`${categoryTitle}-image`}
       />
-    </div>
+    </figure>
   );
 };

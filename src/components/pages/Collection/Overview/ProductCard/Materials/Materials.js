@@ -4,9 +4,9 @@ import styles from "./Materials.module.scss";
 
 export const Materials = ({ categoryTitle, colorTitle }) => {
   return (
-    <div className={styles["materials"]}>
+    <figcaption className={styles["materials"]}>
       <AvailableColors categoryTitle={categoryTitle} colorTitle={colorTitle} />
       <span className={styles["materials__metal"]}>Platinum</span>
-    </div>
+    </figcaption>
   );
 };
