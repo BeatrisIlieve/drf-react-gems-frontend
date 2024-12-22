@@ -1,11 +1,9 @@
 @use "../../../styles/partials/variables";
+@use "../../../styles/mixins/flexbox";
 
 footer {
+  @include flexbox.flexbox($justify: center, $align: center, $gap: 0.3rem);
   grid-area: footer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3rem;
   border-top: 0.08rem solid variables.$color-browser-gray;
   color: variables.$color-gray;
 
