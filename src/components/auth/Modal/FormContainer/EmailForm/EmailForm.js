@@ -8,7 +8,6 @@ import { useForm } from "../../../../../hooks/useForm";
 import { XMark } from "../../../../reusable/XMark/XMark";
 import { TextContainer } from "../reusable/TextContainer/TextContainer";
 
-
 export const EmailForm = ({
   updateContentIsTransitioningHandler,
   updateEmail,
@@ -51,10 +50,25 @@ export const EmailForm = ({
         }
       } else {
         updateEmail(userData.email);
+
         updateContentIsTransitioningHandler(1);
       }
     } catch (err) {
-      console.log(err);
+      if ("email" in err) {
+        formItems.email.responseError = true;
+
+        formItems.email.responseMessage = err["email"][0];
+
+        console.log(formItems)
+
+        const isFormValid = submitFunction(e);
+
+        if (!isFormValid) {
+          return;
+        }
+      } else {
+        console.log(err);
+      }
     }
   };
 

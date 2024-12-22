@@ -2,9 +2,13 @@ export const ValidationFeedback = ({ formItems, inputName }) => {
   let message;
 
   if (inputName === "email") {
-    message = formItems.email.alreadyRegistered
-      ? formItems.email.alreadyRegisteredMessage
-      : formItems.email.invalidMessage;
+    if (formItems.email.alreadyRegistered) {
+      message = formItems.email.alreadyRegisteredMessage;
+    } else if (formItems.email.responseError) {
+      message = formItems.email.responseMessage;
+    } else {
+      message = formItems.email.invalidMessage;
+    }
   } else if (inputName === "password") {
     message = formItems.password.responseError
       ? formItems.password.responseMessage

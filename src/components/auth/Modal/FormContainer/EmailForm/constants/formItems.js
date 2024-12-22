@@ -3,6 +3,7 @@ export const FORM_ITEMS = {
     type: "email",
     isValid: true,
     alreadyRegistered: false,
+    responseError: false,
     id: "email",
     name: "email",
     placeholder: "Email *",
@@ -10,5 +11,6 @@ export const FORM_ITEMS = {
     pattern: "^[A-Za-z0-9]+@+[a-z]+.[a-z]{2,4}$",
     invalidMessage: "Please enter a valid email address.",
     alreadyRegisteredMessage: "This email is already registered.",
+    responseMessage: "",
   },
 };
