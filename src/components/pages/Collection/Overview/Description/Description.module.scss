@@ -15,6 +15,13 @@
   &__description {
     color: variables.$color-black;
     font-family: variables.$main-font-family;
-    width: 80%;
+    width: 60%;
+    // width: 80%;
+  }
+
+  span {
+    display: inline-block;
+    background-color: pink;
+    padding: 2rem;
   }
 }
