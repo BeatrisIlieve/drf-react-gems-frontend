@@ -100,7 +100,8 @@
 .mb-3 {
   margin: 0 !important;
   padding-bottom: 0.2rem !important;
-  width: calc(360px - 2rem);
+  width: 320px;
+  box-sizing: border-box;
 }
 
 .form-floating > .form-control,
@@ -150,7 +151,7 @@ input:-internal-autofill-selected:active {
 .container-sm,
 .container-xl,
 .container-xxl {
-  max-width: calc(720px - 2rem) !important;
+  max-width: 360px !important;
 }
 
 .form-select {
