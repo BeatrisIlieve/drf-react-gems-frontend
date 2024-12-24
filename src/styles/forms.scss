@@ -101,7 +101,9 @@
   margin: 0 !important;
   padding-bottom: 0.2rem !important;
   width: 320px;
-  box-sizing: border-box;
+  overflow: hidden;
+  width: 360px;
+  // box-sizing: border-box;
 }
 
 .form-floating > .form-control,
