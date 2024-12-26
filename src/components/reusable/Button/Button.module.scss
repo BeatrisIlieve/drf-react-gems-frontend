@@ -7,10 +7,14 @@
   box-sizing: border-box;
   padding: 0.5rem;
   border-radius: 0.3rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  box-shadow: 0 0 0.2em 0 rgb(0, 0, 0, 0.2);
   font-family: variables.$medium-font-family;
   font-size: variables.$font-medium;
-  transition: background-color 300ms linear, color 300ms, box-shadow 300ms;
+  transition: 
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out, 
+    box-shadow 0.3s ease-in-out;
 }
 
 .pink-button {
@@ -26,6 +30,7 @@
   color: variables.$color-white;
 
   &:hover {
-    background-color: variables.$color-gray;
+    background-color: variables.$color-pink;
+    color: variables.$color-black;
   }
 }
