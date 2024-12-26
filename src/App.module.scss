@@ -1,9 +1,11 @@
 @use "./styles/partials/variables";
+@use "./styles/typography.scss";
 
 // 66ch on a row
 .app {
   padding: 0;
-  font-family: variables.$medium-font-family;
+  font-family: "Tisa Sans Pro 500", sans-serif;
+  // font-family: variables.$medium-font-family;
   font-size: variables.$font-medium;
   color: variables.$color-gray;
   display: grid;
